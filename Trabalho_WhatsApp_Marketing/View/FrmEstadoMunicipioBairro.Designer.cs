@@ -1,7 +1,7 @@
 ﻿
 namespace Trabalho_WhatsApp_Marketing.View
 {
-    partial class FrmHome
+    partial class FrmEstadoMunicipioBairro
     {
         /// <summary>
         /// Required designer variable.
@@ -36,13 +36,13 @@ namespace Trabalho_WhatsApp_Marketing.View
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Constantia", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(234, 239);
+            this.label1.Location = new System.Drawing.Point(9, 237);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(204, 78);
+            this.label1.Size = new System.Drawing.Size(704, 78);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Home";
+            this.label1.Text = "Estado Municipio Bairro";
             // 
-            // FrmHome
+            // FrmEstadoMunicipioBairro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -51,7 +51,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "FrmHome";
+            this.Name = "FrmEstadoMunicipioBairro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmEnvio";
             this.ResumeLayout(false);

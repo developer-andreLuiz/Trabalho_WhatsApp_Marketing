@@ -17,7 +17,7 @@ namespace Trabalho_WhatsApp_Marketing
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmHome());
+            Application.Run(new FrmMain());
         }
     }
 }
