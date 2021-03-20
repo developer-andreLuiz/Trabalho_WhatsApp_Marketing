@@ -29,11 +29,9 @@ namespace Trabalho_WhatsApp_Marketing.View
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnZerar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
             this.btnImportar = new System.Windows.Forms.Button();
@@ -42,6 +40,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.lblListaEnvio = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.chkHabilitado = new System.Windows.Forms.CheckBox();
             this.lblSituacao = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.cbBairro = new System.Windows.Forms.ComboBox();
@@ -71,26 +70,15 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btnDeletarTudo = new System.Windows.Forms.Button();
+            this.btnSelecionarTudo = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnDesabilitados = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnZerar
-            // 
-            this.btnZerar.BackColor = System.Drawing.Color.Black;
-            this.btnZerar.FlatAppearance.BorderSize = 0;
-            this.btnZerar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnZerar.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnZerar.ForeColor = System.Drawing.Color.White;
-            this.btnZerar.Location = new System.Drawing.Point(445, 553);
-            this.btnZerar.Name = "btnZerar";
-            this.btnZerar.Size = new System.Drawing.Size(83, 38);
-            this.btnZerar.TabIndex = 51;
-            this.btnZerar.Text = "Zerar";
-            this.btnZerar.UseVisualStyleBackColor = false;
-            this.btnZerar.Click += new System.EventHandler(this.btnZerar_Click);
             // 
             // btnCancelar
             // 
@@ -99,7 +87,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(632, 500);
+            this.btnCancelar.Location = new System.Drawing.Point(630, 493);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(83, 38);
             this.btnCancelar.TabIndex = 50;
@@ -114,9 +102,9 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovo.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNovo.ForeColor = System.Drawing.Color.White;
-            this.btnNovo.Location = new System.Drawing.Point(362, 500);
+            this.btnNovo.Location = new System.Drawing.Point(359, 494);
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(75, 38);
+            this.btnNovo.Size = new System.Drawing.Size(86, 38);
             this.btnNovo.TabIndex = 49;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
@@ -129,9 +117,9 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.btnImportar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImportar.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImportar.ForeColor = System.Drawing.Color.White;
-            this.btnImportar.Location = new System.Drawing.Point(538, 553);
+            this.btnImportar.Location = new System.Drawing.Point(452, 539);
             this.btnImportar.Name = "btnImportar";
-            this.btnImportar.Size = new System.Drawing.Size(87, 38);
+            this.btnImportar.Size = new System.Drawing.Size(80, 38);
             this.btnImportar.TabIndex = 48;
             this.btnImportar.Text = "Importar";
             this.btnImportar.UseVisualStyleBackColor = false;
@@ -144,7 +132,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.btnGravar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGravar.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGravar.ForeColor = System.Drawing.Color.White;
-            this.btnGravar.Location = new System.Drawing.Point(545, 500);
+            this.btnGravar.Location = new System.Drawing.Point(541, 493);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(80, 38);
             this.btnGravar.TabIndex = 47;
@@ -159,7 +147,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.btnDeletar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeletar.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeletar.ForeColor = System.Drawing.Color.White;
-            this.btnDeletar.Location = new System.Drawing.Point(632, 553);
+            this.btnDeletar.Location = new System.Drawing.Point(632, 537);
             this.btnDeletar.Name = "btnDeletar";
             this.btnDeletar.Size = new System.Drawing.Size(83, 38);
             this.btnDeletar.TabIndex = 46;
@@ -172,11 +160,11 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.btnAtualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnAtualizar.FlatAppearance.BorderSize = 0;
             this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAtualizar.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAtualizar.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAtualizar.ForeColor = System.Drawing.Color.White;
-            this.btnAtualizar.Location = new System.Drawing.Point(445, 500);
+            this.btnAtualizar.Location = new System.Drawing.Point(452, 495);
             this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(94, 38);
+            this.btnAtualizar.Size = new System.Drawing.Size(80, 38);
             this.btnAtualizar.TabIndex = 45;
             this.btnAtualizar.Text = "Atualizar";
             this.btnAtualizar.UseVisualStyleBackColor = false;
@@ -187,14 +175,15 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.lblListaEnvio.AutoSize = true;
             this.lblListaEnvio.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblListaEnvio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblListaEnvio.Location = new System.Drawing.Point(205, 569);
+            this.lblListaEnvio.Location = new System.Drawing.Point(12, 570);
             this.lblListaEnvio.Name = "lblListaEnvio";
-            this.lblListaEnvio.Size = new System.Drawing.Size(110, 19);
+            this.lblListaEnvio.Size = new System.Drawing.Size(167, 19);
             this.lblListaEnvio.TabIndex = 44;
-            this.lblListaEnvio.Text = "Lista de Envio: 0";
+            this.lblListaEnvio.Text = "Contatos Selecionados : 0";
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.chkHabilitado);
             this.groupBox4.Controls.Add(this.lblSituacao);
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.cbBairro);
@@ -216,12 +205,22 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Registro";
             // 
+            // chkHabilitado
+            // 
+            this.chkHabilitado.AutoSize = true;
+            this.chkHabilitado.Location = new System.Drawing.Point(221, 70);
+            this.chkHabilitado.Name = "chkHabilitado";
+            this.chkHabilitado.Size = new System.Drawing.Size(105, 23);
+            this.chkHabilitado.TabIndex = 27;
+            this.chkHabilitado.Text = "Habilitado";
+            this.chkHabilitado.UseVisualStyleBackColor = true;
+            // 
             // lblSituacao
             // 
             this.lblSituacao.AutoSize = true;
             this.lblSituacao.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSituacao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblSituacao.Location = new System.Drawing.Point(136, 41);
+            this.lblSituacao.Location = new System.Drawing.Point(90, 38);
             this.lblSituacao.Name = "lblSituacao";
             this.lblSituacao.Size = new System.Drawing.Size(97, 19);
             this.lblSituacao.TabIndex = 26;
@@ -244,18 +243,18 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.cbBairro.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbBairro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cbBairro.FormattingEnabled = true;
-            this.cbBairro.Location = new System.Drawing.Point(140, 278);
+            this.cbBairro.Location = new System.Drawing.Point(101, 275);
             this.cbBairro.Name = "cbBairro";
-            this.cbBairro.Size = new System.Drawing.Size(168, 27);
+            this.cbBairro.Size = new System.Drawing.Size(231, 27);
             this.cbBairro.TabIndex = 24;
             // 
             // txtTelefone
             // 
-            this.txtTelefone.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefone.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtTelefone.Location = new System.Drawing.Point(141, 109);
+            this.txtTelefone.Location = new System.Drawing.Point(101, 108);
             this.txtTelefone.Name = "txtTelefone";
-            this.txtTelefone.Size = new System.Drawing.Size(168, 27);
+            this.txtTelefone.Size = new System.Drawing.Size(231, 26);
             this.txtTelefone.TabIndex = 19;
             // 
             // cbEstado
@@ -264,9 +263,9 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.cbEstado.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cbEstado.FormattingEnabled = true;
-            this.cbEstado.Location = new System.Drawing.Point(140, 166);
+            this.cbEstado.Location = new System.Drawing.Point(101, 163);
             this.cbEstado.Name = "cbEstado";
-            this.cbEstado.Size = new System.Drawing.Size(168, 27);
+            this.cbEstado.Size = new System.Drawing.Size(231, 27);
             this.cbEstado.TabIndex = 20;
             this.cbEstado.SelectedIndexChanged += new System.EventHandler(this.cbEstado_SelectedIndexChanged);
             // 
@@ -275,7 +274,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.lblId.AutoSize = true;
             this.lblId.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblId.Location = new System.Drawing.Point(137, 74);
+            this.lblId.Location = new System.Drawing.Point(91, 71);
             this.lblId.Name = "lblId";
             this.lblId.Size = new System.Drawing.Size(17, 19);
             this.lblId.TabIndex = 14;
@@ -309,9 +308,9 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.cbMunicipio.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbMunicipio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cbMunicipio.FormattingEnabled = true;
-            this.cbMunicipio.Location = new System.Drawing.Point(140, 224);
+            this.cbMunicipio.Location = new System.Drawing.Point(101, 221);
             this.cbMunicipio.Name = "cbMunicipio";
-            this.cbMunicipio.Size = new System.Drawing.Size(166, 27);
+            this.cbMunicipio.Size = new System.Drawing.Size(229, 27);
             this.cbMunicipio.TabIndex = 22;
             this.cbMunicipio.SelectedIndexChanged += new System.EventHandler(this.cbMunicipio_SelectedIndexChanged);
             // 
@@ -390,11 +389,11 @@ namespace Trabalho_WhatsApp_Marketing.View
             // 
             // txtTelefoneFiltro
             // 
-            this.txtTelefoneFiltro.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefoneFiltro.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefoneFiltro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtTelefoneFiltro.Location = new System.Drawing.Point(35, 44);
             this.txtTelefoneFiltro.Name = "txtTelefoneFiltro";
-            this.txtTelefoneFiltro.Size = new System.Drawing.Size(306, 27);
+            this.txtTelefoneFiltro.Size = new System.Drawing.Size(306, 26);
             this.txtTelefoneFiltro.TabIndex = 16;
             this.txtTelefoneFiltro.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -403,7 +402,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.lblTotalLinha.AutoSize = true;
             this.lblTotalLinha.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalLinha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblTotalLinha.Location = new System.Drawing.Point(10, 569);
+            this.lblTotalLinha.Location = new System.Drawing.Point(217, 539);
             this.lblTotalLinha.Name = "lblTotalLinha";
             this.lblTotalLinha.Size = new System.Drawing.Size(116, 19);
             this.lblTotalLinha.TabIndex = 41;
@@ -546,48 +545,101 @@ namespace Trabalho_WhatsApp_Marketing.View
             // dataGridView
             // 
             this.dataGridView.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.dataGridView.Location = new System.Drawing.Point(14, 155);
             this.dataGridView.Name = "dataGridView";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView.Size = new System.Drawing.Size(339, 403);
+            this.dataGridView.Size = new System.Drawing.Size(339, 378);
             this.dataGridView.TabIndex = 39;
             this.dataGridView.DataSourceChanged += new System.EventHandler(this.dataGridView_DataSourceChanged);
+            this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
             // Column1
             // 
             this.Column1.HeaderText = "";
             this.Column1.Name = "Column1";
+            // 
+            // btnDeletarTudo
+            // 
+            this.btnDeletarTudo.BackColor = System.Drawing.Color.Black;
+            this.btnDeletarTudo.FlatAppearance.BorderSize = 0;
+            this.btnDeletarTudo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeletarTudo.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeletarTudo.ForeColor = System.Drawing.Color.White;
+            this.btnDeletarTudo.Location = new System.Drawing.Point(538, 537);
+            this.btnDeletarTudo.Name = "btnDeletarTudo";
+            this.btnDeletarTudo.Size = new System.Drawing.Size(83, 38);
+            this.btnDeletarTudo.TabIndex = 52;
+            this.btnDeletarTudo.Text = "Deletar Tudo";
+            this.btnDeletarTudo.UseVisualStyleBackColor = false;
+            this.btnDeletarTudo.Click += new System.EventHandler(this.btnDeletarTudo_Click);
+            // 
+            // btnSelecionarTudo
+            // 
+            this.btnSelecionarTudo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnSelecionarTudo.FlatAppearance.BorderSize = 0;
+            this.btnSelecionarTudo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSelecionarTudo.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelecionarTudo.ForeColor = System.Drawing.Color.White;
+            this.btnSelecionarTudo.Location = new System.Drawing.Point(12, 537);
+            this.btnSelecionarTudo.Name = "btnSelecionarTudo";
+            this.btnSelecionarTudo.Size = new System.Drawing.Size(120, 27);
+            this.btnSelecionarTudo.TabIndex = 53;
+            this.btnSelecionarTudo.Text = "Selecionar Tudo";
+            this.btnSelecionarTudo.UseVisualStyleBackColor = false;
+            this.btnSelecionarTudo.Click += new System.EventHandler(this.btnSelecionarTudo_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Constantia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Location = new System.Drawing.Point(138, 537);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(57, 27);
+            this.btnAdd.TabIndex = 54;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnDesabilitados
+            // 
+            this.btnDesabilitados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnDesabilitados.FlatAppearance.BorderSize = 0;
+            this.btnDesabilitados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDesabilitados.Font = new System.Drawing.Font("Constantia", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDesabilitados.ForeColor = System.Drawing.Color.White;
+            this.btnDesabilitados.Location = new System.Drawing.Point(359, 538);
+            this.btnDesabilitados.Name = "btnDesabilitados";
+            this.btnDesabilitados.Size = new System.Drawing.Size(85, 38);
+            this.btnDesabilitados.TabIndex = 55;
+            this.btnDesabilitados.Text = "Desabilitados";
+            this.btnDesabilitados.UseVisualStyleBackColor = false;
+            this.btnDesabilitados.Click += new System.EventHandler(this.btnDesabilitados_Click);
             // 
             // FrmContato
             // 
@@ -595,7 +647,10 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(725, 598);
-            this.Controls.Add(this.btnZerar);
+            this.Controls.Add(this.btnDesabilitados);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.btnSelecionarTudo);
+            this.Controls.Add(this.btnDeletarTudo);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.btnImportar);
@@ -628,8 +683,6 @@ namespace Trabalho_WhatsApp_Marketing.View
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnZerar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.Button btnImportar;
@@ -667,5 +720,10 @@ namespace Trabalho_WhatsApp_Marketing.View
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
+        private System.Windows.Forms.Button btnDeletarTudo;
+        private System.Windows.Forms.CheckBox chkHabilitado;
+        private System.Windows.Forms.Button btnSelecionarTudo;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnDesabilitados;
     }
 }

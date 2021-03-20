@@ -12,6 +12,7 @@ namespace Trabalho_WhatsApp_Marketing.Model
         public string nome { get; set; }
         public string numero_whatsapp { get; set; }
         public string numero_whatsapp_business { get; set; }
+        public string email { get; set; }
         public string udid { get; set; }
         public int habilitado { get; set; }
         public Tb_emulador_Model()
@@ -20,6 +21,7 @@ namespace Trabalho_WhatsApp_Marketing.Model
             nome = string.Empty;
             numero_whatsapp = string.Empty;
             numero_whatsapp_business = string.Empty;
+            email = string.Empty;
             udid = string.Empty;
             habilitado = 0;
         }

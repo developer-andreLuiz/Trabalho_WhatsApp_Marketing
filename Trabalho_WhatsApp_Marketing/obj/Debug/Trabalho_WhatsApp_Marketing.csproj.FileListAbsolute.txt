@@ -31,3 +31,9 @@ B:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp_Marketing\obj\Debug\Trabalh
 B:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp_Marketing\obj\Debug\Trabalho_WhatsApp_Marketing.View.FrmEstadoMunicipioBairro.resources
 B:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp_Marketing\obj\Debug\Trabalho_WhatsApp_Marketing.View.FrmContatosEmuladores.resources
 B:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp_Marketing\obj\Debug\Trabalho_WhatsApp_Marketing.csprojAssemblyReference.cache
+B:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp_Marketing\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+B:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp_Marketing\bin\Debug\SharpAdbClient.dll
+B:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp_Marketing\bin\Debug\System.Buffers.dll
+B:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp_Marketing\bin\Debug\System.Drawing.Common.dll
+B:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp_Marketing\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+B:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp_Marketing\bin\Debug\System.Buffers.xml

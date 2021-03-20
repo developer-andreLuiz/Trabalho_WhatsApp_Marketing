@@ -44,6 +44,7 @@ namespace Trabalho_WhatsApp_Marketing.Dao
                     newTb_Contatos_Model.uf = Convert.ToString(dataRow["uf"]);
                     newTb_Contatos_Model.municipio = Convert.ToString(dataRow["municipio"]);
                     newTb_Contatos_Model.bairro = Convert.ToString(dataRow["bairro"]);
+                    newTb_Contatos_Model.habilitado = Convert.ToInt32(dataRow["habilitado"]);
                     ltFinal.Add(newTb_Contatos_Model);
                 }
                 return ltFinal;
@@ -74,6 +75,7 @@ namespace Trabalho_WhatsApp_Marketing.Dao
                         tb_ContatosFinal.uf = Convert.ToString(dr["uf"]);
                         tb_ContatosFinal.municipio = Convert.ToString(dr["municipio"]);
                         tb_ContatosFinal.bairro = Convert.ToString(dr["bairro"]);
+                        tb_ContatosFinal.habilitado = Convert.ToInt32(dr["habilitado"]);
                         break;
                     }
                 }
@@ -102,6 +104,7 @@ namespace Trabalho_WhatsApp_Marketing.Dao
                         tb_ContatosFinal.uf = Convert.ToString(dr["uf"]);
                         tb_ContatosFinal.municipio = Convert.ToString(dr["municipio"]);
                         tb_ContatosFinal.bairro = Convert.ToString(dr["bairro"]);
+                        tb_ContatosFinal.habilitado = Convert.ToInt32(dr["habilitado"]);
                         break;
                     }
                 }
@@ -119,11 +122,12 @@ namespace Trabalho_WhatsApp_Marketing.Dao
                 {
                     conexao.Open();
                 }
-                SQLiteCommand cmd = new SQLiteCommand("insert into tb_contato (telefone, uf, municipio, bairro) values (@telefone, @uf, @municipio, @bairro)", conexao);
+                SQLiteCommand cmd = new SQLiteCommand("insert into tb_contato (telefone, uf, municipio, bairro, habilitado) values (@telefone, @uf, @municipio, @bairro, @habilitado)", conexao);
                 cmd.Parameters.AddWithValue("telefone", tb_Contatos_Model.telefone);
                 cmd.Parameters.AddWithValue("uf", tb_Contatos_Model.uf);
                 cmd.Parameters.AddWithValue("municipio", tb_Contatos_Model.municipio);
                 cmd.Parameters.AddWithValue("bairro", tb_Contatos_Model.bairro);
+                cmd.Parameters.AddWithValue("habilitado", tb_Contatos_Model.habilitado);
                 cmd.ExecuteNonQuery();
             }
             /// <summary>
@@ -137,12 +141,13 @@ namespace Trabalho_WhatsApp_Marketing.Dao
                     conexao.Open();
                 }
 
-                SQLiteCommand cmd = new SQLiteCommand("update tb_contato set telefone = @telefone, uf = @uf, municipio = @municipio, bairro = @bairro where id = @id", conexao);
+                SQLiteCommand cmd = new SQLiteCommand("update tb_contato set telefone = @telefone, uf = @uf, municipio = @municipio, bairro = @bairro, habilitado = @habilitado where id = @id", conexao);
                 cmd.Parameters.AddWithValue("id", tb_Contatos_Model.id);
                 cmd.Parameters.AddWithValue("telefone", tb_Contatos_Model.telefone);
                 cmd.Parameters.AddWithValue("uf", tb_Contatos_Model.uf);
                 cmd.Parameters.AddWithValue("municipio", tb_Contatos_Model.municipio);
                 cmd.Parameters.AddWithValue("bairro", tb_Contatos_Model.bairro);
+                cmd.Parameters.AddWithValue("habilitado", tb_Contatos_Model.habilitado);
                 cmd.ExecuteNonQuery();
             }
 
@@ -519,13 +524,13 @@ namespace Trabalho_WhatsApp_Marketing.Dao
                     newTb_emulador_Model.nome = Convert.ToString(dataRow["nome"]);
                     newTb_emulador_Model.numero_whatsapp = Convert.ToString(dataRow["numero_whatsapp"]);
                     newTb_emulador_Model.numero_whatsapp_business = Convert.ToString(dataRow["numero_whatsapp_business"]);
+                    newTb_emulador_Model.email = Convert.ToString(dataRow["email"]);
                     newTb_emulador_Model.habilitado = Convert.ToInt32(dataRow["habilitado"]);
 
                     ltFinal.Add(newTb_emulador_Model);
                 }
                 return ltFinal;
             }
-
             /// <summary>
             /// Retorna Todos os registros da Tabela
             /// </summary>
@@ -549,6 +554,7 @@ namespace Trabalho_WhatsApp_Marketing.Dao
                     newTb_emulador_Model.nome = Convert.ToString(dataRow["nome"]);
                     newTb_emulador_Model.numero_whatsapp = Convert.ToString(dataRow["numero_whatsapp"]);
                     newTb_emulador_Model.numero_whatsapp_business = Convert.ToString(dataRow["numero_whatsapp_business"]);
+                    newTb_emulador_Model.email = Convert.ToString(dataRow["email"]);
                     newTb_emulador_Model.habilitado = Convert.ToInt32(dataRow["habilitado"]);
 
                     ltFinal.Add(newTb_emulador_Model);
@@ -579,6 +585,7 @@ namespace Trabalho_WhatsApp_Marketing.Dao
                         tb_emulador_Model_Final.nome = Convert.ToString(dr["nome"]);
                         tb_emulador_Model_Final.numero_whatsapp = Convert.ToString(dr["numero_whatsapp"]);
                         tb_emulador_Model_Final.numero_whatsapp_business = Convert.ToString(dr["numero_whatsapp_business"]);
+                        tb_emulador_Model_Final.email = Convert.ToString(dr["email"]);
                         tb_emulador_Model_Final.habilitado = Convert.ToInt32(dr["habilitado"]);
                         break;
                     }
@@ -595,11 +602,12 @@ namespace Trabalho_WhatsApp_Marketing.Dao
                 {
                     conexao.Open();
                 }
-                SQLiteCommand cmd = new SQLiteCommand("insert into tb_emulador (udid, nome, numero_whatsapp, numero_whatsapp_business, habilitado) values (@udid, @nome, @numero_whatsapp, @numero_whatsapp_business, @habilitado)", conexao);
+                SQLiteCommand cmd = new SQLiteCommand("insert into tb_emulador (udid, nome, numero_whatsapp, numero_whatsapp_business, email, habilitado) values (@udid, @nome, @numero_whatsapp, @numero_whatsapp_business, @email, @habilitado)", conexao);
                 cmd.Parameters.AddWithValue("udid", tb_emulador_Model.udid);
                 cmd.Parameters.AddWithValue("nome", tb_emulador_Model.nome);
                 cmd.Parameters.AddWithValue("numero_whatsapp", tb_emulador_Model.numero_whatsapp);
                 cmd.Parameters.AddWithValue("numero_whatsapp_business", tb_emulador_Model.numero_whatsapp_business);
+                cmd.Parameters.AddWithValue("email", tb_emulador_Model.email);
                 cmd.Parameters.AddWithValue("habilitado", tb_emulador_Model.habilitado);
                 cmd.ExecuteNonQuery();
             }
@@ -613,12 +621,13 @@ namespace Trabalho_WhatsApp_Marketing.Dao
                 {
                     conexao.Open();
                 }
-                SQLiteCommand cmd = new SQLiteCommand("update tb_emulador set udid = @udid, nome = @nome, numero_whatsapp = @numero_whatsapp, numero_whatsapp_business=@numero_whatsapp_business, habilitado = @habilitado where id = @id", conexao);
+                SQLiteCommand cmd = new SQLiteCommand("update tb_emulador set udid = @udid, nome = @nome, numero_whatsapp = @numero_whatsapp, numero_whatsapp_business=@numero_whatsapp_business, email = @email, habilitado = @habilitado where id = @id", conexao);
                 cmd.Parameters.AddWithValue("id", tb_emulador_Model.id);
                 cmd.Parameters.AddWithValue("udid", tb_emulador_Model.udid);
                 cmd.Parameters.AddWithValue("nome", tb_emulador_Model.nome);
                 cmd.Parameters.AddWithValue("numero_whatsapp", tb_emulador_Model.numero_whatsapp);
                 cmd.Parameters.AddWithValue("numero_whatsapp_business", tb_emulador_Model.numero_whatsapp_business);
+                cmd.Parameters.AddWithValue("email", tb_emulador_Model.email);
                 cmd.Parameters.AddWithValue("habilitado", tb_emulador_Model.habilitado);
 
                 cmd.ExecuteNonQuery();
@@ -637,7 +646,6 @@ namespace Trabalho_WhatsApp_Marketing.Dao
                 cmd.Parameters.AddWithValue("id", tb_emulador_Model.id);
                 cmd.ExecuteNonQuery();
             }
-
             /// <summary>
             /// Apaga Todos os Registros da Tabela... Muito Cuidado ao utilizar esta Função
             /// </summary>

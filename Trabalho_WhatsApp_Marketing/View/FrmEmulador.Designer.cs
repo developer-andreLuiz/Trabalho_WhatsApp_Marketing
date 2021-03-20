@@ -33,6 +33,9 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.gbRegistro = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtNumeroWhatsAppBusiness = new System.Windows.Forms.TextBox();
             this.chkHabilitado = new System.Windows.Forms.CheckBox();
             this.lblId = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,8 +51,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtNumeroWhatsAppBusiness = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.gbRegistro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -79,6 +81,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.btnAtualizar.TabIndex = 49;
             this.btnAtualizar.Text = "Atualizar";
             this.btnAtualizar.UseVisualStyleBackColor = false;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // label6
             // 
@@ -93,6 +96,8 @@ namespace Trabalho_WhatsApp_Marketing.View
             // 
             // gbRegistro
             // 
+            this.gbRegistro.Controls.Add(this.txtEmail);
+            this.gbRegistro.Controls.Add(this.label7);
             this.gbRegistro.Controls.Add(this.label5);
             this.gbRegistro.Controls.Add(this.txtNumeroWhatsAppBusiness);
             this.gbRegistro.Controls.Add(this.chkHabilitado);
@@ -110,16 +115,49 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.gbRegistro.Margin = new System.Windows.Forms.Padding(4);
             this.gbRegistro.Name = "gbRegistro";
             this.gbRegistro.Padding = new System.Windows.Forms.Padding(4);
-            this.gbRegistro.Size = new System.Drawing.Size(699, 193);
+            this.gbRegistro.Size = new System.Drawing.Size(699, 229);
             this.gbRegistro.TabIndex = 48;
             this.gbRegistro.TabStop = false;
             this.gbRegistro.Text = "Aparelhos Cadastrados";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label7.Location = new System.Drawing.Point(355, 155);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(51, 21);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Email";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label5.Location = new System.Drawing.Point(12, 126);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(232, 21);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Numero WhatsApp Business ";
+            // 
+            // txtNumeroWhatsAppBusiness
+            // 
+            this.txtNumeroWhatsAppBusiness.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumeroWhatsAppBusiness.Location = new System.Drawing.Point(16, 159);
+            this.txtNumeroWhatsAppBusiness.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumeroWhatsAppBusiness.Name = "txtNumeroWhatsAppBusiness";
+            this.txtNumeroWhatsAppBusiness.Size = new System.Drawing.Size(244, 29);
+            this.txtNumeroWhatsAppBusiness.TabIndex = 10;
             // 
             // chkHabilitado
             // 
             this.chkHabilitado.AutoSize = true;
             this.chkHabilitado.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkHabilitado.Location = new System.Drawing.Point(398, 158);
+            this.chkHabilitado.Location = new System.Drawing.Point(16, 196);
             this.chkHabilitado.Margin = new System.Windows.Forms.Padding(4);
             this.chkHabilitado.Name = "chkHabilitado";
             this.chkHabilitado.Size = new System.Drawing.Size(105, 25);
@@ -132,7 +170,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.lblId.AutoSize = true;
             this.lblId.Font = new System.Drawing.Font("Times New Roman", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblId.Location = new System.Drawing.Point(137, 20);
+            this.lblId.Location = new System.Drawing.Point(72, 21);
             this.lblId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblId.Name = "lblId";
             this.lblId.Size = new System.Drawing.Size(35, 40);
@@ -144,7 +182,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label4.Location = new System.Drawing.Point(37, 26);
+            this.label4.Location = new System.Drawing.Point(10, 26);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 31);
@@ -156,7 +194,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(394, 17);
+            this.label3.Location = new System.Drawing.Point(355, 27);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(152, 21);
@@ -166,10 +204,10 @@ namespace Trabalho_WhatsApp_Marketing.View
             // txtNomeAparelho
             // 
             this.txtNomeAparelho.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeAparelho.Location = new System.Drawing.Point(398, 50);
+            this.txtNomeAparelho.Location = new System.Drawing.Point(359, 54);
             this.txtNomeAparelho.Margin = new System.Windows.Forms.Padding(4);
             this.txtNomeAparelho.Name = "txtNomeAparelho";
-            this.txtNomeAparelho.Size = new System.Drawing.Size(274, 29);
+            this.txtNomeAparelho.Size = new System.Drawing.Size(319, 29);
             this.txtNomeAparelho.TabIndex = 4;
             // 
             // label2
@@ -177,7 +215,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(392, 91);
+            this.label2.Location = new System.Drawing.Point(355, 92);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(120, 21);
@@ -189,7 +227,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(23, 61);
+            this.label1.Location = new System.Drawing.Point(12, 61);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(156, 21);
@@ -199,7 +237,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             // txtNumeroWhatsApp
             // 
             this.txtNumeroWhatsApp.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumeroWhatsApp.Location = new System.Drawing.Point(29, 93);
+            this.txtNumeroWhatsApp.Location = new System.Drawing.Point(16, 86);
             this.txtNumeroWhatsApp.Margin = new System.Windows.Forms.Padding(4);
             this.txtNumeroWhatsApp.Name = "txtNumeroWhatsApp";
             this.txtNumeroWhatsApp.Size = new System.Drawing.Size(244, 29);
@@ -210,11 +248,12 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.cbIdAndroid.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbIdAndroid.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbIdAndroid.FormattingEnabled = true;
-            this.cbIdAndroid.Location = new System.Drawing.Point(398, 124);
+            this.cbIdAndroid.Location = new System.Drawing.Point(359, 117);
             this.cbIdAndroid.Margin = new System.Windows.Forms.Padding(4);
             this.cbIdAndroid.Name = "cbIdAndroid";
-            this.cbIdAndroid.Size = new System.Drawing.Size(274, 27);
+            this.cbIdAndroid.Size = new System.Drawing.Size(319, 27);
             this.cbIdAndroid.TabIndex = 0;
+            this.cbIdAndroid.Click += new System.EventHandler(this.cbIdAndroid_Click);
             // 
             // BtnDeletar
             // 
@@ -230,6 +269,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.BtnDeletar.TabIndex = 47;
             this.BtnDeletar.Text = "Deletar";
             this.BtnDeletar.UseVisualStyleBackColor = false;
+            this.BtnDeletar.Click += new System.EventHandler(this.BtnDeletar_Click);
             // 
             // BtnCancelar
             // 
@@ -245,6 +285,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.BtnCancelar.TabIndex = 46;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = false;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // btnGravar
             // 
@@ -260,6 +301,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.btnGravar.TabIndex = 45;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = false;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // btnAlterar
             // 
@@ -275,6 +317,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.btnAlterar.TabIndex = 44;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnNovo
             // 
@@ -290,6 +333,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.btnNovo.TabIndex = 43;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // dataGridView
             // 
@@ -297,32 +341,21 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView.GridColor = System.Drawing.Color.Gray;
-            this.dataGridView.Location = new System.Drawing.Point(13, 217);
+            this.dataGridView.Location = new System.Drawing.Point(13, 250);
             this.dataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(699, 263);
+            this.dataGridView.Size = new System.Drawing.Size(699, 230);
             this.dataGridView.TabIndex = 41;
+            this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
-            // label5
+            // txtEmail
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label5.Location = new System.Drawing.Point(26, 126);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(232, 21);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Numero WhatsApp Business ";
-            // 
-            // txtNumeroWhatsAppBusiness
-            // 
-            this.txtNumeroWhatsAppBusiness.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumeroWhatsAppBusiness.Location = new System.Drawing.Point(32, 158);
-            this.txtNumeroWhatsAppBusiness.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNumeroWhatsAppBusiness.Name = "txtNumeroWhatsAppBusiness";
-            this.txtNumeroWhatsAppBusiness.Size = new System.Drawing.Size(244, 29);
-            this.txtNumeroWhatsAppBusiness.TabIndex = 10;
+            this.txtEmail.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(359, 180);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(319, 29);
+            this.txtEmail.TabIndex = 14;
             // 
             // FrmEmulador
             // 
@@ -342,10 +375,11 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.Controls.Add(this.dataGridView);
             this.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmEmulador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmEmulador";
+            this.Load += new System.EventHandler(this.FrmEmulador_Load);
             this.gbRegistro.ResumeLayout(false);
             this.gbRegistro.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
@@ -377,5 +411,7 @@ namespace Trabalho_WhatsApp_Marketing.View
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtEmail;
     }
 }
