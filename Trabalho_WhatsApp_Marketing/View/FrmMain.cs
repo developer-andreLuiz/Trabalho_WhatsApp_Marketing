@@ -70,6 +70,47 @@ namespace Trabalho_WhatsApp_Marketing.View
             pInterface.Location = new Point(160, btnFeedback.Location.Y);
             openChildForm(new FrmFeedBack());
         }
+
+        private void panelTitle_MouseDown(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                x = Control.MousePosition.X - this.Location.X;
+                y = Control.MousePosition.Y - this.Location.Y;
+            }
+            catch { }
+        }
+        private void panelTitle_MouseMove(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                if (e.Button == MouseButtons.Left)
+                {
+                    Point = Control.MousePosition;
+                    Point.X -= x;
+                    Point.Y -= y;
+                    this.Location = Point;
+                    move = true;
+                    Application.DoEvents();
+                }
+            }
+            catch { }
+        }
+        private void panelTitle_Click(object sender, EventArgs e)
+        {
+            if (move == false)
+            {
+                pInterface.Visible = false;
+                openChildForm(new FrmHome());
+            }
+            else
+            {
+                move = false;
+            }
+
+        }
+
+
         private void btnSair_Click(object sender, EventArgs e)
         {
             Application.Exit();

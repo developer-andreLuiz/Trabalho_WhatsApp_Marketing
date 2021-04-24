@@ -31,6 +31,7 @@ namespace Trabalho_WhatsApp_Marketing.View
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnContatosEmuladores = new System.Windows.Forms.Button();
             this.btnBancoDedados = new System.Windows.Forms.Button();
             this.panelTitle = new System.Windows.Forms.Panel();
             this.pInterface = new System.Windows.Forms.Panel();
@@ -39,13 +40,12 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.btnAjuda = new System.Windows.Forms.Button();
             this.btnEnvio = new System.Windows.Forms.Button();
             this.panelForm = new System.Windows.Forms.Panel();
-            this.btnContatosEmuladores = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(25)))), ((int)(((byte)(51)))));
             this.panel1.Controls.Add(this.btnContatosEmuladores);
             this.panel1.Controls.Add(this.btnBancoDedados);
             this.panel1.Controls.Add(this.panelTitle);
@@ -59,12 +59,27 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.panel1.Size = new System.Drawing.Size(172, 599);
             this.panel1.TabIndex = 1;
             // 
+            // btnContatosEmuladores
+            // 
+            this.btnContatosEmuladores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(39)))), ((int)(((byte)(100)))));
+            this.btnContatosEmuladores.FlatAppearance.BorderSize = 0;
+            this.btnContatosEmuladores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnContatosEmuladores.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnContatosEmuladores.ForeColor = System.Drawing.Color.White;
+            this.btnContatosEmuladores.Location = new System.Drawing.Point(0, 203);
+            this.btnContatosEmuladores.Name = "btnContatosEmuladores";
+            this.btnContatosEmuladores.Size = new System.Drawing.Size(159, 52);
+            this.btnContatosEmuladores.TabIndex = 14;
+            this.btnContatosEmuladores.Text = "Contatos Emuladores";
+            this.btnContatosEmuladores.UseVisualStyleBackColor = false;
+            this.btnContatosEmuladores.Click += new System.EventHandler(this.btnContatosEmuladores_Click);
+            // 
             // btnBancoDedados
             // 
-            this.btnBancoDedados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.btnBancoDedados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(39)))), ((int)(((byte)(100)))));
             this.btnBancoDedados.FlatAppearance.BorderSize = 0;
             this.btnBancoDedados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBancoDedados.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBancoDedados.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBancoDedados.ForeColor = System.Drawing.Color.White;
             this.btnBancoDedados.Location = new System.Drawing.Point(0, 145);
             this.btnBancoDedados.Name = "btnBancoDedados";
@@ -76,16 +91,19 @@ namespace Trabalho_WhatsApp_Marketing.View
             // 
             // panelTitle
             // 
-            this.panelTitle.BackColor = System.Drawing.Color.White;
+            this.panelTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(17)))), ((int)(((byte)(29)))));
             this.panelTitle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelTitle.Location = new System.Drawing.Point(0, 0);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(170, 81);
+            this.panelTitle.Size = new System.Drawing.Size(172, 81);
             this.panelTitle.TabIndex = 9;
+            this.panelTitle.Click += new System.EventHandler(this.panelTitle_Click);
+            this.panelTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseDown);
+            this.panelTitle.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseMove);
             // 
             // pInterface
             // 
-            this.pInterface.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.pInterface.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(51)))), ((int)(((byte)(153)))));
             this.pInterface.Location = new System.Drawing.Point(160, 87);
             this.pInterface.Name = "pInterface";
             this.pInterface.Size = new System.Drawing.Size(11, 52);
@@ -94,10 +112,10 @@ namespace Trabalho_WhatsApp_Marketing.View
             // 
             // btnSair
             // 
-            this.btnSair.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.btnSair.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(39)))), ((int)(((byte)(100)))));
             this.btnSair.FlatAppearance.BorderSize = 0;
             this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSair.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSair.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSair.ForeColor = System.Drawing.Color.White;
             this.btnSair.Location = new System.Drawing.Point(0, 546);
             this.btnSair.Name = "btnSair";
@@ -109,10 +127,10 @@ namespace Trabalho_WhatsApp_Marketing.View
             // 
             // btnFeedback
             // 
-            this.btnFeedback.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.btnFeedback.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(39)))), ((int)(((byte)(100)))));
             this.btnFeedback.FlatAppearance.BorderSize = 0;
             this.btnFeedback.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFeedback.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFeedback.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFeedback.ForeColor = System.Drawing.Color.White;
             this.btnFeedback.Location = new System.Drawing.Point(0, 319);
             this.btnFeedback.Name = "btnFeedback";
@@ -124,10 +142,10 @@ namespace Trabalho_WhatsApp_Marketing.View
             // 
             // btnAjuda
             // 
-            this.btnAjuda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.btnAjuda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(39)))), ((int)(((byte)(100)))));
             this.btnAjuda.FlatAppearance.BorderSize = 0;
             this.btnAjuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAjuda.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAjuda.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAjuda.ForeColor = System.Drawing.Color.White;
             this.btnAjuda.Location = new System.Drawing.Point(0, 261);
             this.btnAjuda.Name = "btnAjuda";
@@ -139,10 +157,10 @@ namespace Trabalho_WhatsApp_Marketing.View
             // 
             // btnEnvio
             // 
-            this.btnEnvio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.btnEnvio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(39)))), ((int)(((byte)(100)))));
             this.btnEnvio.FlatAppearance.BorderSize = 0;
             this.btnEnvio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEnvio.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnvio.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEnvio.ForeColor = System.Drawing.Color.White;
             this.btnEnvio.Location = new System.Drawing.Point(0, 87);
             this.btnEnvio.Name = "btnEnvio";
@@ -160,21 +178,6 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.panelForm.Size = new System.Drawing.Size(725, 598);
             this.panelForm.TabIndex = 2;
             // 
-            // btnContatosEmuladores
-            // 
-            this.btnContatosEmuladores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.btnContatosEmuladores.FlatAppearance.BorderSize = 0;
-            this.btnContatosEmuladores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnContatosEmuladores.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnContatosEmuladores.ForeColor = System.Drawing.Color.White;
-            this.btnContatosEmuladores.Location = new System.Drawing.Point(0, 203);
-            this.btnContatosEmuladores.Name = "btnContatosEmuladores";
-            this.btnContatosEmuladores.Size = new System.Drawing.Size(159, 52);
-            this.btnContatosEmuladores.TabIndex = 14;
-            this.btnContatosEmuladores.Text = "Contatos Emuladores";
-            this.btnContatosEmuladores.UseVisualStyleBackColor = false;
-            this.btnContatosEmuladores.Click += new System.EventHandler(this.btnContatosEmuladores_Click);
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -183,7 +186,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.ClientSize = new System.Drawing.Size(900, 600);
             this.Controls.Add(this.panelForm);
             this.Controls.Add(this.panel1);
-            this.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);

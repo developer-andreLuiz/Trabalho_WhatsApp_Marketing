@@ -31,7 +31,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             {
                 lblSituacao.Text = "Cadastrado";
                 lblId.Text = tb_Contatos_Model.id.ToString();
-                if (tb_Contatos_Model.habilitado==1)
+                if (tb_Contatos_Model.habilitado == 1)
                 {
                     chkHabilitado.Checked = true;
                 }
@@ -97,7 +97,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             cb.DataSource = ltBairroFiltro;
         }
        
-        void CarregarGrid(DataGridView dt, string estado)
+        void CarregarGrid(string estado)
         {
             dataGridView.DataSource = null;
             List<Tb_contato_Model> ltTb_Contatos_ModelFiltro = new List<Tb_contato_Model>();
@@ -113,25 +113,23 @@ namespace Trabalho_WhatsApp_Marketing.View
                 dataGridView.DataSource = ltTb_Contatos_ModelFiltro;
                 dataGridView.Columns[1].Visible = false;
                 dataGridView.Columns[2].HeaderText = "Telefone";
-                dataGridView.Columns[2].Width = 235;
+                dataGridView.Columns[2].Width = 225;
                 dataGridView.Columns[3].Visible = false;
                 dataGridView.Columns[4].Visible = false;
                 dataGridView.Columns[5].Visible = false;
-                dataGridView.Columns[6].Visible = false;
             }
             else
             {
                 dataGridView.DataSource = new List<Tb_contato_Model>();
                 dataGridView.Columns[1].Visible = false;
                 dataGridView.Columns[2].HeaderText = "Telefone";
-                dataGridView.Columns[2].Width = 235;
+                dataGridView.Columns[2].Width = 225;
                 dataGridView.Columns[3].Visible = false;
                 dataGridView.Columns[4].Visible = false;
                 dataGridView.Columns[5].Visible = false;
-                dataGridView.Columns[6].Visible = false;
             }
         }
-        void CarregarGrid(DataGridView dt, string estado, string municipio)
+        void CarregarGrid(string estado, string municipio)
         {
             dataGridView.DataSource = null;
             List<Tb_contato_Model> ltTb_Contatos_ModelFiltro = new List<Tb_contato_Model>();
@@ -147,26 +145,24 @@ namespace Trabalho_WhatsApp_Marketing.View
                 dataGridView.DataSource = ltTb_Contatos_ModelFiltro;
                 dataGridView.Columns[1].Visible = false;
                 dataGridView.Columns[2].HeaderText = "Telefone";
-                dataGridView.Columns[2].Width = 235;
+                dataGridView.Columns[2].Width = 225;
                 dataGridView.Columns[3].Visible = false;
                 dataGridView.Columns[4].Visible = false;
                 dataGridView.Columns[5].Visible = false;
-                dataGridView.Columns[6].Visible = false;
             }
             else
             {
                 dataGridView.DataSource = new List<Tb_contato_Model>();
                 dataGridView.Columns[1].Visible = false;
                 dataGridView.Columns[2].HeaderText = "Telefone";
-                dataGridView.Columns[2].Width = 235;
+                dataGridView.Columns[2].Width = 225;
                 dataGridView.Columns[3].Visible = false;
                 dataGridView.Columns[4].Visible = false;
                 dataGridView.Columns[5].Visible = false;
-                dataGridView.Columns[6].Visible = false;
             }
 
         }
-        void CarregarGrid(DataGridView dt, string estado, string municipio, string bairro)
+        void CarregarGrid(string estado, string municipio, string bairro)
         {
             dataGridView.DataSource = null;
             List<Tb_contato_Model> ltTb_Contatos_ModelFiltro = new List<Tb_contato_Model>();
@@ -182,32 +178,30 @@ namespace Trabalho_WhatsApp_Marketing.View
                 dataGridView.DataSource = ltTb_Contatos_ModelFiltro;
                 dataGridView.Columns[1].Visible = false;
                 dataGridView.Columns[2].HeaderText = "Telefone";
-                dataGridView.Columns[2].Width = 235;
+                dataGridView.Columns[2].Width = 225;
                 dataGridView.Columns[3].Visible = false;
                 dataGridView.Columns[4].Visible = false;
                 dataGridView.Columns[5].Visible = false;
-                dataGridView.Columns[6].Visible = false;
             }
             else
             {
                 dataGridView.DataSource = new List<Tb_contato_Model>();
                 dataGridView.Columns[1].Visible = false;
                 dataGridView.Columns[2].HeaderText = "Telefone";
-                dataGridView.Columns[2].Width = 235;
+                dataGridView.Columns[2].Width = 225;
                 dataGridView.Columns[3].Visible = false;
                 dataGridView.Columns[4].Visible = false;
                 dataGridView.Columns[5].Visible = false;
-                dataGridView.Columns[6].Visible = false;
             }
 
         }
-        void CarregarGrid(DataGridView dt)
+        void CarregarGridDesabilitado()
         {
             dataGridView.DataSource = null;
             List<Tb_contato_Model> ltTb_Contatos_ModelFiltro = new List<Tb_contato_Model>();
             foreach (Tb_contato_Model tb_Contatos_Model in ltContatosCompleto)
             {
-                if (tb_Contatos_Model.habilitado == 0)
+                if (tb_Contatos_Model.habilitado==0)
                 {
                     ltTb_Contatos_ModelFiltro.Add(tb_Contatos_Model);
                 }
@@ -217,22 +211,20 @@ namespace Trabalho_WhatsApp_Marketing.View
                 dataGridView.DataSource = ltTb_Contatos_ModelFiltro;
                 dataGridView.Columns[1].Visible = false;
                 dataGridView.Columns[2].HeaderText = "Telefone";
-                dataGridView.Columns[2].Width = 235;
+                dataGridView.Columns[2].Width = 225;
                 dataGridView.Columns[3].Visible = false;
                 dataGridView.Columns[4].Visible = false;
                 dataGridView.Columns[5].Visible = false;
-                dataGridView.Columns[6].Visible = false;
             }
             else
             {
                 dataGridView.DataSource = new List<Tb_contato_Model>();
                 dataGridView.Columns[1].Visible = false;
                 dataGridView.Columns[2].HeaderText = "Telefone";
-                dataGridView.Columns[2].Width = 235;
+                dataGridView.Columns[2].Width = 225;
                 dataGridView.Columns[3].Visible = false;
                 dataGridView.Columns[4].Visible = false;
                 dataGridView.Columns[5].Visible = false;
-                dataGridView.Columns[6].Visible = false;
             }
         }
 
@@ -304,6 +296,11 @@ namespace Trabalho_WhatsApp_Marketing.View
                 try { vUf = cbEstado.SelectedValue.ToString(); } catch { }
                 try { vMunicipio = cbMunicipio.SelectedValue.ToString(); } catch { }
                 try { vBairro = cbBairro.SelectedValue.ToString(); } catch { }
+                contato.telefone = txtTelefone.Text;
+                contato.id = Convert.ToInt32(lblId.Text);
+                contato.uf = vUf;
+                contato.municipio = vMunicipio;
+                contato.bairro = vBairro;
                 if (chkHabilitado.Checked)
                 {
                     contato.habilitado = 1;
@@ -312,12 +309,6 @@ namespace Trabalho_WhatsApp_Marketing.View
                 {
                     contato.habilitado = 0;
                 }
-                contato.telefone = txtTelefone.Text;
-                contato.id = Convert.ToInt32(lblId.Text);
-                contato.uf = vUf;
-                contato.municipio = vMunicipio;
-                contato.bairro = vBairro;
-
                 if (string.IsNullOrEmpty(txtTelefone.Text) == false)
                 {
 
@@ -437,7 +428,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             ltMunicipioCompleto = Banco.Tb_municipio.RetornoCompleto();
             ltBairroCompleto = Banco.Tb_bairro.RetornoCompleto();
             ltContatosCompleto = Banco.Tb_contato.RetornoCompleto();
-            lblListaEnvio.Text = "Contatos Selecionados: " + Global.ListaContatosExcel.Count;
+            lblListaEnvio.Text = "Listas de Exportação : " + Global.ListContactsExcel.Count;
             CarregarComboBox(cbEstadoFiltro);
             SelecionarComboBoacu(cbEstadoFiltro,cbMunicipioFiltro,cbBairroFiltro);
             InicioInterface();
@@ -446,7 +437,7 @@ namespace Trabalho_WhatsApp_Marketing.View
         {
             if (string.IsNullOrEmpty(cbEstadoFiltro.Text) == false)
             {
-                CarregarGrid(dataGridView, Convert.ToString(cbEstadoFiltro.SelectedValue));
+                CarregarGrid(Convert.ToString(cbEstadoFiltro.SelectedValue));
                 CarregarComboBox(cbMunicipioFiltro, Convert.ToString(cbEstadoFiltro.SelectedValue));
             }
         }
@@ -454,7 +445,7 @@ namespace Trabalho_WhatsApp_Marketing.View
         {
             if (string.IsNullOrEmpty(cbMunicipioFiltro.Text) == false)
             {
-                CarregarGrid(dataGridView, Convert.ToString(cbEstadoFiltro.SelectedValue), Convert.ToString(cbMunicipioFiltro.SelectedValue));
+                CarregarGrid(Convert.ToString(cbEstadoFiltro.SelectedValue), Convert.ToString(cbMunicipioFiltro.SelectedValue));
                 CarregarComboBox(cbBairroFiltro, Convert.ToString(cbEstadoFiltro.SelectedValue), Convert.ToString(cbMunicipioFiltro.SelectedValue));
             }
         }
@@ -462,24 +453,24 @@ namespace Trabalho_WhatsApp_Marketing.View
         {
             if (string.IsNullOrEmpty(cbBairroFiltro.Text) == false)
             {
-                CarregarGrid(dataGridView, Convert.ToString(cbEstadoFiltro.SelectedValue), Convert.ToString(cbMunicipioFiltro.SelectedValue), Convert.ToString(cbBairroFiltro.SelectedValue));
+                CarregarGrid(Convert.ToString(cbEstadoFiltro.SelectedValue), Convert.ToString(cbMunicipioFiltro.SelectedValue), Convert.ToString(cbBairroFiltro.SelectedValue));
             }
         }
         private void btnBuscarEstado_Click(object sender, EventArgs e)
         {
-            CarregarGrid(dataGridView, Convert.ToString(cbEstadoFiltro.SelectedValue));
+            CarregarGrid(Convert.ToString(cbEstadoFiltro.SelectedValue));
         }
         private void btnBuscarMunicipio_Click(object sender, EventArgs e)
         {
-            CarregarGrid(dataGridView, Convert.ToString(cbEstadoFiltro.SelectedValue), Convert.ToString(cbMunicipioFiltro.SelectedValue));
+            CarregarGrid(Convert.ToString(cbEstadoFiltro.SelectedValue), Convert.ToString(cbMunicipioFiltro.SelectedValue));
         }
         private void btnBuscarBairro_Click(object sender, EventArgs e)
         {
-            CarregarGrid(dataGridView, Convert.ToString(cbEstadoFiltro.SelectedValue), Convert.ToString(cbMunicipioFiltro.SelectedValue), Convert.ToString(cbBairroFiltro.SelectedValue));
+            CarregarGrid(Convert.ToString(cbEstadoFiltro.SelectedValue), Convert.ToString(cbMunicipioFiltro.SelectedValue), Convert.ToString(cbBairroFiltro.SelectedValue));
         }
         private void dataGridView_DataSourceChanged(object sender, EventArgs e)
         {
-            lblTotalLinha.Text = $"Total de Linhas: {dataGridView.Rows.Count}";
+            lblTotalLinha.Text = $"Registros: {dataGridView.Rows.Count}";
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -528,6 +519,10 @@ namespace Trabalho_WhatsApp_Marketing.View
         {
             DeletarTudo();
         }
+        private void btnDesabilitados_Click(object sender, EventArgs e)
+        {
+            CarregarGridDesabilitado();
+        }
         private void cbEstado_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(cbEstado.Text) == false)
@@ -548,19 +543,14 @@ namespace Trabalho_WhatsApp_Marketing.View
             try
             {
                 contato = dataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            }catch{}
             if (contato.Length == 11)
             {
                 txtTelefoneFiltro.Text = contato;
                 btnBuscar.PerformClick();
             }
         }
-        private void btnSelecionarTudo_Click(object sender, EventArgs e)
+        private void btnSelecionarLinhas_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow rows in dataGridView.Rows)
             {
@@ -570,7 +560,7 @@ namespace Trabalho_WhatsApp_Marketing.View
                 }
             }
         }
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnAdicionarParaExportar_Click(object sender, EventArgs e)
         {
             List<string> telTemp = new List<string>();
             foreach (DataGridViewRow rows in dataGridView.Rows)
@@ -600,7 +590,7 @@ namespace Trabalho_WhatsApp_Marketing.View
 
                 try
                 {
-                    teste = Global.ListaContatosExcel[Global.ListaContatosExcel.FindIndex(x => x.Equals(temp))];
+                    teste = Global.ListContactsExcel[Global.ListContactsExcel.FindIndex(x => x.Equals(temp))];
                 }
                 catch { }
                 if (string.IsNullOrEmpty(teste) == false)
@@ -612,15 +602,15 @@ namespace Trabalho_WhatsApp_Marketing.View
 
                 if (encontrado == false)
                 {
-                    Global.ListaContatosExcel.Add(temp);
+                    Global.ListContactsExcel.Add(temp);
                 }
             }
-            lblListaEnvio.Text = "Contatos Selecionados: " + Global.ListaContatosExcel.Count;
+            lblListaEnvio.Text = "Listas de Exportação: " + Global.ListContactsExcel.Count;
         }
-        private void btnDesabilitados_Click(object sender, EventArgs e)
-        {
-            CarregarGrid(dataGridView);
-        }
+
+
         #endregion
+
+       
     }
 }

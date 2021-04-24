@@ -27,7 +27,6 @@ namespace Trabalho_WhatsApp_Marketing.View
             txtNomeAparelho.Text = Convert.ToString(emulador.nome);
             txtNumeroWhatsApp.Text = Convert.ToString(emulador.numero_whatsapp);
             txtNumeroWhatsAppBusiness.Text = Convert.ToString(emulador.numero_whatsapp_business);
-            txtEmail.Text = Convert.ToString(emulador.email);
             cbIdAndroid.DataSource = null;
             List<string> lst = new List<string>();
             lst.Add(emulador.udid);
@@ -48,7 +47,6 @@ namespace Trabalho_WhatsApp_Marketing.View
             tb_Emulador_Model.nome = txtNomeAparelho.Text;
             tb_Emulador_Model.numero_whatsapp = txtNumeroWhatsApp.Text;
             tb_Emulador_Model.numero_whatsapp_business = txtNumeroWhatsAppBusiness.Text;
-            tb_Emulador_Model.email = txtEmail.Text;
             tb_Emulador_Model.udid = cbIdAndroid.Text;
             if (chkHabilitado.Checked)
             {
@@ -105,20 +103,18 @@ namespace Trabalho_WhatsApp_Marketing.View
             lblId.Text = "0";
             txtNumeroWhatsApp.Text = string.Empty;
             txtNumeroWhatsAppBusiness.Text = string.Empty;
-            txtEmail.Text = string.Empty;
             txtNomeAparelho.Text = string.Empty;
 
         }
         void CarregarGrid()
         {
             dataGridView.DataSource = Banco.Tb_emulador.RetornoCompleto();
-            dataGridView.Columns[0].Width = 100;
+            dataGridView.Columns[0].Width = 50;
             dataGridView.Columns[1].Width = 140;
             dataGridView.Columns[2].Width = 140;
             dataGridView.Columns[3].Width = 140;
             dataGridView.Columns[4].Width = 140;
-            dataGridView.Columns[5].Width = 140;
-            dataGridView.Columns[6].Width = 140;
+            dataGridView.Columns[5].Width = 50;
             lblTotalRegistro.Text = dataGridView.Rows.Count.ToString();
         }
         #endregion
@@ -129,8 +125,6 @@ namespace Trabalho_WhatsApp_Marketing.View
             InitializeComponent();
             
         }
-        #endregion
-
         private void FrmEmulador_Load(object sender, EventArgs e)
         {
             InterfaceAbrir();
@@ -203,9 +197,13 @@ namespace Trabalho_WhatsApp_Marketing.View
             emulador.id = Convert.ToInt32(dataGridView.Rows[e.RowIndex].Cells[0].Value);
             emulador.nome = Convert.ToString(dataGridView.Rows[e.RowIndex].Cells[1].Value);
             emulador.numero_whatsapp = Convert.ToString(dataGridView.Rows[e.RowIndex].Cells[2].Value);
-            emulador.udid = Convert.ToString(dataGridView.Rows[e.RowIndex].Cells[3].Value);
-            emulador.habilitado = Convert.ToInt32(dataGridView.Rows[e.RowIndex].Cells[4].Value);
+            emulador.numero_whatsapp_business = Convert.ToString(dataGridView.Rows[e.RowIndex].Cells[3].Value);
+            emulador.udid = Convert.ToString(dataGridView.Rows[e.RowIndex].Cells[4].Value);
+            emulador.habilitado = Convert.ToInt32(dataGridView.Rows[e.RowIndex].Cells[5].Value);
             ExibirRegistro(emulador);
         }
+        #endregion
+
+
     }
 }

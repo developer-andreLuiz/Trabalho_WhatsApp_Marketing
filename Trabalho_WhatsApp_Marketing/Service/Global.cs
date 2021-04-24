@@ -9,6 +9,6 @@ namespace Trabalho_WhatsApp_Marketing.Service
 {
     class Global
     {
-        public static List<string> ListaContatosExcel = new List<string>();
+        public static List<string> ListContactsExcel = new List<string>();
     }
 }

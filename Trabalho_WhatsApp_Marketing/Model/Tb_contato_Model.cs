@@ -14,7 +14,6 @@ namespace Trabalho_WhatsApp_Marketing.Model
         public string municipio { get; set; }
         public string bairro { get; set; }
         public int habilitado { get; set; }
-
         public Tb_contato_Model()
         {
             id = 0;
@@ -33,6 +32,5 @@ namespace Trabalho_WhatsApp_Marketing.Model
             bairro = string.Empty;
             habilitado = 0;
         }
-
     }
 }
