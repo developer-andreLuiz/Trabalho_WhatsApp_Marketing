@@ -68,8 +68,6 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.label15 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
-            this.btnNovoEnvio = new System.Windows.Forms.Button();
-            this.btnTeste = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -524,43 +522,11 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.label13.TabIndex = 45;
             this.label13.Text = "Imagem";
             // 
-            // btnNovoEnvio
-            // 
-            this.btnNovoEnvio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(25)))), ((int)(((byte)(51)))));
-            this.btnNovoEnvio.FlatAppearance.BorderSize = 0;
-            this.btnNovoEnvio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNovoEnvio.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNovoEnvio.ForeColor = System.Drawing.Color.White;
-            this.btnNovoEnvio.Location = new System.Drawing.Point(327, 383);
-            this.btnNovoEnvio.Name = "btnNovoEnvio";
-            this.btnNovoEnvio.Size = new System.Drawing.Size(370, 43);
-            this.btnNovoEnvio.TabIndex = 76;
-            this.btnNovoEnvio.Text = "Novo Envio";
-            this.btnNovoEnvio.UseVisualStyleBackColor = false;
-            this.btnNovoEnvio.Click += new System.EventHandler(this.btnNovoEnvio_Click);
-            // 
-            // btnTeste
-            // 
-            this.btnTeste.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(25)))), ((int)(((byte)(51)))));
-            this.btnTeste.FlatAppearance.BorderSize = 0;
-            this.btnTeste.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTeste.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTeste.ForeColor = System.Drawing.Color.White;
-            this.btnTeste.Location = new System.Drawing.Point(327, 432);
-            this.btnTeste.Name = "btnTeste";
-            this.btnTeste.Size = new System.Drawing.Size(370, 43);
-            this.btnTeste.TabIndex = 77;
-            this.btnTeste.Text = "Teste";
-            this.btnTeste.UseVisualStyleBackColor = false;
-            this.btnTeste.Click += new System.EventHandler(this.btnTeste_Click);
-            // 
             // FrmEnvio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(725, 598);
-            this.Controls.Add(this.btnTeste);
-            this.Controls.Add(this.btnNovoEnvio);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -634,9 +600,7 @@ namespace Trabalho_WhatsApp_Marketing.View
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button btnNovoEnvio;
         private System.Windows.Forms.Label lblMensagensRestantes;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnTeste;
     }
 }

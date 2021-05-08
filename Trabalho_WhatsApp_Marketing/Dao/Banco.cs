@@ -173,6 +173,21 @@ namespace Trabalho_WhatsApp_Marketing.Dao
                 cmd.Parameters.AddWithValue("id", tb_Contatos_Model.id);
                 cmd.ExecuteNonQuery();
             }
+         
+            /// <summary>
+            /// Deleta registros na tabela
+            /// </summary>
+            /// <param name="tb_Contatos_Model"></param>
+            public static void Deletar(string telefone)
+            {
+                if (conexao.State == ConnectionState.Closed)
+                {
+                    conexao.Open();
+                }
+                SQLiteCommand cmd = new SQLiteCommand("delete from tb_contato where telefone = @telefone", conexao);
+                cmd.Parameters.AddWithValue("telefone", telefone);
+                cmd.ExecuteNonQuery();
+            }
 
             /// <summary>
             /// Apaga Todos os Registros da Tabela... Muito Cuidado ao utilizar esta Função
@@ -249,7 +264,6 @@ namespace Trabalho_WhatsApp_Marketing.Dao
                 }
                 return ltFinal;
             }
-
             /// <summary>
             /// Retorna Um registro da Tabela
             /// </summary>
@@ -280,7 +294,6 @@ namespace Trabalho_WhatsApp_Marketing.Dao
                 }
                 return tb_contato_email_Model_Final;
             }
-
             /// <summary>
             /// Insere registros na tabela
             /// </summary>
@@ -299,7 +312,6 @@ namespace Trabalho_WhatsApp_Marketing.Dao
                 cmd.Parameters.AddWithValue("habilitado", tb_contato_email_Model.habilitado);
                 cmd.ExecuteNonQuery();
             }
-
             /// <summary>
             /// Atualiza registros na tabela
             /// </summary>
@@ -319,7 +331,44 @@ namespace Trabalho_WhatsApp_Marketing.Dao
                 cmd.Parameters.AddWithValue("habilitado", tb_contato_email_Model.habilitado);
                 cmd.ExecuteNonQuery();
             }
-
+            /// <summary>
+            /// Atualiza registros na tabela
+            /// </summary>
+            /// <param name="tb_Contatos_Model"></param>
+            public static void Desabilitar(Tb_contato_email_Model tb_contato_email_Model)
+            {
+                if (conexao.State == ConnectionState.Closed)
+                {
+                    conexao.Open();
+                }
+                SQLiteCommand cmd = new SQLiteCommand("update tb_contato_email set telefone = @telefone, emulador = @emulador, whatsapp = @whatsapp, business = @business, habilitado = @habilitado where id = @id", conexao);
+                cmd.Parameters.AddWithValue("id", tb_contato_email_Model.id);
+                cmd.Parameters.AddWithValue("telefone", tb_contato_email_Model.telefone);
+                cmd.Parameters.AddWithValue("emulador", tb_contato_email_Model.emulador);
+                cmd.Parameters.AddWithValue("whatsapp", tb_contato_email_Model.whatsapp);
+                cmd.Parameters.AddWithValue("business", tb_contato_email_Model.business);
+                cmd.Parameters.AddWithValue("habilitado", 0);
+                cmd.ExecuteNonQuery();
+            }
+            /// <summary>
+            /// Atualiza registros na tabela
+            /// </summary>
+            /// <param name="tb_Contatos_Model"></param>
+            public static void SetWhatsApp(Tb_contato_email_Model tb_contato_email_Model)
+            {
+                if (conexao.State == ConnectionState.Closed)
+                {
+                    conexao.Open();
+                }
+                SQLiteCommand cmd = new SQLiteCommand("update tb_contato_email set telefone = @telefone, emulador = @emulador, whatsapp = @whatsapp, business = @business, habilitado = @habilitado where id = @id", conexao);
+                cmd.Parameters.AddWithValue("id", tb_contato_email_Model.id);
+                cmd.Parameters.AddWithValue("telefone", tb_contato_email_Model.telefone);
+                cmd.Parameters.AddWithValue("emulador", tb_contato_email_Model.emulador);
+                cmd.Parameters.AddWithValue("whatsapp", 1);
+                cmd.Parameters.AddWithValue("business", tb_contato_email_Model.business);
+                cmd.Parameters.AddWithValue("habilitado", tb_contato_email_Model.habilitado);
+                cmd.ExecuteNonQuery();
+            }
             /// <summary>
             /// Resetar registros na tabela
             /// </summary>
@@ -332,7 +381,6 @@ namespace Trabalho_WhatsApp_Marketing.Dao
                 SQLiteCommand cmd = new SQLiteCommand("update tb_contato_email set emulador = '', whatsapp = 0, business = 0", conexao);
                 cmd.ExecuteNonQuery();
             }
-
             /// <summary>
             /// Deleta registros na tabela
             /// </summary>
@@ -347,7 +395,6 @@ namespace Trabalho_WhatsApp_Marketing.Dao
                 cmd.Parameters.AddWithValue("id", tb_contato_email_Model.id);
                 cmd.ExecuteNonQuery();
             }
-
             /// <summary>
             /// Apaga Todos os Registros da Tabela... Muito Cuidado ao utilizar esta Função
             /// </summary>
@@ -394,8 +441,6 @@ namespace Trabalho_WhatsApp_Marketing.Dao
                 }
                 return ltFinal;
             }
-
-
             /// <summary>
             /// Retorna Todos os registros da Tabela
             /// </summary>
@@ -425,8 +470,6 @@ namespace Trabalho_WhatsApp_Marketing.Dao
                 }
                 return ltFinal;
             }
-
-
             /// <summary>
             /// Retorna Um registro da Tabela
             /// </summary>
@@ -457,8 +500,6 @@ namespace Trabalho_WhatsApp_Marketing.Dao
                 }
                 return tb_emulador_Model_Final;
             }
-
-
             /// <summary>
             /// Insere registros na tabela
             /// </summary>
@@ -477,8 +518,6 @@ namespace Trabalho_WhatsApp_Marketing.Dao
                 cmd.Parameters.AddWithValue("habilitado", tb_emulador_Model.habilitado);
                 cmd.ExecuteNonQuery();
             }
-
-
             /// <summary>
             /// Atualiza registros na tabela
             /// </summary>
@@ -499,8 +538,6 @@ namespace Trabalho_WhatsApp_Marketing.Dao
 
                 cmd.ExecuteNonQuery();
             }
-
-
             /// <summary>
             /// Deleta registros na tabela
             /// </summary>
@@ -515,8 +552,6 @@ namespace Trabalho_WhatsApp_Marketing.Dao
                 cmd.Parameters.AddWithValue("id", tb_emulador_Model.id);
                 cmd.ExecuteNonQuery();
             }
-
-
             /// <summary>
             /// Apaga Todos os Registros da Tabela... Muito Cuidado ao utilizar esta Função
             /// </summary>
@@ -532,9 +567,6 @@ namespace Trabalho_WhatsApp_Marketing.Dao
                 cmd.ExecuteNonQuery();
             }
         }
-
-
-
         public class Tb_estado
         {
             /// <summary>
@@ -630,6 +662,5 @@ namespace Trabalho_WhatsApp_Marketing.Dao
                 return ltFinal;
             }
         }
-        
     }
 }

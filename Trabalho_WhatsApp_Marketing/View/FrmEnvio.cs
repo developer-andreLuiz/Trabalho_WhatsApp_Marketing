@@ -18,82 +18,13 @@ namespace Trabalho_WhatsApp_Marketing.View
 {
     public partial class FrmEnvio : Form
     {
+        //1000 envios em  2h 20 minutos
         #region Variaveis
-
-        int EnvioPorWhatsApp = 50; //limite de envio por numero
-        int LimiteCompartilharmento = 5; //limite de comportilhamento do zap
-        int MaximoEnvio = 0;//valor gerado pelo calculo de emuladores x limite por numero
         string pathImagem = @"C:\Users\Public\Pictures"; //camilho da pasta de imgs
-       
-        
-        
-        List<Tb_emulador_Model> ListaEmuladores; //lista de emuladores ativos
-        List<Tb_contato_email_Model> ListaContatosEmailCompleta; //tabela completa do banco
-        List<Tb_contato_email_Model> ListaContatosEmailHabilitato = new List<Tb_contato_email_Model>();//Lista completa habilitada
-        List<Tb_contato_email_Model> ListaContatosEmailFaltaEnviar = new List<Tb_contato_email_Model>();//Lista de contatos restantes
-
         List<string> ListaTeste = new List<string>();//lista provosória para teste
-
-        string EmuladorAtual = String.Empty; //apenas informa o nome do emulador atual
-        int MensagensEnviadas = 0; 
-        int MensagensRestantes = 0;
-        int ContatosNaoEncontrados = 0;
-
-        //Variaveis Auxiliares
-
-        int contatorEmulador = 0;  //auxilia na abertura do emulador pela lista de emuladores habilitados
-        int contadorEnvio = 0;     //controla o numero de envios por numero para nao passar do limite
-        
-        bool AbrirEmulador = true;
-        bool AbrirZap = true;
-       
-
-       
-
         #endregion
-       
         #region Funções
-        void ExibirInformacoes()
-        {
-            ListaEmuladores = Banco.Tb_emulador.RetornoCompletoHabilitado();
-            ListaContatosEmailCompleta = Banco.Tb_contato_email.RetornoCompleto();
-            foreach (Tb_contato_email_Model item in ListaContatosEmailCompleta)
-            {
-                if (item.habilitado==1)
-                {
-                    ListaContatosEmailHabilitato.Add(item);
-                    if (item.whatsapp == 0 && item.business == 0)
-                    {
-                        ListaContatosEmailFaltaEnviar.Add(item);
-                    }
-                }
-            }
-
-
-            lblEnvioPorWhatsApp.Text = EnvioPorWhatsApp.ToString();
-            lblLimiteCompartilhamento.Text = LimiteCompartilharmento.ToString();
-
-            lblEmuladoresHabilitados.Text = ListaEmuladores.Count.ToString();
-            int totalWhatsApp = ListaEmuladores.Count * 2;
-            lblTotalWhatsApp.Text =totalWhatsApp.ToString();
-
-
-            lblTotalContatosEmail.Text = ListaContatosEmailHabilitato.Count.ToString();
-            MaximoEnvio = totalWhatsApp * EnvioPorWhatsApp;
-            lblMaximoEnvio.Text = MaximoEnvio.ToString();
-        }
-        void ExibirTotalImagens()
-        {
-            lblTotalImagens.Text = TotalImagens().ToString();
-        }
-        void ExibirStatus()
-        {
-            lblEmuladorAtual.Text = EmuladorAtual;
-            lblMensagensEnviadas.Text = MensagensEnviadas.ToString();
-            lblMensagensRestantes.Text = MensagensRestantes.ToString();
-            lblContatosNaoEncontrados.Text = ContatosNaoEncontrados.ToString();
-        }
-     
+       
         int TotalImagens()
         {
             int total = 0;
@@ -106,103 +37,11 @@ namespace Trabalho_WhatsApp_Marketing.View
             catch { } 
             return total;
         }
-        void Envio()
-        {
-            int compartilhar = 0;
-            foreach (string n in ListaTeste)
-            {
-
-                //if (abrirEmulador)
-                //{
-                //    abrirEmulador = false;
-                //    ProgramService.OpenEmulador(ListaEmuladores[contatorEmulador].nome);
-                //    Thread.Sleep(TimeSpan.FromMinutes(1));
-                //}
-                if (AbrirZap)
-                {
-                    AbrirZap = false;
-                    WhatsApp.OpenApp(ListaEmuladores[contatorEmulador].udid);
-                    WhatsApp.ResolverBackupTermos();
-                    WhatsApp.ClicarContatos();
-                    WhatsApp.ClicarLupaProcurarContatos();
-                    WhatsApp.DigitarBarraPesquisarContatos(n);
-                    if (WhatsApp.ContatoEncontrado())
-                    {
-                        WhatsApp.ClicarEmContatoEncontrato();
-                        WhatsApp.EnvioDentroDaConversa();
-                        contadorEnvio++;
-                    }
-                    else
-                    {
-                        WhatsApp.LimparBarraPesquisarContatos();
-                        ListaTeste.Remove(n);//provissório
-                        //função para pensar de contato nao encontrado 
-                    }
-                }
-                else
-                {
-                    if (compartilhar==0)
-                    {
-                        WhatsApp.CompartilharDentroDaConversa();//depois de enviar as 5 primeiras vc fica dentro da midia
-                    }
-                    if (compartilhar<5)
-                    {
-                        if (contadorEnvio < EnvioPorWhatsApp)
-                        {
-                            WhatsApp.DigitarBarraPesquisarContatos(n);
-                            if (WhatsApp.ContatoEncontrado())
-                            {
-                                WhatsApp.ClicarEmContatoEncontrato();
-                                WhatsApp.LimparBarraPesquisarContatos();
-                                compartilhar++;
-                                contadorEnvio++;
-                            }
-                            else
-                            {
-                                //função para pensar de contato nao encontrado 
-                            }
-
-
-                        }
-                    }
-                    //função de compartilhar com menos de 5 tambem
-                    if (compartilhar == 5) 
-                    {
-                        WhatsApp.ClicarEnviar();
-                        WhatsApp.ClicarVoltarCompartilhar();
-                        compartilhar = 0;
-                       
-                        //provissório
-                    }
-                }
-                //1000 envios em  2h 20 minutos  142 minutos 2h 30
-
-
-                //10000 envios em   1420 minutos 23 h 
-
-
-
-
-
-
-
-            }
-        }
-
-
-
-
-
-
-
         #endregion
         #region Eventos
         public FrmEnvio()
         {
             InitializeComponent();
-            ExibirInformacoes();
-            ExibirTotalImagens();
-            
             ListaTeste.Add("21984757079");
             ListaTeste.Add("21970122979");
             ListaTeste.Add("21993907972");
@@ -214,9 +53,6 @@ namespace Trabalho_WhatsApp_Marketing.View
             ListaTeste.Add("21988369042");
             ListaTeste.Add("21988406076");
             ListaTeste.Add("21989143626");
-           
-
-
         }
         private void btnAbrirPasta_Click(object sender, EventArgs e)
         {
@@ -224,27 +60,140 @@ namespace Trabalho_WhatsApp_Marketing.View
             {
                 Process.Start("Explorer", pathImagem);
             }
-            catch 
+            catch
             {
                 MessageBox.Show("Erro: Caminho da pasta não Encontrado", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
-        }
-        private void btnNovoEnvio_Click(object sender, EventArgs e)
-        {
-            WhatsApp.OpenApp(ListaEmuladores[contatorEmulador].udid);
         }
         private void btnEnviar_Click(object sender, EventArgs e)
         {
-            Envio();
-        }
-
-
-        #endregion
-
-        private void btnTeste_Click(object sender, EventArgs e)
-        {
+            var listaContatos = Banco.Tb_contato_email.RetornoCompletoParaEnvio();
+            bool Continuar = true;
+            string messagemFinal = string.Empty;
+            int Enviado = 0;
+            int Limite = 50; 
            
+            
+            bool AbrirApp = true;
+           
+            bool EntrarNaConversa = true;
+            bool EnviarCompartilhamento = false;
+
+            if (listaContatos.Count > 0)
+            {
+                WhatsApp.OpenApp();
+                WhatsApp.ResolverBackupTermos();
+                WhatsApp.ClicarContatos();
+                WhatsApp.ClicarLupaProcurarContatos();
+                while (true)
+                {
+                    WhatsApp.DigitarBarraPesquisarContatos(listaContatos[0].telefone);
+                    if (WhatsApp.ContatoEncontrado() == false)
+                    {
+                        WhatsApp.LimparBarraPesquisarContatos();
+                        Banco.Tb_contato.Deletar(listaContatos[0].telefone);
+                        Banco.Tb_contato_email.Desabilitar(listaContatos[0]);
+                        listaContatos.RemoveAt(0);
+                        if (listaContatos.Count == 0)
+                        {
+                            Continuar = false;
+                            messagemFinal = "Terminou os Contatos";
+                            break;
+                        }
+                    }
+                }
+
+                //Primeiro Envio
+                if (Continuar)
+                {
+                    WhatsApp.ClicarEmContatoEncontrato();
+                    WhatsApp.EnvioDentroDaConversa();
+                    Enviado++;
+                    Banco.Tb_contato_email.SetWhatsApp(listaContatos[0]);
+                    listaContatos.RemoveAt(0);
+                    if (listaContatos.Count == 0)
+                    {
+                        Continuar = false;
+                        messagemFinal = "Terminou os Contatos";
+                    }
+                }
+
+                //Compartilhamento
+                if (Continuar)
+                {
+                    WhatsApp.CompartilharDentroDaConversa();
+                    int compartilhar = 0;
+
+                    while (true)
+                    {
+                        WhatsApp.DigitarBarraPesquisarContatos(listaContatos[0].telefone);
+
+                        if (WhatsApp.ContatoEncontrado() == false)
+                        {
+                            WhatsApp.LimparBarraPesquisarContatos();
+                            Banco.Tb_contato.Deletar(listaContatos[0].telefone);
+                            Banco.Tb_contato_email.Desabilitar(listaContatos[0]);
+                            listaContatos.RemoveAt(0);
+                        }
+                        else
+                        {
+                            WhatsApp.ClicarEmContatoEncontrato();
+                            WhatsApp.LimparBarraPesquisarContatos();
+                            compartilhar++;
+                            Enviado++;
+                            Banco.Tb_contato_email.SetWhatsApp(listaContatos[0]);
+                            listaContatos.RemoveAt(0);
+                        }
+
+                        if (listaContatos.Count == 0)
+                        {
+                            Continuar = false;
+                            messagemFinal = "Terminou os Contatos";
+                            if (compartilhar > 0)
+                            {
+                                WhatsApp.ClicarEnviar();
+                            }
+                            WhatsApp.Close();
+                            break;
+                        }
+                        else
+                        {
+                            if (Enviado==Limite)
+                            {
+                                if (compartilhar > 0)
+                                {
+                                    WhatsApp.ClicarEnviar();
+                                }
+                                WhatsApp.Close();
+                                break;
+                            }
+                            else
+                            {
+                                if (compartilhar==5)
+                                {
+                                    WhatsApp.ClicarEnviar();
+                                    compartilhar = 0;
+                                    WhatsApp.CompartilharDentroDaMidia();
+                                }
+                            }
+                        }
+                    }
+                }
+
+                //Bussiness
+                if (Continuar)
+                {
+
+                }
+
+
+                if (Continuar == false)
+                {
+                    //final do evento
+                    MessageBox.Show(messagemFinal);
+                }
+            }
         }
+        #endregion
     }
 }

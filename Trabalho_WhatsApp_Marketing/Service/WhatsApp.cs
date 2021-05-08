@@ -16,7 +16,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
     {
         private static AppiumDriver<AndroidElement> Driver;
         
-        //Funções Bases
+        //Funções Base
         public static void OpenApp(string udid, int timeOutInSeconds = 600)
         {
             try
@@ -37,6 +37,26 @@ namespace Trabalho_WhatsApp_Marketing.Service
 
             }
         }
+        public static void OpenApp(int timeOutInSeconds = 600)
+        {
+            try
+            {
+
+                var appOptions = new AppiumOptions();
+                appOptions.AddAdditionalCapability("platformName", "android");
+                appOptions.AddAdditionalCapability("noReset", "true");
+                appOptions.AddAdditionalCapability("platformVersion", "7.1.2");
+                appOptions.AddAdditionalCapability("appPackage", "com.whatsapp");
+                appOptions.AddAdditionalCapability("appActivity", "com.whatsapp.HomeActivity");
+                //appOptions.AddAdditionalCapability("udid", udid);
+                appOptions.AddAdditionalCapability("newCommandTimeout", 0);
+                Driver = new AndroidDriver<AndroidElement>(new Uri("http://127.0.0.1:4723/wd/hub"), appOptions, TimeSpan.FromSeconds(timeOutInSeconds));
+            }
+            catch
+            {
+
+            }
+        }
         public static void Close()
         {
             try
@@ -45,7 +65,6 @@ namespace Trabalho_WhatsApp_Marketing.Service
             }
             catch { }
         }
-        
         //Funções de Tela Conversa
         public static void EntraPrimeiraConversa()
         {
@@ -68,7 +87,6 @@ namespace Trabalho_WhatsApp_Marketing.Service
             }
 
         }
-
         //Funções de Contatos
         public static void ClicarContatos()
         {
@@ -166,7 +184,6 @@ namespace Trabalho_WhatsApp_Marketing.Service
                 MessageBox.Show(e.Message + " ClicarEmContatoEncontrato");
             }
         }
-
         //Funções de Envio Dentro da Conversa
         public static void ClicarVoltar()
         {
@@ -435,8 +452,20 @@ namespace Trabalho_WhatsApp_Marketing.Service
             }
 
         }
+        public static void CompartilharDentroDaMidia()
+        {
+            try
+            {
+                SelecionarImagensPictures();
+                ClicarCompartilhar();
+                ClicarLupaProcurarContatos();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message + " CompartilharDentroDaConversa");
+            }
 
-
+        }
         //Funções de Banckup -- Politica e Termos
         public static bool VerificarBackup()
         {
@@ -520,18 +549,6 @@ namespace Trabalho_WhatsApp_Marketing.Service
             }
             catch { }
         }
-
-
-
-
-
-
-
-
-
-
-
-
         public static void Teste()
         {
             try
