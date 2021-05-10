@@ -239,6 +239,35 @@ namespace Trabalho_WhatsApp_Marketing.Dao
             /// Retorna Todos os registros para envio  da Tabela
             /// </summary>
             /// <returns></returns>
+            public static List<Tb_contato_email_Model> RetornoCompletoEnviado()
+            {
+
+                if (conexao.State == ConnectionState.Closed)
+                {
+                    conexao.Open();
+                }
+                SQLiteCommand cmd = new SQLiteCommand("SELECT * from tb_contato_email WHERE whatsapp = 1 OR business = 1 AND habilitado = 1  order by id asc", conexao);
+                SQLiteDataAdapter sQLiteDataAdapter = new SQLiteDataAdapter(cmd);
+                DataTable dtLista = new DataTable();
+                sQLiteDataAdapter.Fill(dtLista);
+                List<Tb_contato_email_Model> ltFinal = new List<Tb_contato_email_Model>();
+                foreach (DataRow dataRow in dtLista.Rows)
+                {
+                    Tb_contato_email_Model newTb_contato_email_Model = new Tb_contato_email_Model();
+                    newTb_contato_email_Model.id = Convert.ToInt32(dataRow["id"]);
+                    newTb_contato_email_Model.telefone = Convert.ToString(dataRow["telefone"]);
+                    newTb_contato_email_Model.emulador = Convert.ToString(dataRow["emulador"]);
+                    newTb_contato_email_Model.whatsapp = Convert.ToInt32(dataRow["whatsapp"]);
+                    newTb_contato_email_Model.business = Convert.ToInt32(dataRow["business"]);
+                    newTb_contato_email_Model.habilitado = Convert.ToInt32(dataRow["habilitado"]);
+                    ltFinal.Add(newTb_contato_email_Model);
+                }
+                return ltFinal;
+            }
+            /// <summary>
+            /// Retorna Todos os registros para envio  da Tabela
+            /// </summary>
+            /// <returns></returns>
             public static List<Tb_contato_email_Model> RetornoCompletoParaEnvio()
             {
 
@@ -247,6 +276,35 @@ namespace Trabalho_WhatsApp_Marketing.Dao
                     conexao.Open();
                 }
                 SQLiteCommand cmd = new SQLiteCommand("SELECT * from tb_contato_email WHERE whatsapp = 0 AND business = 0 AND habilitado = 1  order by id asc", conexao);
+                SQLiteDataAdapter sQLiteDataAdapter = new SQLiteDataAdapter(cmd);
+                DataTable dtLista = new DataTable();
+                sQLiteDataAdapter.Fill(dtLista);
+                List<Tb_contato_email_Model> ltFinal = new List<Tb_contato_email_Model>();
+                foreach (DataRow dataRow in dtLista.Rows)
+                {
+                    Tb_contato_email_Model newTb_contato_email_Model = new Tb_contato_email_Model();
+                    newTb_contato_email_Model.id = Convert.ToInt32(dataRow["id"]);
+                    newTb_contato_email_Model.telefone = Convert.ToString(dataRow["telefone"]);
+                    newTb_contato_email_Model.emulador = Convert.ToString(dataRow["emulador"]);
+                    newTb_contato_email_Model.whatsapp = Convert.ToInt32(dataRow["whatsapp"]);
+                    newTb_contato_email_Model.business = Convert.ToInt32(dataRow["business"]);
+                    newTb_contato_email_Model.habilitado = Convert.ToInt32(dataRow["habilitado"]);
+                    ltFinal.Add(newTb_contato_email_Model);
+                }
+                return ltFinal;
+            }
+            /// <summary>
+            /// Retorna Todos os registros para envio  da Tabela
+            /// </summary>
+            /// <returns></returns>
+            public static List<Tb_contato_email_Model> RetornoCompletoDesabilitado()
+            {
+
+                if (conexao.State == ConnectionState.Closed)
+                {
+                    conexao.Open();
+                }
+                SQLiteCommand cmd = new SQLiteCommand("SELECT * from tb_contato_email WHERE habilitado = 0  order by id asc", conexao);
                 SQLiteDataAdapter sQLiteDataAdapter = new SQLiteDataAdapter(cmd);
                 DataTable dtLista = new DataTable();
                 sQLiteDataAdapter.Fill(dtLista);
