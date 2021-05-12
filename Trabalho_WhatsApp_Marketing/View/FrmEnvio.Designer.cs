@@ -68,6 +68,8 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.label15 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
+            this.btnNovoEnvio = new System.Windows.Forms.Button();
+            this.btnCriarImagem = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -419,12 +421,13 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.txtMensagen.Location = new System.Drawing.Point(13, 43);
             this.txtMensagen.Multiline = true;
             this.txtMensagen.Name = "txtMensagen";
-            this.txtMensagen.Size = new System.Drawing.Size(338, 86);
+            this.txtMensagen.Size = new System.Drawing.Size(338, 60);
             this.txtMensagen.TabIndex = 72;
             this.txtMensagen.Text = "Mensagem de Teste não Responda";
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnCriarImagem);
             this.groupBox3.Controls.Add(this.panel4);
             this.groupBox3.Controls.Add(this.txtMensagen);
             this.groupBox3.Location = new System.Drawing.Point(328, 74);
@@ -522,11 +525,42 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.label13.TabIndex = 45;
             this.label13.Text = "Imagem";
             // 
+            // btnNovoEnvio
+            // 
+            this.btnNovoEnvio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(39)))), ((int)(((byte)(100)))));
+            this.btnNovoEnvio.FlatAppearance.BorderSize = 0;
+            this.btnNovoEnvio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNovoEnvio.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNovoEnvio.ForeColor = System.Drawing.Color.White;
+            this.btnNovoEnvio.Location = new System.Drawing.Point(328, 370);
+            this.btnNovoEnvio.Name = "btnNovoEnvio";
+            this.btnNovoEnvio.Size = new System.Drawing.Size(370, 50);
+            this.btnNovoEnvio.TabIndex = 76;
+            this.btnNovoEnvio.Text = "Novo Envio";
+            this.btnNovoEnvio.UseVisualStyleBackColor = false;
+            this.btnNovoEnvio.Click += new System.EventHandler(this.btnNovoEnvio_Click);
+            // 
+            // btnCriarImagem
+            // 
+            this.btnCriarImagem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(39)))), ((int)(((byte)(100)))));
+            this.btnCriarImagem.FlatAppearance.BorderSize = 0;
+            this.btnCriarImagem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCriarImagem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCriarImagem.ForeColor = System.Drawing.Color.White;
+            this.btnCriarImagem.Location = new System.Drawing.Point(13, 109);
+            this.btnCriarImagem.Name = "btnCriarImagem";
+            this.btnCriarImagem.Size = new System.Drawing.Size(338, 27);
+            this.btnCriarImagem.TabIndex = 77;
+            this.btnCriarImagem.Text = "Criar Imagem";
+            this.btnCriarImagem.UseVisualStyleBackColor = false;
+            this.btnCriarImagem.Click += new System.EventHandler(this.btnCriarImagem_Click);
+            // 
             // FrmEnvio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(725, 598);
+            this.Controls.Add(this.btnNovoEnvio);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -602,5 +636,7 @@ namespace Trabalho_WhatsApp_Marketing.View
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label lblMensagensRestantes;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnNovoEnvio;
+        private System.Windows.Forms.Button btnCriarImagem;
     }
 }

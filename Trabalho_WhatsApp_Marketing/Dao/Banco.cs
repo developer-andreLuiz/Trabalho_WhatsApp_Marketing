@@ -412,6 +412,21 @@ namespace Trabalho_WhatsApp_Marketing.Dao
             /// Atualiza registros na tabela
             /// </summary>
             /// <param name="tb_Contatos_Model"></param>
+            public static void Desabilitar(string telefone)
+            {
+                if (conexao.State == ConnectionState.Closed)
+                {
+                    conexao.Open();
+                }
+                SQLiteCommand cmd = new SQLiteCommand("update tb_contato_email set habilitado = @habilitado where telefone = @telefone", conexao);
+                cmd.Parameters.AddWithValue("telefone", telefone);
+                cmd.Parameters.AddWithValue("habilitado", 0);
+                cmd.ExecuteNonQuery();
+            }
+            /// <summary>
+            /// Atualiza registros na tabela
+            /// </summary>
+            /// <param name="tb_Contatos_Model"></param>
             public static void SetWhatsApp(Tb_contato_email_Model tb_contato_email_Model)
             {
                 if (conexao.State == ConnectionState.Closed)

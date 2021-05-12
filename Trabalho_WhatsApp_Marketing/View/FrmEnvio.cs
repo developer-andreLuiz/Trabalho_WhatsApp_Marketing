@@ -13,15 +13,18 @@ using System.Diagnostics;
 using System.IO;
 using Trabalho_WhatsApp_Marketing.Service;
 using System.Threading;
+using System.Drawing.Imaging;
 
 namespace Trabalho_WhatsApp_Marketing.View
 {
     public partial class FrmEnvio : Form
     {
-        //1000 envios em  2h 20 minutos
+        //100 envios em  15 minutos
+        //400 envios por 1 hora
+        //4000 envios por 10 horas
+        //08:00 - 18:00 = 10 horas
         #region Variaveis
         string pathImagem = @"C:\Users\Public\Pictures"; //camilho da pasta de imgs
-        List<string> ListaTeste = new List<string>();//lista provosória para teste
         #endregion
         #region Funções
         void ExibirInformacoes()
@@ -70,17 +73,6 @@ namespace Trabalho_WhatsApp_Marketing.View
         public FrmEnvio()
         {
             InitializeComponent();
-            ListaTeste.Add("21984757079");
-            ListaTeste.Add("21970122979");
-            ListaTeste.Add("21993907972");
-            ListaTeste.Add("21984989288");
-            ListaTeste.Add("21985423027");
-            ListaTeste.Add("21985844377");
-            ListaTeste.Add("21987788440");
-            ListaTeste.Add("21988164726");
-            ListaTeste.Add("21988369042");
-            ListaTeste.Add("21988406076");
-            ListaTeste.Add("21989143626");
             ExibirInformacoes();
             ExibirStatus();
         }
@@ -107,6 +99,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             {
                 WhatsApp.OpenApp();
                 WhatsApp.ResolverBackupTermos();
+                WhatsApp.ApagarConversas();
                 WhatsApp.ClicarContatos();
                 WhatsApp.ClicarLupaProcurarContatos();
                 while (true)
@@ -124,6 +117,10 @@ namespace Trabalho_WhatsApp_Marketing.View
                             messagemFinal = "Terminou os Contatos";
                             break;
                         }
+                    }
+                    else
+                    {
+                        break;
                     }
                 }
                 //Primeiro Envio
@@ -206,13 +203,13 @@ namespace Trabalho_WhatsApp_Marketing.View
                         messagemFinal = "Terminou os Contatos";
                     }
                 }
-                
                 //Bussiness
                 if (Continuar)
                 {
                     Enviado = 0;
                     WhatsAppBusiness.OpenApp();
                     WhatsAppBusiness.ResolverBackupTermos();
+                    WhatsAppBusiness.ApagarConversas();
                     WhatsAppBusiness.ClicarContatos();
                     WhatsAppBusiness.ClicarLupaProcurarContatos();
                     while (true)
@@ -230,6 +227,10 @@ namespace Trabalho_WhatsApp_Marketing.View
                                 messagemFinal = "Terminou os Contatos";
                                 break;
                             }
+                        }
+                        else
+                        {
+                            break;
                         }
                     }
                     //Primeiro Envio
@@ -320,10 +321,63 @@ namespace Trabalho_WhatsApp_Marketing.View
                     MessageBox.Show(messagemFinal);
                     //
                 }
+                else
+                {
+                    if (listaContatos.Count==0)
+                    {
+                        Banco.Tb_contato_email.Resetar();
+                    }
+                    MessageBox.Show("Processo Finalizado");
+
+                }
+            }
+            else
+            {
+                if (listaContatos.Count == 0)
+                {
+                    Banco.Tb_contato_email.Resetar();
+                }
+                MessageBox.Show("Tabela de Envio Resetada");
             }
             ExibirInformacoes();
             ExibirStatus();
         }
+        private void btnNovoEnvio_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja Iniciar um Novo Envio ? Todo o histório de envios será deletado.", "Novo Envio", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Banco.Tb_contato_email.Resetar();
+                ExibirInformacoes();
+                ExibirStatus();
+            }
+
+        }
+        private void btnCriarImagem_Click(object sender, EventArgs e)
+        {
+            Bitmap imagem = CriarImagemService.ConvertTextToImage(txtMensagen.Text, "Times New Roman", 10, Color.White, Color.Black, 300, 100);
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "JPeg Image|*.jpg";
+            saveFileDialog1.FilterIndex = 2; //define o padrão como sendo bitmap
+            saveFileDialog1.Title = "Salvar arquivo imagem";
+            saveFileDialog1.FileName = "img";
+            saveFileDialog1.ShowDialog();
+            if (!string.IsNullOrWhiteSpace(saveFileDialog1.FileName))
+            {
+                FileStream fs = (FileStream)saveFileDialog1.OpenFile();
+                Image image = (Image)imagem;
+                imagem.Save(fs, ImageFormat.Jpeg);
+
+                MessageBox.Show("Arquivo imagem salvo com sucesso", "Imagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //fecha arquivo
+                fs.Close();
+            }
+            else
+            {
+                MessageBox.Show("Arquivo inválido", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         #endregion
+
+
     }
 }

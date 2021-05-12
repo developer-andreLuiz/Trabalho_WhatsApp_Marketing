@@ -91,6 +91,7 @@
     <Compile Include="Model\Tb_municipio_Model.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\CriarImagemService.cs" />
     <Compile Include="Service\ExcelService.cs" />
     <Compile Include="Service\FolderService.cs" />
     <Compile Include="Service\Global.cs" />

@@ -136,6 +136,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
         }
         public static bool ContatoEncontrado()
         {
+            //nenhum resultado para o numero xxxxxx tem q melhorar 
             bool retorno = true;
             try
             {
@@ -144,6 +145,20 @@ namespace Trabalho_WhatsApp_Marketing.Service
                 if (btn != null)
                 {
                     retorno = false;
+                }
+            }
+            catch { }
+            try
+            {
+                Thread.Sleep(TimeSpan.FromSeconds(1));
+                var txt = Driver.FindElement(By.XPath("//android.widget.TextView[@resource-id='com.whatsapp.w4b:id/contactpicker_row_name']"));
+                if (txt != null)
+                {
+                    if (txt.Text.Contains("Sem resultados para"))
+                    {
+                        retorno = false;
+                    }
+
                 }
             }
             catch { }
@@ -547,6 +562,119 @@ namespace Trabalho_WhatsApp_Marketing.Service
             }
             catch { }
         }
+        //Função de Deletar Conversa
+        public static void SelecionarConversa1()
+        {
+            try
+            {
+                Thread.Sleep(TimeSpan.FromSeconds(1));
+                var all_Conversas = Driver.FindElementsByXPath("//android.widget.RelativeLayout[@resource-id='com.whatsapp.w4b:id/contact_row_container']");
+                TouchAction touch = new TouchAction(Driver);
+                bool p = false;
+                foreach (AndroidElement conversa in all_Conversas)
+                {
+                    if (p == false)
+                    {
+                        touch.LongPress(conversa).Perform();
+                        Thread.Sleep(TimeSpan.FromSeconds(1));
+                        p = true;
+                        break;
+
+                    }
+                    else
+                    {
+                        conversa.Click();
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+
+                //MessageBox.Show(e.Message + " SelecionarConversa1");
+            }
+
+        }
+        public static void ClicarMaisOpcoes()
+        {
+            try
+            {
+                Thread.Sleep(TimeSpan.FromSeconds(1));
+                var btn = Driver.FindElement(By.XPath("//android.widget.ImageView[@content-desc='Mais opções']"));
+                if (btn != null)
+                {
+                    btn.Click();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message + " ClicarMaisOpcoes");
+            }
+        }
+        public static void ClicarSelecionarTodas()
+        {
+            try
+            {
+                Thread.Sleep(TimeSpan.FromSeconds(1));
+                var btn = Driver.FindElement(By.XPath("//android.widget.TextView[@text='Selecionar todas']"));
+                if (btn != null)
+                {
+                    btn.Click();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message + " ClicarSelecionarTodas");
+            }
+        }
+        public static void ClicarApagarConversas()
+        {
+            try
+            {
+                Thread.Sleep(TimeSpan.FromSeconds(1));
+                var btn = Driver.FindElement(By.XPath("//android.widget.TextView[@resource-id='com.whatsapp.w4b:id/menuitem_conversations_delete']"));
+                if (btn != null)
+                {
+                    btn.Click();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message + " ClicarApagarConversas");
+            }
+        }
+        public static void ClicarApagar()
+        {
+            try
+            {
+                Thread.Sleep(TimeSpan.FromSeconds(1));
+                var btn = Driver.FindElement(By.XPath("//android.widget.Button[@resource-id='android:id/button1']"));
+                if (btn != null)
+                {
+                    btn.Click();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message + " ClicarApagar");
+            }
+        }
+        public static void ApagarConversas()
+        {
+            SelecionarConversa1();
+            ClicarMaisOpcoes();
+            ClicarSelecionarTodas();
+            ClicarApagarConversas();
+            ClicarApagar();
+
+        }
+
+
+
+
+
+
+
         public static void Teste()
         {
             try

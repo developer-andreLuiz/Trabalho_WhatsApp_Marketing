@@ -370,7 +370,18 @@ namespace Trabalho_WhatsApp_Marketing.View
             {
                 if (MessageBox.Show("Deseja Excluir este Regitro ?", "Deletar Número", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    Banco.Tb_contato.Deletar(Banco.Tb_contato.Retorno(Convert.ToInt32(lblId.Text)));
+                    Tb_contato_Model contato = Banco.Tb_contato.Retorno(Convert.ToInt32(lblId.Text));
+                    Banco.Tb_contato.Deletar(contato);
+                    try
+                    {
+                        Banco.Tb_contato_email.Desabilitar(contato.telefone);
+                    }
+                    catch { }
+                    
+                    
+
+
+
                     InicioInterface();
                     LimparInterface();
                     ltContatosCompleto = Banco.Tb_contato.RetornoCompleto();
