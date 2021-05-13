@@ -563,14 +563,16 @@ namespace Trabalho_WhatsApp_Marketing.Service
             catch { }
         }
         //Função de Deletar Conversa
-        public static void SelecionarConversa1()
+        public static int SelecionarConversa1()
         {
+            int r = 0;
             try
             {
                 Thread.Sleep(TimeSpan.FromSeconds(1));
                 var all_Conversas = Driver.FindElementsByXPath("//android.widget.RelativeLayout[@resource-id='com.whatsapp.w4b:id/contact_row_container']");
                 TouchAction touch = new TouchAction(Driver);
                 bool p = false;
+                r = all_Conversas.Count;
                 foreach (AndroidElement conversa in all_Conversas)
                 {
                     if (p == false)
@@ -593,7 +595,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
 
                 //MessageBox.Show(e.Message + " SelecionarConversa1");
             }
-
+            return r;
         }
         public static void ClicarMaisOpcoes()
         {
@@ -661,11 +663,15 @@ namespace Trabalho_WhatsApp_Marketing.Service
         }
         public static void ApagarConversas()
         {
-            SelecionarConversa1();
-            ClicarMaisOpcoes();
-            ClicarSelecionarTodas();
-            ClicarApagarConversas();
-            ClicarApagar();
+            if (SelecionarConversa1()>0)
+            {
+                ClicarMaisOpcoes();
+                ClicarSelecionarTodas();
+                ClicarApagarConversas();
+                ClicarApagar();
+            }
+            
+           
 
         }
 

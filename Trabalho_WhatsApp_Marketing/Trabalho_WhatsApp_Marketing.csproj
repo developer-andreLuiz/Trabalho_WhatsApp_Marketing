@@ -95,6 +95,7 @@
     <Compile Include="Service\ExcelService.cs" />
     <Compile Include="Service\FolderService.cs" />
     <Compile Include="Service\Global.cs" />
+    <Compile Include="Service\InternetService.cs" />
     <Compile Include="Service\ProgramService.cs" />
     <Compile Include="Service\WhatsApp.cs" />
     <Compile Include="Service\WhatsAppBusiness.cs" />

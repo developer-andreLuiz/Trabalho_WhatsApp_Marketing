@@ -23,6 +23,10 @@ namespace Trabalho_WhatsApp_Marketing.View
         //400 envios por 1 hora
         //4000 envios por 10 horas
         //08:00 - 18:00 = 10 horas
+
+        
+
+
         #region Variaveis
         string pathImagem = @"C:\Users\Public\Pictures"; //camilho da pasta de imgs
         #endregion
@@ -99,6 +103,8 @@ namespace Trabalho_WhatsApp_Marketing.View
             {
                 WhatsApp.OpenApp();
                 WhatsApp.ResolverBackupTermos();
+                Thread.Sleep(TimeSpan.FromSeconds(5));
+                InternetService.Desabilitar();
                 WhatsApp.ApagarConversas();
                 WhatsApp.ClicarContatos();
                 WhatsApp.ClicarLupaProcurarContatos();
@@ -123,12 +129,16 @@ namespace Trabalho_WhatsApp_Marketing.View
                         break;
                     }
                 }
+              
                 //Primeiro Envio
                 if (Continuar)
                 {
                     WhatsApp.ClicarEmContatoEncontrato();
                     WhatsApp.EnvioDentroDaConversa();
                     Enviado++;
+                    InternetService.Habilitar();
+                    Thread.Sleep(TimeSpan.FromSeconds(3));
+                    InternetService.Desabilitar();
                     Banco.Tb_contato_email.SetWhatsApp(listaContatos[0]);
                     listaContatos.RemoveAt(0);
                     if (listaContatos.Count == 0)
@@ -171,6 +181,9 @@ namespace Trabalho_WhatsApp_Marketing.View
                             if (compartilhar > 0)
                             {
                                 WhatsApp.ClicarEnviar();
+                                InternetService.Habilitar();
+                                Thread.Sleep(TimeSpan.FromSeconds(3));
+                                InternetService.Desabilitar();
                             }
                             WhatsApp.Close();
                             break;
@@ -182,6 +195,9 @@ namespace Trabalho_WhatsApp_Marketing.View
                                 if (compartilhar > 0)
                                 {
                                     WhatsApp.ClicarEnviar();
+                                    InternetService.Habilitar();
+                                    Thread.Sleep(TimeSpan.FromSeconds(3));
+                                    InternetService.Desabilitar();
                                 }
                                 WhatsApp.Close();
                                 break;
@@ -191,6 +207,9 @@ namespace Trabalho_WhatsApp_Marketing.View
                                 if (compartilhar==5)
                                 {
                                     WhatsApp.ClicarEnviar();
+                                    InternetService.Habilitar();
+                                    Thread.Sleep(TimeSpan.FromSeconds(3));
+                                    InternetService.Desabilitar();
                                     compartilhar = 0;
                                     WhatsApp.CompartilharDentroDaMidia();
                                 }
@@ -203,12 +222,16 @@ namespace Trabalho_WhatsApp_Marketing.View
                         messagemFinal = "Terminou os Contatos";
                     }
                 }
+             
+                
                 //Bussiness
                 if (Continuar)
                 {
                     Enviado = 0;
                     WhatsAppBusiness.OpenApp();
                     WhatsAppBusiness.ResolverBackupTermos();
+                    Thread.Sleep(TimeSpan.FromSeconds(5));
+                    InternetService.Desabilitar();
                     WhatsAppBusiness.ApagarConversas();
                     WhatsAppBusiness.ClicarContatos();
                     WhatsAppBusiness.ClicarLupaProcurarContatos();
@@ -239,6 +262,9 @@ namespace Trabalho_WhatsApp_Marketing.View
                         WhatsAppBusiness.ClicarEmContatoEncontrato();
                         WhatsAppBusiness.EnvioDentroDaConversa();
                         Enviado++;
+                        InternetService.Habilitar();
+                        Thread.Sleep(TimeSpan.FromSeconds(3));
+                        InternetService.Desabilitar();
                         Banco.Tb_contato_email.SetWhatsApp(listaContatos[0]);
                         listaContatos.RemoveAt(0);
                         if (listaContatos.Count == 0)
@@ -280,6 +306,9 @@ namespace Trabalho_WhatsApp_Marketing.View
                                 if (compartilhar > 0)
                                 {
                                     WhatsAppBusiness.ClicarEnviar();
+                                    InternetService.Habilitar();
+                                    Thread.Sleep(TimeSpan.FromSeconds(3));
+                                    InternetService.Desabilitar();
                                 }
                                 WhatsAppBusiness.Close();
                                 break;
@@ -291,6 +320,9 @@ namespace Trabalho_WhatsApp_Marketing.View
                                     if (compartilhar > 0)
                                     {
                                         WhatsAppBusiness.ClicarEnviar();
+                                        InternetService.Habilitar();
+                                        Thread.Sleep(TimeSpan.FromSeconds(3));
+                                        InternetService.Desabilitar();
                                     }
                                     WhatsAppBusiness.Close();
                                     break;
@@ -300,6 +332,9 @@ namespace Trabalho_WhatsApp_Marketing.View
                                     if (compartilhar == 5)
                                     {
                                         WhatsAppBusiness.ClicarEnviar();
+                                        InternetService.Habilitar();
+                                        Thread.Sleep(TimeSpan.FromSeconds(3));
+                                        InternetService.Desabilitar();
                                         compartilhar = 0;
                                         WhatsAppBusiness.CompartilharDentroDaMidia();
                                     }
@@ -341,6 +376,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             }
             ExibirInformacoes();
             ExibirStatus();
+            InternetService.Habilitar();
         }
         private void btnNovoEnvio_Click(object sender, EventArgs e)
         {
@@ -376,8 +412,9 @@ namespace Trabalho_WhatsApp_Marketing.View
                 MessageBox.Show("Arquivo inválido", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         #endregion
 
-
+       
     }
 }

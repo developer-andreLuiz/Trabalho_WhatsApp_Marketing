@@ -60,6 +60,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.label25 = new System.Windows.Forms.Label();
             this.txtMensagen = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnCriarImagem = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label27 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -69,7 +70,8 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.panel5 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.btnNovoEnvio = new System.Windows.Forms.Button();
-            this.btnCriarImagem = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -436,6 +438,21 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.groupBox3.TabIndex = 74;
             this.groupBox3.TabStop = false;
             // 
+            // btnCriarImagem
+            // 
+            this.btnCriarImagem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(39)))), ((int)(((byte)(100)))));
+            this.btnCriarImagem.FlatAppearance.BorderSize = 0;
+            this.btnCriarImagem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCriarImagem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCriarImagem.ForeColor = System.Drawing.Color.White;
+            this.btnCriarImagem.Location = new System.Drawing.Point(13, 109);
+            this.btnCriarImagem.Name = "btnCriarImagem";
+            this.btnCriarImagem.Size = new System.Drawing.Size(338, 27);
+            this.btnCriarImagem.TabIndex = 77;
+            this.btnCriarImagem.Text = "Criar Imagem";
+            this.btnCriarImagem.UseVisualStyleBackColor = false;
+            this.btnCriarImagem.Click += new System.EventHandler(this.btnCriarImagem_Click);
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(25)))), ((int)(((byte)(51)))));
@@ -540,26 +557,41 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.btnNovoEnvio.UseVisualStyleBackColor = false;
             this.btnNovoEnvio.Click += new System.EventHandler(this.btnNovoEnvio_Click);
             // 
-            // btnCriarImagem
+            // button1
             // 
-            this.btnCriarImagem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(39)))), ((int)(((byte)(100)))));
-            this.btnCriarImagem.FlatAppearance.BorderSize = 0;
-            this.btnCriarImagem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCriarImagem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCriarImagem.ForeColor = System.Drawing.Color.White;
-            this.btnCriarImagem.Location = new System.Drawing.Point(13, 109);
-            this.btnCriarImagem.Name = "btnCriarImagem";
-            this.btnCriarImagem.Size = new System.Drawing.Size(338, 27);
-            this.btnCriarImagem.TabIndex = 77;
-            this.btnCriarImagem.Text = "Criar Imagem";
-            this.btnCriarImagem.UseVisualStyleBackColor = false;
-            this.btnCriarImagem.Click += new System.EventHandler(this.btnCriarImagem_Click);
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(39)))), ((int)(((byte)(100)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(334, 426);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(97, 50);
+            this.button1.TabIndex = 77;
+            this.button1.Text = "-";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(39)))), ((int)(((byte)(100)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(501, 426);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(97, 50);
+            this.button2.TabIndex = 78;
+            this.button2.Text = "+";
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // FrmEnvio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(725, 598);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnNovoEnvio);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -638,5 +670,7 @@ namespace Trabalho_WhatsApp_Marketing.View
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnNovoEnvio;
         private System.Windows.Forms.Button btnCriarImagem;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
