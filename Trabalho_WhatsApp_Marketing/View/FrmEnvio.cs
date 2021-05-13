@@ -230,6 +230,7 @@ namespace Trabalho_WhatsApp_Marketing.View
                     Enviado = 0;
                     WhatsAppBusiness.OpenApp();
                     WhatsAppBusiness.ResolverBackupTermos();
+                    InternetService.Habilitar();
                     Thread.Sleep(TimeSpan.FromSeconds(5));
                     InternetService.Desabilitar();
                     WhatsAppBusiness.ApagarConversas();
