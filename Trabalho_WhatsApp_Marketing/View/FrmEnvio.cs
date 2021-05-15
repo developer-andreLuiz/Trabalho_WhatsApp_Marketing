@@ -19,14 +19,6 @@ namespace Trabalho_WhatsApp_Marketing.View
 {
     public partial class FrmEnvio : Form
     {
-        //100 envios em  15 minutos
-        //400 envios por 1 hora
-        //4000 envios por 10 horas
-        //08:00 - 18:00 = 10 horas
-
-        
-
-
         #region Variaveis
         string pathImagem = @"C:\Users\Public\Pictures"; //camilho da pasta de imgs
         #endregion
@@ -95,16 +87,17 @@ namespace Trabalho_WhatsApp_Marketing.View
         {
             var listaContatos = Banco.Tb_contato_email.RetornoCompletoParaEnvio();
             bool Continuar = true;
-            string messagemFinal = string.Empty;
+            string messagemFinal = "Processo Finalizado";
             int Enviado = 0;
             int Limite = 50;
-           
             if (listaContatos.Count > 0)
             {
                 WhatsApp.OpenApp();
                 WhatsApp.ResolverBackupTermos();
-                Thread.Sleep(TimeSpan.FromSeconds(5));
+                Thread.Sleep(TimeSpan.FromSeconds(3));
+
                 InternetService.Desabilitar();
+
                 WhatsApp.ApagarConversas();
                 WhatsApp.ClicarContatos();
                 WhatsApp.ClicarLupaProcurarContatos();
@@ -222,7 +215,6 @@ namespace Trabalho_WhatsApp_Marketing.View
                         messagemFinal = "Terminou os Contatos";
                     }
                 }
-             
                 
                 //Bussiness
                 if (Continuar)
@@ -230,9 +222,11 @@ namespace Trabalho_WhatsApp_Marketing.View
                     Enviado = 0;
                     WhatsAppBusiness.OpenApp();
                     WhatsAppBusiness.ResolverBackupTermos();
+
                     InternetService.Habilitar();
-                    Thread.Sleep(TimeSpan.FromSeconds(5));
+                    Thread.Sleep(TimeSpan.FromSeconds(3));
                     InternetService.Desabilitar();
+                    
                     WhatsAppBusiness.ApagarConversas();
                     WhatsAppBusiness.ClicarContatos();
                     WhatsAppBusiness.ClicarLupaProcurarContatos();
@@ -350,22 +344,8 @@ namespace Trabalho_WhatsApp_Marketing.View
                     }
                 }
 
-
-                if (Continuar == false)
-                {
-                    ProgramService.CloseEmulador();
-                    MessageBox.Show(messagemFinal);
-                    //
-                }
-                else
-                {
-                    if (listaContatos.Count==0)
-                    {
-                        Banco.Tb_contato_email.Resetar();
-                    }
-                    MessageBox.Show("Processo Finalizado");
-
-                }
+                ProgramService.CloseEmulador();
+                MessageBox.Show(messagemFinal);
             }
             else
             {
@@ -413,9 +393,6 @@ namespace Trabalho_WhatsApp_Marketing.View
                 MessageBox.Show("Arquivo inválido", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         #endregion
-
-       
     }
 }

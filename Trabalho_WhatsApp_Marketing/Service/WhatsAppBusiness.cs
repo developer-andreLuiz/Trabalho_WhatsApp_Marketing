@@ -69,12 +69,12 @@ namespace Trabalho_WhatsApp_Marketing.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 var all_Conversas = Driver.FindElementsByXPath("//*[@class='android.widget.RelativeLayout']");
                 foreach (AndroidElement conversa in all_Conversas)
                 {
                     conversa.Click();
-                    Thread.Sleep(TimeSpan.FromSeconds(1));
+                    Thread.Sleep(TimeSpan.FromMilliseconds(500));
                     break;
                 }
             }
@@ -90,7 +90,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 var btn = Driver.FindElement(By.XPath("//android.widget.ImageButton[@resource-id='com.whatsapp.w4b:id/fab']"));
                 if (btn != null)
                 {
@@ -106,7 +106,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 var btn = Driver.FindElement(By.XPath("//android.widget.TextView[@resource-id='com.whatsapp.w4b:id/menuitem_search']"));
                 if (btn != null)
                 {
@@ -122,7 +122,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 var barra = Driver.FindElement(By.XPath("//android.widget.EditText[@text='Pesquisar…']"));
                 if (barra != null)
                 {
@@ -140,7 +140,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
             bool retorno = true;
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 var btn = Driver.FindElement(By.XPath("//android.widget.Button[@resource-id='com.whatsapp.w4b:id/invite']"));
                 if (btn != null)
                 {
@@ -150,7 +150,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
             catch { }
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                //Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 var txt = Driver.FindElement(By.XPath("//android.widget.TextView[@resource-id='com.whatsapp.w4b:id/contactpicker_row_name']"));
                 if (txt != null)
                 {
@@ -169,7 +169,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 var btn = Driver.FindElement(By.XPath("//android.widget.ImageView[@content-desc='Limpar consulta']"));
                 if (btn != null)
                 {
@@ -185,7 +185,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 var btn = Driver.FindElement(By.XPath("//android.widget.TextView[@resource-id='com.whatsapp.w4b:id/contactpicker_row_name']"));
                 if (btn != null)
                 {
@@ -202,7 +202,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 var btn = Driver.FindElement(By.XPath("//android.widget.ImageView[@resource-id='com.whatsapp.w4b:id/whatsapp_toolbar_home']"));
                 if (btn != null)
                 {
@@ -218,7 +218,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 var btn = Driver.FindElement(By.XPath("//android.widget.ImageButton[@resource-id='com.whatsapp.w4b:id/input_attach_button']"));
                 if (btn != null)
                 {
@@ -234,7 +234,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 var btn = Driver.FindElement(By.XPath("//android.widget.LinearLayout[@resource-id='com.whatsapp.w4b:id/pickfiletype_gallery_holder']"));
                 if (btn != null)
                 {
@@ -250,7 +250,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 var btn = Driver.FindElement(By.XPath("//android.widget.TextView[@text='Pictures']"));
                 if (btn != null)
                 {
@@ -266,7 +266,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 var all_Photos = Driver.FindElementsByXPath("//*[@class='android.widget.ImageView']");
                 TouchAction touch = new TouchAction(Driver);
                 bool p = false;
@@ -275,7 +275,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
                     if (p == false)
                     {
                         touch.LongPress(img).Perform();
-                        Thread.Sleep(TimeSpan.FromSeconds(1));
+                        Thread.Sleep(TimeSpan.FromMilliseconds(500));
                         p = true;
                     }
                     else
@@ -294,7 +294,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 var btn = Driver.FindElement(By.XPath("//android.widget.TextView[@text='OK']"));
                 if (btn != null)
                 {
@@ -310,7 +310,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 var btn = Driver.FindElement(By.XPath("//android.widget.ImageButton[@resource-id='com.whatsapp.w4b:id/send']"));
                 if (btn != null)
                 {
@@ -326,7 +326,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 var txtEdit = Driver.FindElement(By.XPath("//android.widget.EditText[@resource-id='com.whatsapp.w4b:id/entry']"));
                 txtEdit.SendKeys(texto);
             }
@@ -339,7 +339,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 var btn = Driver.FindElement(By.XPath("//android.widget.ImageView[@content-desc='Mais opções']"));
                 if (btn != null)
                 {
@@ -355,7 +355,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 var btn = Driver.FindElement(By.XPath("//android.widget.TextView[@text='Mídia, links e docs']"));
                 if (btn != null)
                 {
@@ -371,7 +371,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 var all_Conversas = Driver.FindElementsByXPath("//*[@class='android.view.ViewGroup']");//ele sempre retorna 2 a mais. a primeira mensagem comeca no count 2
                 TouchAction touch = new TouchAction(Driver);
                 bool p = false;
@@ -383,7 +383,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
                         if (p == false)
                         {
                             touch.LongPress(conversa).Perform();
-                            Thread.Sleep(TimeSpan.FromSeconds(1));
+                            Thread.Sleep(TimeSpan.FromMilliseconds(500));
                             p = true;
                         }
                         else
@@ -404,7 +404,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 var btn = Driver.FindElement(By.XPath("//android.widget.TextView[@resource-id='com.whatsapp.w4b:id/menuitem_forward']"));
                 if (btn != null)
                 {
@@ -420,7 +420,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 var btn = Driver.FindElement(By.XPath("//android.widget.ImageButton[@content-desc='Navegar para cima']"));
                 if (btn != null)
                 {
@@ -485,7 +485,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
             bool retorno = false;
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 var text = Driver.FindElement(By.XPath("//android.widget.TextView[@resource-id='com.whatsapp.w4b:id/settings_gdrive_backup_now_category_title']"));
                 if (text != null)
                 {
@@ -500,7 +500,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 var btn = Driver.FindElement(By.XPath("//android.widget.RadioButton[@text='Nunca']"));
                 if (btn != null)
                 {
@@ -516,7 +516,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 var btn = Driver.FindElement(By.XPath("//android.widget.Button[@resource-id='com.whatsapp.w4b:id/gdrive_new_user_setup_btn']"));
                 if (btn != null)
                 {
@@ -532,7 +532,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 var btn = Driver.FindElement(By.XPath("//android.widget.ImageView[@resource-id='com.whatsapp.w4b:id/cancel']"));
                 if (btn != null)
                 {
@@ -568,7 +568,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
             int r = 0;
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 var all_Conversas = Driver.FindElementsByXPath("//android.widget.RelativeLayout[@resource-id='com.whatsapp.w4b:id/contact_row_container']");
                 TouchAction touch = new TouchAction(Driver);
                 bool p = false;
@@ -578,7 +578,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
                     if (p == false)
                     {
                         touch.LongPress(conversa).Perform();
-                        Thread.Sleep(TimeSpan.FromSeconds(1));
+                        Thread.Sleep(TimeSpan.FromMilliseconds(500));
                         p = true;
                         break;
 
@@ -601,7 +601,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 var btn = Driver.FindElement(By.XPath("//android.widget.ImageView[@content-desc='Mais opções']"));
                 if (btn != null)
                 {
@@ -617,7 +617,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 var btn = Driver.FindElement(By.XPath("//android.widget.TextView[@text='Selecionar todas']"));
                 if (btn != null)
                 {
@@ -633,7 +633,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 var btn = Driver.FindElement(By.XPath("//android.widget.TextView[@resource-id='com.whatsapp.w4b:id/menuitem_conversations_delete']"));
                 if (btn != null)
                 {
@@ -649,7 +649,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromMilliseconds(500));
                 var btn = Driver.FindElement(By.XPath("//android.widget.Button[@resource-id='android:id/button1']"));
                 if (btn != null)
                 {
@@ -669,33 +669,11 @@ namespace Trabalho_WhatsApp_Marketing.Service
                 ClicarSelecionarTodas();
                 ClicarApagarConversas();
                 ClicarApagar();
+                Thread.Sleep(TimeSpan.FromSeconds(8));
             }
             
            
 
-        }
-
-
-
-
-
-
-
-        public static void Teste()
-        {
-            try
-            {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
-                var btn = Driver.FindElement(By.XPath("//android.widget.ImageButton[@resource-id='com.whatsapp.w4b:id/fab']"));
-                if (btn != null)
-                {
-                    btn.Click();
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message + " ClicarContatos1");
-            }
         }
     }
 }
