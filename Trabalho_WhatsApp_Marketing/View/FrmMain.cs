@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Trabalho_WhatsApp_Marketing.Service;
 
 namespace Trabalho_WhatsApp_Marketing.View
 {
@@ -109,8 +110,6 @@ namespace Trabalho_WhatsApp_Marketing.View
             }
 
         }
-
-
         private void btnSair_Click(object sender, EventArgs e)
         {
             Application.Exit();

@@ -670,7 +670,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
                 ClicarSelecionarTodas();
                 ClicarApagarConversas();
                 ClicarApagar();
-                Thread.Sleep(TimeSpan.FromSeconds(8));
+                Thread.Sleep(TimeSpan.FromSeconds(10));
             }
             
            

@@ -71,6 +71,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             InitializeComponent();
             ExibirInformacoes();
             ExibirStatus();
+            InternetService.Habilitar();
         }
         private void btnAbrirPasta_Click(object sender, EventArgs e)
         {
@@ -94,10 +95,8 @@ namespace Trabalho_WhatsApp_Marketing.View
             {
                 WhatsApp.OpenApp();
                 WhatsApp.ResolverBackupTermos();
-                Thread.Sleep(TimeSpan.FromSeconds(3));
-
+                Thread.Sleep(TimeSpan.FromSeconds(10));
                 InternetService.Desabilitar();
-
                 WhatsApp.ApagarConversas();
                 WhatsApp.ClicarContatos();
                 WhatsApp.ClicarLupaProcurarContatos();
@@ -130,7 +129,7 @@ namespace Trabalho_WhatsApp_Marketing.View
                     WhatsApp.EnvioDentroDaConversa();
                     Enviado++;
                     InternetService.Habilitar();
-                    Thread.Sleep(TimeSpan.FromSeconds(3));
+                    Thread.Sleep(TimeSpan.FromSeconds(5));
                     InternetService.Desabilitar();
                     Banco.Tb_contato_email.SetWhatsApp(listaContatos[0]);
                     listaContatos.RemoveAt(0);
@@ -224,7 +223,7 @@ namespace Trabalho_WhatsApp_Marketing.View
                     WhatsAppBusiness.ResolverBackupTermos();
 
                     InternetService.Habilitar();
-                    Thread.Sleep(TimeSpan.FromSeconds(3));
+                    Thread.Sleep(TimeSpan.FromSeconds(10));
                     InternetService.Desabilitar();
                     
                     WhatsAppBusiness.ApagarConversas();
