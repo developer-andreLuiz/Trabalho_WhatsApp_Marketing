@@ -663,17 +663,19 @@ namespace Trabalho_WhatsApp_Marketing.Service
         }
         public static void ApagarConversas()
         {
-            if (SelecionarConversa1()>0)
+            int conversas = SelecionarConversa1();
+            if (conversas > 0)
             {
-                ClicarMaisOpcoes();
-                ClicarSelecionarTodas();
+                if (conversas > 1)
+                {
+                    ClicarMaisOpcoes();
+                    ClicarSelecionarTodas();
+                }
+
                 ClicarApagarConversas();
                 ClicarApagar();
                 Thread.Sleep(TimeSpan.FromSeconds(10));
             }
-            
-           
-
         }
     }
 }

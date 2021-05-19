@@ -58,11 +58,6 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.label24 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label25 = new System.Windows.Forms.Label();
-            this.txtMensagen = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnCriarImagem = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label27 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.lblTotalImagens = new System.Windows.Forms.Label();
             this.btnAbrirPasta = new System.Windows.Forms.Button();
@@ -75,8 +70,6 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
@@ -414,70 +407,13 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.label25.TabIndex = 45;
             this.label25.Text = "Status";
             // 
-            // txtMensagen
-            // 
-            this.txtMensagen.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMensagen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(25)))), ((int)(((byte)(51)))));
-            this.txtMensagen.Location = new System.Drawing.Point(13, 43);
-            this.txtMensagen.Multiline = true;
-            this.txtMensagen.Name = "txtMensagen";
-            this.txtMensagen.Size = new System.Drawing.Size(338, 60);
-            this.txtMensagen.TabIndex = 72;
-            this.txtMensagen.Text = "Mensagem de Teste não Responda";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.btnCriarImagem);
-            this.groupBox3.Controls.Add(this.panel4);
-            this.groupBox3.Controls.Add(this.txtMensagen);
-            this.groupBox3.Location = new System.Drawing.Point(328, 74);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(370, 147);
-            this.groupBox3.TabIndex = 74;
-            this.groupBox3.TabStop = false;
-            // 
-            // btnCriarImagem
-            // 
-            this.btnCriarImagem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(39)))), ((int)(((byte)(100)))));
-            this.btnCriarImagem.FlatAppearance.BorderSize = 0;
-            this.btnCriarImagem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCriarImagem.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCriarImagem.ForeColor = System.Drawing.Color.White;
-            this.btnCriarImagem.Location = new System.Drawing.Point(13, 109);
-            this.btnCriarImagem.Name = "btnCriarImagem";
-            this.btnCriarImagem.Size = new System.Drawing.Size(338, 27);
-            this.btnCriarImagem.TabIndex = 77;
-            this.btnCriarImagem.Text = "Criar Imagem";
-            this.btnCriarImagem.UseVisualStyleBackColor = false;
-            this.btnCriarImagem.Click += new System.EventHandler(this.btnCriarImagem_Click);
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(25)))), ((int)(((byte)(51)))));
-            this.panel4.Controls.Add(this.label27);
-            this.panel4.Location = new System.Drawing.Point(6, 14);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(167, 23);
-            this.panel4.TabIndex = 59;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.ForeColor = System.Drawing.Color.White;
-            this.label27.Location = new System.Drawing.Point(3, 2);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(75, 19);
-            this.label27.TabIndex = 45;
-            this.label27.Text = "Mensagem";
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.lblTotalImagens);
             this.groupBox4.Controls.Add(this.btnAbrirPasta);
             this.groupBox4.Controls.Add(this.label15);
             this.groupBox4.Controls.Add(this.panel5);
-            this.groupBox4.Location = new System.Drawing.Point(328, 227);
+            this.groupBox4.Location = new System.Drawing.Point(328, 74);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(370, 137);
             this.groupBox4.TabIndex = 75;
@@ -488,7 +424,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.lblTotalImagens.AutoSize = true;
             this.lblTotalImagens.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalImagens.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(25)))), ((int)(((byte)(51)))));
-            this.lblTotalImagens.Location = new System.Drawing.Point(99, 66);
+            this.lblTotalImagens.Location = new System.Drawing.Point(197, 59);
             this.lblTotalImagens.Name = "lblTotalImagens";
             this.lblTotalImagens.Size = new System.Drawing.Size(21, 24);
             this.lblTotalImagens.TabIndex = 72;
@@ -501,9 +437,9 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.btnAbrirPasta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAbrirPasta.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAbrirPasta.ForeColor = System.Drawing.Color.White;
-            this.btnAbrirPasta.Location = new System.Drawing.Point(224, 58);
+            this.btnAbrirPasta.Location = new System.Drawing.Point(44, 92);
             this.btnAbrirPasta.Name = "btnAbrirPasta";
-            this.btnAbrirPasta.Size = new System.Drawing.Size(127, 43);
+            this.btnAbrirPasta.Size = new System.Drawing.Size(277, 33);
             this.btnAbrirPasta.TabIndex = 76;
             this.btnAbrirPasta.Text = "Abrir Pasta";
             this.btnAbrirPasta.UseVisualStyleBackColor = false;
@@ -514,7 +450,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(25)))), ((int)(((byte)(51)))));
-            this.label15.Location = new System.Drawing.Point(9, 66);
+            this.label15.Location = new System.Drawing.Point(107, 59);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(66, 19);
             this.label15.TabIndex = 71;
@@ -547,9 +483,9 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.btnNovoEnvio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovoEnvio.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNovoEnvio.ForeColor = System.Drawing.Color.White;
-            this.btnNovoEnvio.Location = new System.Drawing.Point(328, 370);
+            this.btnNovoEnvio.Location = new System.Drawing.Point(328, 442);
             this.btnNovoEnvio.Name = "btnNovoEnvio";
-            this.btnNovoEnvio.Size = new System.Drawing.Size(370, 50);
+            this.btnNovoEnvio.Size = new System.Drawing.Size(370, 34);
             this.btnNovoEnvio.TabIndex = 76;
             this.btnNovoEnvio.Text = "Novo Envio";
             this.btnNovoEnvio.UseVisualStyleBackColor = false;
@@ -562,7 +498,6 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.ClientSize = new System.Drawing.Size(725, 598);
             this.Controls.Add(this.btnNovoEnvio);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
@@ -583,10 +518,6 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.groupBox2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -624,10 +555,6 @@ namespace Trabalho_WhatsApp_Marketing.View
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox txtMensagen;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label27;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label lblTotalImagens;
         private System.Windows.Forms.Button btnAbrirPasta;
@@ -637,6 +564,5 @@ namespace Trabalho_WhatsApp_Marketing.View
         private System.Windows.Forms.Label lblMensagensRestantes;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnNovoEnvio;
-        private System.Windows.Forms.Button btnCriarImagem;
     }
 }

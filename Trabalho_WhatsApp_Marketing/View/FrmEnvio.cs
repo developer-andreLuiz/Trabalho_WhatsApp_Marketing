@@ -81,30 +81,6 @@ namespace Trabalho_WhatsApp_Marketing.View
             }
 
         }
-        private void btnCriarImagem_Click(object sender, EventArgs e)
-        {
-            Bitmap imagem = CriarImagemService.ConvertTextToImage(txtMensagen.Text, "Times New Roman", 10, Color.White, Color.Black, 300, 100);
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            saveFileDialog1.Filter = "JPeg Image|*.jpg";
-            saveFileDialog1.FilterIndex = 2; //define o padrão como sendo bitmap
-            saveFileDialog1.Title = "Salvar arquivo imagem";
-            saveFileDialog1.FileName = "img";
-            saveFileDialog1.ShowDialog();
-            if (!string.IsNullOrWhiteSpace(saveFileDialog1.FileName))
-            {
-                FileStream fs = (FileStream)saveFileDialog1.OpenFile();
-                Image image = (Image)imagem;
-                imagem.Save(fs, ImageFormat.Jpeg);
-
-                MessageBox.Show("Arquivo imagem salvo com sucesso", "Imagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //fecha arquivo
-                fs.Close();
-            }
-            else
-            {
-                MessageBox.Show("Arquivo inválido", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
         private void btnEnviar_Click(object sender, EventArgs e)
         {
             var listaContatos = Banco.Tb_contato_email.RetornoCompletoParaEnvio();
@@ -115,6 +91,8 @@ namespace Trabalho_WhatsApp_Marketing.View
             
             if (listaContatos.Count > 0)
             {
+                //----------------------------------------------------//
+                
                 //Inicio WhatsApp
                 if (Continuar)
                 {
@@ -230,9 +208,7 @@ namespace Trabalho_WhatsApp_Marketing.View
                     }
                 }
                 
-
-
-
+                //----------------------------------------------------//
 
                 //Inicio Bussiness
                 if (Continuar)
@@ -348,6 +324,8 @@ namespace Trabalho_WhatsApp_Marketing.View
                         messagemFinal = "Terminou os Contatos";
                     }
                 }
+
+                //----------------------------------------------------//
 
                 ProgramService.CloseEmulador();
                 ExibirInformacoes();

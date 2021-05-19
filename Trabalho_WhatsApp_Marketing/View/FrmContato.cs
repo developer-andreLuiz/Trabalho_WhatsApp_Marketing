@@ -378,10 +378,6 @@ namespace Trabalho_WhatsApp_Marketing.View
                     }
                     catch { }
                     
-                    
-
-
-
                     InicioInterface();
                     LimparInterface();
                     ltContatosCompleto = Banco.Tb_contato.RetornoCompleto();
@@ -395,6 +391,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             if (MessageBox.Show("Deseja Apagar Todos os Registro de Contatos?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Banco.Tb_contato.Truncate();
+                Banco.Tb_contato_email.Truncate();
                 InicioInterface();
                 LimparInterface();
                 ltContatosCompleto = Banco.Tb_contato.RetornoCompleto();
