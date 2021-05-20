@@ -83,6 +83,7 @@ namespace Trabalho_WhatsApp_Marketing.View
         }
         private void btnEnviar_Click(object sender, EventArgs e)
         {
+            var HoraInicio = DateTime.Now.ToString();
             var listaContatos = Banco.Tb_contato_email.RetornoCompletoParaEnvio();
             bool Continuar = true;
             string messagemFinal = "Processo Finalizado";
@@ -330,7 +331,8 @@ namespace Trabalho_WhatsApp_Marketing.View
                 ProgramService.CloseEmulador();
                 ExibirInformacoes();
                 ExibirStatus();
-                MessageBox.Show(messagemFinal);
+                string HoraFinal= DateTime.Now.ToString();
+                MessageBox.Show(messagemFinal+"    "+HoraInicio+"---"+ HoraFinal);
             }
             else
             {
