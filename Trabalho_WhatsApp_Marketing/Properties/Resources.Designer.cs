@@ -59,5 +59,15 @@ namespace Trabalho_WhatsApp_Marketing.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Icon semelhante a (Ícone).
+        /// </summary>
+        internal static System.Drawing.Icon whatsapp {
+            get {
+                object obj = ResourceManager.GetObject("whatsapp", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
     }
 }

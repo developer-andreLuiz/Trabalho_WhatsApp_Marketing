@@ -21,6 +21,9 @@ namespace Trabalho_WhatsApp_Marketing.View
     {
         #region Variaveis
         string pathImagem = @"C:\Users\Public\Pictures"; //camilho da pasta de imgs
+        Thread thread;
+        bool Finalizado = false;
+
         #endregion
         #region Funções
         void ExibirInformacoes()
@@ -52,48 +55,18 @@ namespace Trabalho_WhatsApp_Marketing.View
             catch { } 
             return total;
         }
-        #endregion
-        #region Eventos
-        public FrmEnvio()
+        void Processo()
         {
-            InitializeComponent();
-            ExibirInformacoes();
-            ExibirStatus();
-        }
-        private void btnAbrirPasta_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Process.Start("Explorer", pathImagem);
-            }
-            catch
-            {
-                MessageBox.Show("Erro: Caminho da pasta não Encontrado", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        private void btnNovoEnvio_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Deseja Iniciar um Novo Envio ? Todo o histório de envios será deletado.", "Novo Envio", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                Banco.Tb_contato_email.Resetar();
-                ExibirInformacoes();
-                ExibirStatus();
-            }
-
-        }
-        private void btnEnviar_Click(object sender, EventArgs e)
-        {
-            var HoraInicio = DateTime.Now.ToString();
+            Finalizado = false;
             var listaContatos = Banco.Tb_contato_email.RetornoCompletoParaEnvio();
-            bool Continuar = true;
-            string messagemFinal = "Processo Finalizado";
-            int Enviado = 0;
-            int Limite = 50;
-            
             if (listaContatos.Count > 0)
             {
+                bool Continuar = true;
+                string mensagemFinal = "Processo Finalizado";
+                int Enviado = 0;
+                int Limite = 50;
                 //----------------------------------------------------//
-                
+
                 //Inicio WhatsApp
                 if (Continuar)
                 {
@@ -116,7 +89,8 @@ namespace Trabalho_WhatsApp_Marketing.View
                             if (listaContatos.Count == 0)
                             {
                                 Continuar = false;
-                                messagemFinal = "Terminou os Contatos";
+                                mensagemFinal = "Terminou os Contatos";
+                                Finalizado = true;
                                 break;
                             }
                         }
@@ -126,7 +100,7 @@ namespace Trabalho_WhatsApp_Marketing.View
                         }
                     }
                 }
-                
+
                 //Primeiro Envio WhatsApp
                 if (Continuar)
                 {
@@ -138,10 +112,11 @@ namespace Trabalho_WhatsApp_Marketing.View
                     if (listaContatos.Count == 0)
                     {
                         Continuar = false;
-                        messagemFinal = "Terminou os Contatos";
+                        mensagemFinal = "Terminou os Contatos";
+                        Finalizado = true;
                     }
                 }
-                
+
                 //Compartilhamento WhatsApp
                 if (Continuar)
                 {
@@ -172,7 +147,8 @@ namespace Trabalho_WhatsApp_Marketing.View
                         if (listaContatos.Count == 0)
                         {
                             Continuar = false;
-                            messagemFinal = "Terminou os Contatos";
+                            mensagemFinal = "Terminou os Contatos";
+                            Finalizado = true;
                             if (compartilhar > 0)
                             {
                                 WhatsApp.ClicarEnviar();
@@ -182,7 +158,7 @@ namespace Trabalho_WhatsApp_Marketing.View
                         }
                         else
                         {
-                            if (Enviado==Limite)
+                            if (Enviado == Limite)
                             {
                                 if (compartilhar > 0)
                                 {
@@ -193,7 +169,7 @@ namespace Trabalho_WhatsApp_Marketing.View
                             }
                             else
                             {
-                                if (compartilhar==5)
+                                if (compartilhar == 5)
                                 {
                                     WhatsApp.ClicarEnviar();
                                     compartilhar = 0;
@@ -205,10 +181,11 @@ namespace Trabalho_WhatsApp_Marketing.View
                     if (listaContatos.Count == 0)
                     {
                         Continuar = false;
-                        messagemFinal = "Terminou os Contatos";
+                        mensagemFinal = "Terminou os Contatos";
+                        Finalizado = true;
                     }
                 }
-                
+
                 //----------------------------------------------------//
 
                 //Inicio Bussiness
@@ -220,7 +197,7 @@ namespace Trabalho_WhatsApp_Marketing.View
                     WhatsAppBusiness.ApagarConversas();
                     WhatsAppBusiness.ClicarContatos();
                     WhatsAppBusiness.ClicarLupaProcurarContatos();
-                    
+
                     //Descobrir Primeiro Numero Com WhatsApp
                     while (true)
                     {
@@ -234,7 +211,8 @@ namespace Trabalho_WhatsApp_Marketing.View
                             if (listaContatos.Count == 0)
                             {
                                 Continuar = false;
-                                messagemFinal = "Terminou os Contatos";
+                                mensagemFinal = "Terminou os Contatos";
+                                Finalizado = true;
                                 break;
                             }
                         }
@@ -256,7 +234,8 @@ namespace Trabalho_WhatsApp_Marketing.View
                     if (listaContatos.Count == 0)
                     {
                         Continuar = false;
-                        messagemFinal = "Terminou os Contatos";
+                        mensagemFinal = "Terminou os Contatos";
+                        Finalizado = true;
                     }
                 }
 
@@ -289,7 +268,8 @@ namespace Trabalho_WhatsApp_Marketing.View
                         if (listaContatos.Count == 0)
                         {
                             Continuar = false;
-                            messagemFinal = "Terminou os Contatos";
+                            mensagemFinal = "Terminou os Contatos";
+                            Finalizado = true;
                             if (compartilhar > 0)
                             {
                                 WhatsAppBusiness.ClicarEnviar();
@@ -322,29 +302,89 @@ namespace Trabalho_WhatsApp_Marketing.View
                     if (listaContatos.Count == 0)
                     {
                         Continuar = false;
-                        messagemFinal = "Terminou os Contatos";
+                        mensagemFinal = "Terminou os Contatos";
                     }
                 }
 
                 //----------------------------------------------------//
 
                 ProgramService.CloseEmulador();
-                ExibirInformacoes();
-                ExibirStatus();
-                string HoraFinal= DateTime.Now.ToString();
-                MessageBox.Show(messagemFinal+"    "+HoraInicio+"---"+ HoraFinal);
             }
             else
             {
                 if (MessageBox.Show("Deseja Iniciar um Novo Envio ? Todo o histório de envios será deletado.", "Novo Envio", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     Banco.Tb_contato_email.Resetar();
-                    ExibirInformacoes();
-                    ExibirStatus();
+
                 }
             }
         }
-       
         #endregion
+        #region Eventos
+        public FrmEnvio()
+        {
+            InitializeComponent();
+            ExibirInformacoes();
+            ExibirStatus();
+        }
+        private void btnAbrirPasta_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Process.Start("Explorer", pathImagem);
+            }
+            catch
+            {
+                MessageBox.Show("Erro: Caminho da pasta não Encontrado", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void btnNovoEnvio_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja Iniciar um Novo Envio ? Todo o histório de envios será deletado.", "Novo Envio", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Banco.Tb_contato_email.Resetar();
+                ExibirInformacoes();
+                ExibirStatus();
+            }
+
+        }
+        private void btnEnviar_Click(object sender, EventArgs e)
+        {
+            ExibirInformacoes();
+            ExibirStatus();
+            try
+            {
+                thread.Abort();
+            }
+            catch { }
+            try
+            {
+                thread = new Thread(Processo);
+                thread.Start();
+            }
+            catch { }
+        }
+        private void btnInterromperEnvio_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                thread.Abort();
+            }
+            catch { }
+            Finalizado = true;
+            MessageBox.Show("Envio Interrompido","Atenção",MessageBoxButtons.OK,MessageBoxIcon.Information);
+        }
+
+        #endregion
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            if (Finalizado)
+            {
+                ExibirInformacoes();
+                ExibirStatus();
+                Finalizado = false;
+            }
+        }
     }
 }

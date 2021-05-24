@@ -29,6 +29,7 @@ namespace Trabalho_WhatsApp_Marketing.View
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblMaximoEnvio = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -65,6 +66,8 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.panel5 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.btnNovoEnvio = new System.Windows.Forms.Button();
+            this.btnInterromperEnvio = new System.Windows.Forms.Button();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -252,9 +255,9 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.btnEnviar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(39)))), ((int)(((byte)(100)))));
             this.btnEnviar.FlatAppearance.BorderSize = 0;
             this.btnEnviar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEnviar.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnviar.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEnviar.ForeColor = System.Drawing.Color.White;
-            this.btnEnviar.Location = new System.Drawing.Point(328, 482);
+            this.btnEnviar.Location = new System.Drawing.Point(328, 403);
             this.btnEnviar.Name = "btnEnviar";
             this.btnEnviar.Size = new System.Drawing.Size(370, 101);
             this.btnEnviar.TabIndex = 40;
@@ -483,7 +486,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.btnNovoEnvio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovoEnvio.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNovoEnvio.ForeColor = System.Drawing.Color.White;
-            this.btnNovoEnvio.Location = new System.Drawing.Point(328, 442);
+            this.btnNovoEnvio.Location = new System.Drawing.Point(328, 363);
             this.btnNovoEnvio.Name = "btnNovoEnvio";
             this.btnNovoEnvio.Size = new System.Drawing.Size(370, 34);
             this.btnNovoEnvio.TabIndex = 76;
@@ -491,11 +494,33 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.btnNovoEnvio.UseVisualStyleBackColor = false;
             this.btnNovoEnvio.Click += new System.EventHandler(this.btnNovoEnvio_Click);
             // 
+            // btnInterromperEnvio
+            // 
+            this.btnInterromperEnvio.BackColor = System.Drawing.Color.Black;
+            this.btnInterromperEnvio.FlatAppearance.BorderSize = 0;
+            this.btnInterromperEnvio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInterromperEnvio.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInterromperEnvio.ForeColor = System.Drawing.Color.White;
+            this.btnInterromperEnvio.Location = new System.Drawing.Point(328, 507);
+            this.btnInterromperEnvio.Name = "btnInterromperEnvio";
+            this.btnInterromperEnvio.Size = new System.Drawing.Size(370, 76);
+            this.btnInterromperEnvio.TabIndex = 77;
+            this.btnInterromperEnvio.Text = "Interromper Envio";
+            this.btnInterromperEnvio.UseVisualStyleBackColor = false;
+            this.btnInterromperEnvio.Click += new System.EventHandler(this.btnInterromperEnvio_Click);
+            // 
+            // timer
+            // 
+            this.timer.Enabled = true;
+            this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
             // FrmEnvio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(725, 598);
+            this.Controls.Add(this.btnInterromperEnvio);
             this.Controls.Add(this.btnNovoEnvio);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
@@ -564,5 +589,7 @@ namespace Trabalho_WhatsApp_Marketing.View
         private System.Windows.Forms.Label lblMensagensRestantes;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnNovoEnvio;
+        private System.Windows.Forms.Button btnInterromperEnvio;
+        private System.Windows.Forms.Timer timer;
     }
 }

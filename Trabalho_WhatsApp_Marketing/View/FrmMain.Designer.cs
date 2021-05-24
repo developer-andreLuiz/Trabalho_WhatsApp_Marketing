@@ -40,12 +40,15 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.btnAjuda = new System.Windows.Forms.Button();
             this.btnEnvio = new System.Windows.Forms.Button();
             this.panelForm = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.panelTitle.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(25)))), ((int)(((byte)(51)))));
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.btnContatosEmuladores);
             this.panel1.Controls.Add(this.btnBancoDedados);
             this.panel1.Controls.Add(this.panelTitle);
@@ -93,6 +96,8 @@ namespace Trabalho_WhatsApp_Marketing.View
             // 
             this.panelTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(17)))), ((int)(((byte)(29)))));
             this.panelTitle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelTitle.Controls.Add(this.label1);
+            this.panelTitle.Controls.Add(this.panel2);
             this.panelTitle.Location = new System.Drawing.Point(0, 0);
             this.panelTitle.Name = "panelTitle";
             this.panelTitle.Size = new System.Drawing.Size(172, 81);
@@ -178,6 +183,27 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.panelForm.Size = new System.Drawing.Size(725, 598);
             this.panelForm.TabIndex = 2;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(17)))), ((int)(((byte)(29)))));
+            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Location = new System.Drawing.Point(11, 21);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(48, 48);
+            this.panel2.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(78, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 38);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "WhatsApp\r\nMarketing\r\n";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -194,6 +220,8 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmHome";
             this.panel1.ResumeLayout(false);
+            this.panelTitle.ResumeLayout(false);
+            this.panelTitle.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -210,5 +238,7 @@ namespace Trabalho_WhatsApp_Marketing.View
         private System.Windows.Forms.Button btnEnvio;
         private System.Windows.Forms.Panel panelForm;
         private System.Windows.Forms.Button btnContatosEmuladores;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label1;
     }
 }
