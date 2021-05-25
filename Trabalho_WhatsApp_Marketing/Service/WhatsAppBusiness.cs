@@ -127,6 +127,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
                 if (barra != null)
                 {
                     barra.SendKeys(contato);
+                    Thread.Sleep(2000);
                 }
             }
             catch (Exception e)

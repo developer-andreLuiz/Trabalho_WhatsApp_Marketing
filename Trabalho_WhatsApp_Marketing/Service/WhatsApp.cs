@@ -127,14 +127,15 @@ namespace Trabalho_WhatsApp_Marketing.Service
                 var barra = Driver.FindElement(By.XPath("//android.widget.EditText[@text='Pesquisar…']"));
                 if (barra != null)
                 {
-                    char[] digitos;
-                    digitos = contato.ToCharArray();
-                    foreach (var numero in digitos)
-                    {
-                        barra.SendKeys(numero.ToString());
-                        Thread.Sleep(500);
-                    }
-                   
+                    //char[] digitos;
+                    //digitos = contato.ToCharArray();
+                    //foreach (var numero in digitos)
+                    //{
+                    //    
+                    //}
+                    barra.SendKeys(contato);
+                    Thread.Sleep(2000);
+
                 }
             }
             catch (Exception e)
