@@ -307,7 +307,8 @@ namespace Trabalho_WhatsApp_Marketing.View
                 }
 
                 //----------------------------------------------------//
-
+                Finalizado = true;
+                MessageBox.Show(mensagemFinal);
                 ProgramService.CloseEmulador();
             }
             else
@@ -386,5 +387,7 @@ namespace Trabalho_WhatsApp_Marketing.View
                 Finalizado = false;
             }
         }
+
+       
     }
 }
