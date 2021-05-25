@@ -20,6 +20,7 @@ namespace Trabalho_WhatsApp_Marketing.View
     public partial class FrmEnvio : Form
     {
         #region Variaveis
+        int LimiteGlobal = 0;
         string pathImagem = @"C:\Users\Public\Pictures"; //camilho da pasta de imgs
         Thread thread;
         bool Finalizado = false;
@@ -28,7 +29,7 @@ namespace Trabalho_WhatsApp_Marketing.View
         #region Funções
         void ExibirInformacoes()
         {
-            lblEnvioPorWhatsApp.Text = "50";
+            txtEnvioPorWhatsApp.Text = "50";
             lblLimiteCompartilhamento.Text = "5";
             lblEmuladoresHabilitados.Text = Banco.Tb_emulador.RetornoCompletoHabilitado().Count.ToString();
             lblTotalWhatsApp.Text = (int.Parse(lblEmuladoresHabilitados.Text) * 2).ToString();
@@ -61,10 +62,11 @@ namespace Trabalho_WhatsApp_Marketing.View
             var listaContatos = Banco.Tb_contato_email.RetornoCompletoParaEnvio();
             if (listaContatos.Count > 0)
             {
+                btnEnviar.Enabled = false;
                 bool Continuar = true;
                 string mensagemFinal = "Processo Finalizado";
                 int Enviado = 0;
-                int Limite = 50;
+                int Limite = LimiteGlobal;
                 //----------------------------------------------------//
 
                 //Inicio WhatsApp
@@ -344,26 +346,32 @@ namespace Trabalho_WhatsApp_Marketing.View
             if (MessageBox.Show("Deseja Iniciar um Novo Envio ? Todo o histório de envios será deletado.", "Novo Envio", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 Banco.Tb_contato_email.Resetar();
-                ExibirInformacoes();
+               
                 ExibirStatus();
             }
 
         }
         private void btnEnviar_Click(object sender, EventArgs e)
         {
-            ExibirInformacoes();
-            ExibirStatus();
-            try
+            if (int.TryParse(txtEnvioPorWhatsApp.Text,out int reseult))
             {
-                thread.Abort();
+                LimiteGlobal = int.Parse(txtEnvioPorWhatsApp.Text);
+                ExibirStatus();
+                try{thread.Abort();}catch { }
+                try
+                {
+                    thread = new Thread(Processo);
+                    thread.Start();
+                }
+                catch { }
             }
-            catch { }
-            try
+            else
             {
-                thread = new Thread(Processo);
-                thread.Start();
+                MessageBox.Show("Limite de Mensagem Errado!");
             }
-            catch { }
+         
+          
+           
         }
         private void btnInterromperEnvio_Click(object sender, EventArgs e)
         {
@@ -382,9 +390,11 @@ namespace Trabalho_WhatsApp_Marketing.View
         {
             if (Finalizado)
             {
-                ExibirInformacoes();
+              
                 ExibirStatus();
+                btnEnviar.Enabled = true;
                 Finalizado = false;
+
             }
         }
 

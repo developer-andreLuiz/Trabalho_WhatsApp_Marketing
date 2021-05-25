@@ -41,7 +41,6 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.label5 = new System.Windows.Forms.Label();
             this.lblLimiteCompartilhamento = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.lblEnvioPorWhatsApp = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -68,6 +67,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.btnNovoEnvio = new System.Windows.Forms.Button();
             this.btnInterromperEnvio = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.txtEnvioPorWhatsApp = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -79,6 +79,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtEnvioPorWhatsApp);
             this.groupBox1.Controls.Add(this.lblMaximoEnvio);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.lblTotalWhatsApp);
@@ -89,7 +90,6 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.lblLimiteCompartilhamento);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.lblEnvioPorWhatsApp);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Location = new System.Drawing.Point(12, 74);
@@ -207,17 +207,6 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.label3.Size = new System.Drawing.Size(208, 19);
             this.label3.TabIndex = 61;
             this.label3.Text = "Limite de Compartilhamento :";
-            // 
-            // lblEnvioPorWhatsApp
-            // 
-            this.lblEnvioPorWhatsApp.AutoSize = true;
-            this.lblEnvioPorWhatsApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEnvioPorWhatsApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(25)))), ((int)(((byte)(51)))));
-            this.lblEnvioPorWhatsApp.Location = new System.Drawing.Point(213, 63);
-            this.lblEnvioPorWhatsApp.Name = "lblEnvioPorWhatsApp";
-            this.lblEnvioPorWhatsApp.Size = new System.Drawing.Size(18, 20);
-            this.lblEnvioPorWhatsApp.TabIndex = 60;
-            this.lblEnvioPorWhatsApp.Text = "0";
             // 
             // label4
             // 
@@ -515,6 +504,15 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.timer.Interval = 1000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // txtEnvioPorWhatsApp
+            // 
+            this.txtEnvioPorWhatsApp.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEnvioPorWhatsApp.Location = new System.Drawing.Point(217, 56);
+            this.txtEnvioPorWhatsApp.Name = "txtEnvioPorWhatsApp";
+            this.txtEnvioPorWhatsApp.Size = new System.Drawing.Size(46, 26);
+            this.txtEnvioPorWhatsApp.TabIndex = 78;
+            this.txtEnvioPorWhatsApp.Text = "50";
+            // 
             // FrmEnvio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -554,7 +552,6 @@ namespace Trabalho_WhatsApp_Marketing.View
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblEnvioPorWhatsApp;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
@@ -591,5 +588,6 @@ namespace Trabalho_WhatsApp_Marketing.View
         private System.Windows.Forms.Button btnNovoEnvio;
         private System.Windows.Forms.Button btnInterromperEnvio;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.TextBox txtEnvioPorWhatsApp;
     }
 }
