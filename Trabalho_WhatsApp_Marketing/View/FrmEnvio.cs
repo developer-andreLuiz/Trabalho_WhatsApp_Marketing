@@ -62,7 +62,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             var listaContatos = Banco.Tb_contato_email.RetornoCompletoParaEnvio();
             if (listaContatos.Count > 0)
             {
-                btnEnviar.Enabled = false;
+               
                 bool Continuar = true;
                 string mensagemFinal = "Processo Finalizado";
                 int Enviado = 0;
@@ -355,6 +355,7 @@ namespace Trabalho_WhatsApp_Marketing.View
         {
             if (int.TryParse(txtEnvioPorWhatsApp.Text,out int reseult))
             {
+                btnEnviar.Enabled = false;
                 LimiteGlobal = int.Parse(txtEnvioPorWhatsApp.Text);
                 ExibirStatus();
                 try{thread.Abort();}catch { }
@@ -383,14 +384,11 @@ namespace Trabalho_WhatsApp_Marketing.View
             Finalizado = true;
             MessageBox.Show("Envio Interrompido","Atenção",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
-
-        #endregion
-
         private void timer_Tick(object sender, EventArgs e)
         {
             if (Finalizado)
             {
-              
+
                 ExibirStatus();
                 btnEnviar.Enabled = true;
                 Finalizado = false;
@@ -398,6 +396,10 @@ namespace Trabalho_WhatsApp_Marketing.View
             }
         }
 
-       
+        #endregion
+
+
+
+      
     }
 }

@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Appium.MultiTouch;
+using OpenQA.Selenium.Interactions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -123,11 +124,21 @@ namespace Trabalho_WhatsApp_Marketing.Service
             try
             {
                 Thread.Sleep(TimeSpan.FromMilliseconds(500));
-                var barra = Driver.FindElement(By.XPath("//android.widget.EditText[@text='Pesquisar…']"));
+
+                var barra = Driver.FindElement(By.XPath("//android.widget.EditText[@resource-id='com.whatsapp.w4b:id/search_src_text']"));
                 if (barra != null)
                 {
-                    barra.SendKeys(contato);
-                    Thread.Sleep(2000);
+                    Actions action = new Actions(Driver);
+
+                    char[] Numeros = contato.ToCharArray();
+
+                    foreach (char numero in Numeros)
+                    {
+                        action = new Actions(Driver);
+                        action.SendKeys(numero.ToString()).Perform();
+                        Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                    }
+
                 }
             }
             catch (Exception e)

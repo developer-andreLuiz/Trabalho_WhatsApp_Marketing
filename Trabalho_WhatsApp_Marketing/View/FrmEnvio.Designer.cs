@@ -31,6 +31,7 @@ namespace Trabalho_WhatsApp_Marketing.View
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtEnvioPorWhatsApp = new System.Windows.Forms.TextBox();
             this.lblMaximoEnvio = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.lblTotalWhatsApp = new System.Windows.Forms.Label();
@@ -67,7 +68,6 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.btnNovoEnvio = new System.Windows.Forms.Button();
             this.btnInterromperEnvio = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.txtEnvioPorWhatsApp = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -97,6 +97,15 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.groupBox1.Size = new System.Drawing.Size(284, 290);
             this.groupBox1.TabIndex = 61;
             this.groupBox1.TabStop = false;
+            // 
+            // txtEnvioPorWhatsApp
+            // 
+            this.txtEnvioPorWhatsApp.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEnvioPorWhatsApp.Location = new System.Drawing.Point(217, 56);
+            this.txtEnvioPorWhatsApp.Name = "txtEnvioPorWhatsApp";
+            this.txtEnvioPorWhatsApp.Size = new System.Drawing.Size(46, 26);
+            this.txtEnvioPorWhatsApp.TabIndex = 78;
+            this.txtEnvioPorWhatsApp.Text = "50";
             // 
             // lblMaximoEnvio
             // 
@@ -503,15 +512,6 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.timer.Enabled = true;
             this.timer.Interval = 1000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
-            // txtEnvioPorWhatsApp
-            // 
-            this.txtEnvioPorWhatsApp.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEnvioPorWhatsApp.Location = new System.Drawing.Point(217, 56);
-            this.txtEnvioPorWhatsApp.Name = "txtEnvioPorWhatsApp";
-            this.txtEnvioPorWhatsApp.Size = new System.Drawing.Size(46, 26);
-            this.txtEnvioPorWhatsApp.TabIndex = 78;
-            this.txtEnvioPorWhatsApp.Text = "50";
             // 
             // FrmEnvio
             // 

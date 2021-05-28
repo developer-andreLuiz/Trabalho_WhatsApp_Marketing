@@ -315,7 +315,15 @@ namespace Trabalho_WhatsApp_Marketing.View
                     if (Convert.ToString(Banco.Tb_contato.Retorno(Convert.ToInt32(lblId.Text)).id).Equals("0") == false)
                     {
                         Banco.Tb_contato.Atualizar(contato);
-
+                        if (contato.habilitado == 0)
+                        {
+                            try
+                            {
+                                Banco.Tb_contato_email.Desabilitar(contato.telefone);
+                            }
+                            catch { }
+                            
+                        }
                         ltContatosCompleto = Banco.Tb_contato.RetornoCompleto();
 
                         InicioInterface();

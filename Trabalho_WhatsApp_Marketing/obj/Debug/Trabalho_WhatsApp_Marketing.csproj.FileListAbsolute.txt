@@ -37,3 +37,5 @@ B:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp_Marketing\bin\Debug\System.
 B:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp_Marketing\bin\Debug\System.Drawing.Common.dll
 B:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp_Marketing\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
 B:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp_Marketing\bin\Debug\System.Buffers.xml
+B:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp_Marketing\bin\Debug\Docker.DotNet.dll
+B:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp_Marketing\bin\Debug\Docker.DotNet.pdb

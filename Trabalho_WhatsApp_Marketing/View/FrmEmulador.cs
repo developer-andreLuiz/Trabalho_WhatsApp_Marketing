@@ -202,8 +202,9 @@ namespace Trabalho_WhatsApp_Marketing.View
             emulador.habilitado = Convert.ToInt32(dataGridView.Rows[e.RowIndex].Cells[5].Value);
             ExibirRegistro(emulador);
         }
+
         #endregion
 
-
+       
     }
 }

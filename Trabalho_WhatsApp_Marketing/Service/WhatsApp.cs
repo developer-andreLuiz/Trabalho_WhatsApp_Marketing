@@ -1,7 +1,10 @@
-﻿using OpenQA.Selenium;
+﻿using Docker.DotNet.Models;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Android;
 using OpenQA.Selenium.Appium.MultiTouch;
+using OpenQA.Selenium.Appium.Service;
+using OpenQA.Selenium.Interactions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,16 +44,17 @@ namespace Trabalho_WhatsApp_Marketing.Service
         {
             try
             {
-
                 var appOptions = new AppiumOptions();
+                appOptions.AddAdditionalCapability("automationName", "UiAutomator2");
                 appOptions.AddAdditionalCapability("platformName", "android");
                 appOptions.AddAdditionalCapability("noReset", "true");
-                appOptions.AddAdditionalCapability("platformVersion", "7.1.2");
+                appOptions.AddAdditionalCapability("platformVersion", "7.0");
                 appOptions.AddAdditionalCapability("appPackage", "com.whatsapp");
                 appOptions.AddAdditionalCapability("appActivity", "com.whatsapp.HomeActivity");
                 //appOptions.AddAdditionalCapability("udid", udid);
                 appOptions.AddAdditionalCapability("newCommandTimeout", 0);
                 Driver = new AndroidDriver<AndroidElement>(new Uri("http://127.0.0.1:4723/wd/hub"), appOptions, TimeSpan.FromSeconds(timeOutInSeconds));
+
             }
             catch
             {
@@ -124,17 +128,20 @@ namespace Trabalho_WhatsApp_Marketing.Service
             try
             {
                 Thread.Sleep(TimeSpan.FromMilliseconds(500));
-                var barra = Driver.FindElement(By.XPath("//android.widget.EditText[@text='Pesquisar…']"));
+              
+                var barra = Driver.FindElement(By.XPath("//android.widget.EditText[@resource-id='com.whatsapp:id/search_src_text']"));
                 if (barra != null)
                 {
-                    //char[] digitos;
-                    //digitos = contato.ToCharArray();
-                    //foreach (var numero in digitos)
-                    //{
-                    //    
-                    //}
-                    barra.SendKeys(contato);
-                    Thread.Sleep(2000);
+                    Actions action = new Actions(Driver);
+                    
+                    char[] Numeros = contato.ToCharArray();
+                    
+                    foreach (char numero in Numeros)
+                    {
+                        action = new Actions(Driver);
+                        action.SendKeys(numero.ToString()).Perform();
+                        Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                    }
 
                 }
             }
@@ -206,6 +213,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
                 MessageBox.Show(e.Message + " ClicarEmContatoEncontrato");
             }
         }
+        
         //Funções de Envio Dentro da Conversa
         public static void ClicarVoltar()
         {
