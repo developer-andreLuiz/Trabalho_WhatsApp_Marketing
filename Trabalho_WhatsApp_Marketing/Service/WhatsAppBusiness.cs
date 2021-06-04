@@ -57,6 +57,26 @@ namespace Trabalho_WhatsApp_Marketing.Service
 
             }
         }
+        public static void OpenApp(int Teste, string Versao, int timeOutInSeconds = 600)
+        {
+            try
+            {
+
+                var appOptions = new AppiumOptions();
+                appOptions.AddAdditionalCapability("platformName", "android");
+                appOptions.AddAdditionalCapability("noReset", "true");
+                appOptions.AddAdditionalCapability("platformVersion", Versao);
+                appOptions.AddAdditionalCapability("appPackage", "com.whatsapp.w4b");
+                appOptions.AddAdditionalCapability("appActivity", "com.whatsapp.HomeActivity");
+                //appOptions.AddAdditionalCapability("udid", udid);
+                appOptions.AddAdditionalCapability("newCommandTimeout", 0);
+                Driver = new AndroidDriver<AndroidElement>(new Uri("http://127.0.0.1:4723/wd/hub"), appOptions, TimeSpan.FromSeconds(timeOutInSeconds));
+            }
+            catch
+            {
+
+            }
+        }
         public static void Close()
         {
             try
@@ -465,6 +485,7 @@ namespace Trabalho_WhatsApp_Marketing.Service
         {
             try
             {
+                Thread.Sleep(TimeSpan.FromSeconds(20));
                 ClicarOpcoes();
                 ClicarMidia();
                 SelecionarImagensPictures();

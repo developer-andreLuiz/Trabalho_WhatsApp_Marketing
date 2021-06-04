@@ -21,9 +21,12 @@ namespace Trabalho_WhatsApp_Marketing.View
     {
         #region Variaveis
         int LimiteGlobal = 0;
+        string VersaoGlobal = "";
         string pathImagem = @"C:\Users\Public\Pictures"; //camilho da pasta de imgs
         Thread thread;
         bool Finalizado = false;
+        bool whatsApp = false;
+        bool business = false;
 
         #endregion
         #region Funções
@@ -67,101 +70,92 @@ namespace Trabalho_WhatsApp_Marketing.View
                 string mensagemFinal = "Processo Finalizado";
                 int Enviado = 0;
                 int Limite = LimiteGlobal;
+                string Versao = VersaoGlobal;
                 //----------------------------------------------------//
-
-                //Inicio WhatsApp
-                if (Continuar)
+                if (whatsApp)
                 {
-                    WhatsApp.OpenApp();
-                    WhatsApp.ResolverBackupTermos();
-                    WhatsApp.ApagarConversas();
-                    WhatsApp.ClicarContatos();
-                    WhatsApp.ClicarLupaProcurarContatos();
-
-                    //Descobrir Primeiro Numero Com WhatsApp
-                    while (true)
+                    //Inicio WhatsApp
+                    if (Continuar)
                     {
-                        WhatsApp.DigitarBarraPesquisarContatos(listaContatos[0].telefone);
-                        if (WhatsApp.ContatoEncontrado() == false)
+                        WhatsApp.OpenApp(0, Versao);
+                        WhatsApp.ResolverBackupTermos();
+                        WhatsApp.ApagarConversas();
+                        WhatsApp.ClicarContatos();
+                        WhatsApp.ClicarLupaProcurarContatos();
+
+                        //Descobrir Primeiro Numero Com WhatsApp
+                        while (true)
                         {
-                            WhatsApp.LimparBarraPesquisarContatos();
-                            Banco.Tb_contato.Deletar(listaContatos[0].telefone);
-                            Banco.Tb_contato_email.Desabilitar(listaContatos[0]);
-                            listaContatos.RemoveAt(0);
-                            if (listaContatos.Count == 0)
+                            WhatsApp.DigitarBarraPesquisarContatos(listaContatos[0].telefone);
+                            if (WhatsApp.ContatoEncontrado() == false)
                             {
-                                Continuar = false;
-                                mensagemFinal = "Terminou os Contatos";
-                                Finalizado = true;
+                                WhatsApp.LimparBarraPesquisarContatos();
+                                Banco.Tb_contato.Deletar(listaContatos[0].telefone);
+                                Banco.Tb_contato_email.Desabilitar(listaContatos[0]);
+                                listaContatos.RemoveAt(0);
+                                if (listaContatos.Count == 0)
+                                {
+                                    Continuar = false;
+                                    mensagemFinal = "Terminou os Contatos";
+                                    Finalizado = true;
+                                    break;
+                                }
+                            }
+                            else
+                            {
                                 break;
                             }
                         }
-                        else
-                        {
-                            break;
-                        }
                     }
-                }
 
-                //Primeiro Envio WhatsApp
-                if (Continuar)
-                {
-                    WhatsApp.ClicarEmContatoEncontrato();
-                    WhatsApp.EnvioDentroDaConversa();
-                    Enviado++;
-                    Banco.Tb_contato_email.SetWhatsApp(listaContatos[0]);
-                    listaContatos.RemoveAt(0);
-                    if (listaContatos.Count == 0)
+                    //Primeiro Envio WhatsApp
+                    if (Continuar)
                     {
-                        Continuar = false;
-                        mensagemFinal = "Terminou os Contatos";
-                        Finalizado = true;
-                    }
-                }
-
-                //Compartilhamento WhatsApp
-                if (Continuar)
-                {
-                    WhatsApp.CompartilharDentroDaConversa();
-                    int compartilhar = 0;
-
-                    while (true)
-                    {
-                        WhatsApp.DigitarBarraPesquisarContatos(listaContatos[0].telefone);
-
-                        if (WhatsApp.ContatoEncontrado() == false)
-                        {
-                            WhatsApp.LimparBarraPesquisarContatos();
-                            Banco.Tb_contato.Deletar(listaContatos[0].telefone);
-                            Banco.Tb_contato_email.Desabilitar(listaContatos[0]);
-                            listaContatos.RemoveAt(0);
-                        }
-                        else
-                        {
-                            WhatsApp.ClicarEmContatoEncontrato();
-                            WhatsApp.LimparBarraPesquisarContatos();
-                            compartilhar++;
-                            Enviado++;
-                            Banco.Tb_contato_email.SetWhatsApp(listaContatos[0]);
-                            listaContatos.RemoveAt(0);
-                        }
-
+                        WhatsApp.ClicarEmContatoEncontrato();
+                        WhatsApp.EnvioDentroDaConversa();
+                        Enviado++;
+                        Banco.Tb_contato_email.SetWhatsApp(listaContatos[0]);
+                        listaContatos.RemoveAt(0);
                         if (listaContatos.Count == 0)
                         {
                             Continuar = false;
                             mensagemFinal = "Terminou os Contatos";
                             Finalizado = true;
-                            if (compartilhar > 0)
-                            {
-                                WhatsApp.ClicarEnviar();
-                            }
-                            WhatsApp.Close();
-                            break;
                         }
-                        else
+                    }
+
+                    //Compartilhamento WhatsApp
+                    if (Continuar)
+                    {
+                        WhatsApp.CompartilharDentroDaConversa();
+                        int compartilhar = 0;
+
+                        while (true)
                         {
-                            if (Enviado == Limite)
+                            WhatsApp.DigitarBarraPesquisarContatos(listaContatos[0].telefone);
+
+                            if (WhatsApp.ContatoEncontrado() == false)
                             {
+                                WhatsApp.LimparBarraPesquisarContatos();
+                                Banco.Tb_contato.Deletar(listaContatos[0].telefone);
+                                Banco.Tb_contato_email.Desabilitar(listaContatos[0]);
+                                listaContatos.RemoveAt(0);
+                            }
+                            else
+                            {
+                                WhatsApp.ClicarEmContatoEncontrato();
+                                WhatsApp.LimparBarraPesquisarContatos();
+                                compartilhar++;
+                                Enviado++;
+                                Banco.Tb_contato_email.SetWhatsApp(listaContatos[0]);
+                                listaContatos.RemoveAt(0);
+                            }
+
+                            if (listaContatos.Count == 0)
+                            {
+                                Continuar = false;
+                                mensagemFinal = "Terminou os Contatos";
+                                Finalizado = true;
                                 if (compartilhar > 0)
                                 {
                                     WhatsApp.ClicarEnviar();
@@ -171,118 +165,119 @@ namespace Trabalho_WhatsApp_Marketing.View
                             }
                             else
                             {
-                                if (compartilhar == 5)
+                                if (Enviado == Limite)
                                 {
-                                    WhatsApp.ClicarEnviar();
-                                    compartilhar = 0;
-                                    WhatsApp.CompartilharDentroDaMidia();
+                                    if (compartilhar > 0)
+                                    {
+                                        WhatsApp.ClicarEnviar();
+                                    }
+                                    WhatsApp.Close();
+                                    break;
+                                }
+                                else
+                                {
+                                    if (compartilhar == 5)
+                                    {
+                                        WhatsApp.ClicarEnviar();
+                                        compartilhar = 0;
+                                        WhatsApp.CompartilharDentroDaMidia();
+                                    }
                                 }
                             }
                         }
-                    }
-                    if (listaContatos.Count == 0)
-                    {
-                        Continuar = false;
-                        mensagemFinal = "Terminou os Contatos";
-                        Finalizado = true;
-                    }
-                }
-
-                //----------------------------------------------------//
-
-                //Inicio Bussiness
-                if (Continuar)
-                {
-                    Enviado = 0;
-                    WhatsAppBusiness.OpenApp();
-                    WhatsAppBusiness.ResolverBackupTermos();
-                    WhatsAppBusiness.ApagarConversas();
-                    WhatsAppBusiness.ClicarContatos();
-                    WhatsAppBusiness.ClicarLupaProcurarContatos();
-
-                    //Descobrir Primeiro Numero Com WhatsApp
-                    while (true)
-                    {
-                        WhatsAppBusiness.DigitarBarraPesquisarContatos(listaContatos[0].telefone);
-                        if (WhatsAppBusiness.ContatoEncontrado() == false)
-                        {
-                            WhatsAppBusiness.LimparBarraPesquisarContatos();
-                            Banco.Tb_contato.Deletar(listaContatos[0].telefone);
-                            Banco.Tb_contato_email.Desabilitar(listaContatos[0]);
-                            listaContatos.RemoveAt(0);
-                            if (listaContatos.Count == 0)
-                            {
-                                Continuar = false;
-                                mensagemFinal = "Terminou os Contatos";
-                                Finalizado = true;
-                                break;
-                            }
-                        }
-                        else
-                        {
-                            break;
-                        }
-                    }
-                }
-
-                //Primeiro Envio Bussiness
-                if (Continuar)
-                {
-                    WhatsAppBusiness.ClicarEmContatoEncontrato();
-                    WhatsAppBusiness.EnvioDentroDaConversa();
-                    Enviado++;
-                    Banco.Tb_contato_email.SetWhatsApp(listaContatos[0]);
-                    listaContatos.RemoveAt(0);
-                    if (listaContatos.Count == 0)
-                    {
-                        Continuar = false;
-                        mensagemFinal = "Terminou os Contatos";
-                        Finalizado = true;
-                    }
-                }
-
-                //Compartilhamento Bussiness
-                if (Continuar)
-                {
-                    WhatsAppBusiness.CompartilharDentroDaConversa();
-                    int compartilhar = 0;
-                    while (true)
-                    {
-                        WhatsAppBusiness.DigitarBarraPesquisarContatos(listaContatos[0].telefone);
-
-                        if (WhatsAppBusiness.ContatoEncontrado() == false)
-                        {
-                            WhatsAppBusiness.LimparBarraPesquisarContatos();
-                            Banco.Tb_contato.Deletar(listaContatos[0].telefone);
-                            Banco.Tb_contato_email.Desabilitar(listaContatos[0]);
-                            listaContatos.RemoveAt(0);
-                        }
-                        else
-                        {
-                            WhatsAppBusiness.ClicarEmContatoEncontrato();
-                            WhatsAppBusiness.LimparBarraPesquisarContatos();
-                            compartilhar++;
-                            Enviado++;
-                            Banco.Tb_contato_email.SetWhatsApp(listaContatos[0]);
-                            listaContatos.RemoveAt(0);
-                        }
-
                         if (listaContatos.Count == 0)
                         {
                             Continuar = false;
                             mensagemFinal = "Terminou os Contatos";
                             Finalizado = true;
-                            if (compartilhar > 0)
-                            {
-                                WhatsAppBusiness.ClicarEnviar();
-                            }
-                            WhatsAppBusiness.Close();
-                            break;
                         }
-                        else
+                    }
+                }
+                //----------------------------------------------------//
+                if (business)
+                {
+                    //Inicio Bussiness
+                    if (Continuar)
+                    {
+                        Enviado = 0;
+                        WhatsAppBusiness.OpenApp(0, Versao);
+                        WhatsAppBusiness.ResolverBackupTermos();
+                        WhatsAppBusiness.ApagarConversas();
+                        WhatsAppBusiness.ClicarContatos();
+                        WhatsAppBusiness.ClicarLupaProcurarContatos();
+
+                        //Descobrir Primeiro Numero Com WhatsApp
+                        while (true)
                         {
-                            if (Enviado == Limite)
+                            WhatsAppBusiness.DigitarBarraPesquisarContatos(listaContatos[0].telefone);
+                            if (WhatsAppBusiness.ContatoEncontrado() == false)
                             {
+                                WhatsAppBusiness.LimparBarraPesquisarContatos();
+                                Banco.Tb_contato.Deletar(listaContatos[0].telefone);
+                                Banco.Tb_contato_email.Desabilitar(listaContatos[0]);
+                                listaContatos.RemoveAt(0);
+                                if (listaContatos.Count == 0)
+                                {
+                                    Continuar = false;
+                                    mensagemFinal = "Terminou os Contatos";
+                                    Finalizado = true;
+                                    break;
+                                }
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+                    }
+
+                    //Primeiro Envio Bussiness
+                    if (Continuar)
+                    {
+                        WhatsAppBusiness.ClicarEmContatoEncontrato();
+                        WhatsAppBusiness.EnvioDentroDaConversa();
+                        Enviado++;
+                        Banco.Tb_contato_email.SetWhatsApp(listaContatos[0]);
+                        listaContatos.RemoveAt(0);
+                        if (listaContatos.Count == 0)
+                        {
+                            Continuar = false;
+                            mensagemFinal = "Terminou os Contatos";
+                            Finalizado = true;
+                        }
+                    }
+
+                    //Compartilhamento Bussiness
+                    if (Continuar)
+                    {
+                        WhatsAppBusiness.CompartilharDentroDaConversa();
+                        int compartilhar = 0;
+                        while (true)
+                        {
+                            WhatsAppBusiness.DigitarBarraPesquisarContatos(listaContatos[0].telefone);
+
+                            if (WhatsAppBusiness.ContatoEncontrado() == false)
+                            {
+                                WhatsAppBusiness.LimparBarraPesquisarContatos();
+                                Banco.Tb_contato.Deletar(listaContatos[0].telefone);
+                                Banco.Tb_contato_email.Desabilitar(listaContatos[0]);
+                                listaContatos.RemoveAt(0);
+                            }
+                            else
+                            {
+                                WhatsAppBusiness.ClicarEmContatoEncontrato();
+                                WhatsAppBusiness.LimparBarraPesquisarContatos();
+                                compartilhar++;
+                                Enviado++;
+                                Banco.Tb_contato_email.SetWhatsApp(listaContatos[0]);
+                                listaContatos.RemoveAt(0);
+                            }
+
+                            if (listaContatos.Count == 0)
+                            {
+                                Continuar = false;
+                                mensagemFinal = "Terminou os Contatos";
+                                Finalizado = true;
                                 if (compartilhar > 0)
                                 {
                                     WhatsAppBusiness.ClicarEnviar();
@@ -292,21 +287,34 @@ namespace Trabalho_WhatsApp_Marketing.View
                             }
                             else
                             {
-                                if (compartilhar == 5)
+                                if (Enviado == Limite)
                                 {
-                                    WhatsAppBusiness.ClicarEnviar();
-                                    compartilhar = 0;
-                                    WhatsAppBusiness.CompartilharDentroDaMidia();
+                                    if (compartilhar > 0)
+                                    {
+                                        WhatsAppBusiness.ClicarEnviar();
+                                    }
+                                    WhatsAppBusiness.Close();
+                                    break;
+                                }
+                                else
+                                {
+                                    if (compartilhar == 5)
+                                    {
+                                        WhatsAppBusiness.ClicarEnviar();
+                                        compartilhar = 0;
+                                        WhatsAppBusiness.CompartilharDentroDaMidia();
+                                    }
                                 }
                             }
                         }
-                    }
-                    if (listaContatos.Count == 0)
-                    {
-                        Continuar = false;
-                        mensagemFinal = "Terminou os Contatos";
+                        if (listaContatos.Count == 0)
+                        {
+                            Continuar = false;
+                            mensagemFinal = "Terminou os Contatos";
+                        }
                     }
                 }
+               
 
                 //----------------------------------------------------//
                 Finalizado = true;
@@ -353,10 +361,13 @@ namespace Trabalho_WhatsApp_Marketing.View
         }
         private void btnEnviar_Click(object sender, EventArgs e)
         {
-            if (int.TryParse(txtEnvioPorWhatsApp.Text,out int reseult))
+            if (int.TryParse(txtEnvioPorWhatsApp.Text,out int reseult) && String.IsNullOrEmpty(txtVersao.Text)==false)
             {
                 btnEnviar.Enabled = false;
                 LimiteGlobal = int.Parse(txtEnvioPorWhatsApp.Text);
+                VersaoGlobal = txtVersao.Text;
+                whatsApp = chkWhatsApp.Checked;
+                business = chkWhatsAppBusiness.Checked;
                 ExibirStatus();
                 try{thread.Abort();}catch { }
                 try
@@ -368,7 +379,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             }
             else
             {
-                MessageBox.Show("Limite de Mensagem Errado!");
+                MessageBox.Show("Limite de Mensagem Errado! ou Versao em Branco");
             }
          
           

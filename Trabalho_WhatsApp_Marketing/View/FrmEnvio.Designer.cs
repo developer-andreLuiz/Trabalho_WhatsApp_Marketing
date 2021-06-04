@@ -68,6 +68,10 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.btnNovoEnvio = new System.Windows.Forms.Button();
             this.btnInterromperEnvio = new System.Windows.Forms.Button();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.txtVersao = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.chkWhatsApp = new System.Windows.Forms.CheckBox();
+            this.chkWhatsAppBusiness = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -513,11 +517,59 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.timer.Interval = 1000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // txtVersao
+            // 
+            this.txtVersao.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVersao.Location = new System.Drawing.Point(559, 266);
+            this.txtVersao.Name = "txtVersao";
+            this.txtVersao.Size = new System.Drawing.Size(90, 26);
+            this.txtVersao.TabIndex = 80;
+            this.txtVersao.Text = "7.1.1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(25)))), ((int)(((byte)(51)))));
+            this.label2.Location = new System.Drawing.Point(331, 270);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(222, 38);
+            this.label2.TabIndex = 79;
+            this.label2.Text = "Provisório : Versão do Android :\r\n\r\n";
+            // 
+            // chkWhatsApp
+            // 
+            this.chkWhatsApp.AutoSize = true;
+            this.chkWhatsApp.Checked = true;
+            this.chkWhatsApp.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkWhatsApp.Location = new System.Drawing.Point(328, 317);
+            this.chkWhatsApp.Name = "chkWhatsApp";
+            this.chkWhatsApp.Size = new System.Drawing.Size(102, 23);
+            this.chkWhatsApp.TabIndex = 81;
+            this.chkWhatsApp.Text = "WhatsApp";
+            this.chkWhatsApp.UseVisualStyleBackColor = true;
+            // 
+            // chkWhatsAppBusiness
+            // 
+            this.chkWhatsAppBusiness.AutoSize = true;
+            this.chkWhatsAppBusiness.Checked = true;
+            this.chkWhatsAppBusiness.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkWhatsAppBusiness.Location = new System.Drawing.Point(529, 317);
+            this.chkWhatsAppBusiness.Name = "chkWhatsAppBusiness";
+            this.chkWhatsAppBusiness.Size = new System.Drawing.Size(165, 23);
+            this.chkWhatsAppBusiness.TabIndex = 82;
+            this.chkWhatsAppBusiness.Text = "WhatsApp Business";
+            this.chkWhatsAppBusiness.UseVisualStyleBackColor = true;
+            // 
             // FrmEnvio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(725, 598);
+            this.Controls.Add(this.chkWhatsAppBusiness);
+            this.Controls.Add(this.chkWhatsApp);
+            this.Controls.Add(this.txtVersao);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnInterromperEnvio);
             this.Controls.Add(this.btnNovoEnvio);
             this.Controls.Add(this.groupBox4);
@@ -546,6 +598,7 @@ namespace Trabalho_WhatsApp_Marketing.View
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -589,5 +642,9 @@ namespace Trabalho_WhatsApp_Marketing.View
         private System.Windows.Forms.Button btnInterromperEnvio;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.TextBox txtEnvioPorWhatsApp;
+        private System.Windows.Forms.TextBox txtVersao;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox chkWhatsApp;
+        private System.Windows.Forms.CheckBox chkWhatsAppBusiness;
     }
 }
