@@ -47,9 +47,13 @@ namespace Trabalho_WhatsApp_Marketing.Service
                 Delete(Verification);
                 StringBuilder excel = new StringBuilder();
                 excel.AppendLine("First Name,Mobile Phone");
+                int numero = 0;
+                
                 foreach (var item in Global.ListContactsExcel)
                 {
-                    excel.AppendLine($"{item},{item}");
+                    numero++;
+
+                    excel.AppendLine($"{Formato(numero)},{item}");
                 }
                 File.AppendAllText(Path(Verification), excel.ToString());
                 return true;
@@ -79,5 +83,23 @@ namespace Trabalho_WhatsApp_Marketing.Service
                 return false;
             }
         }
+        static string Formato(int n)
+        {
+            string valor = n.ToString();
+            string retorno = string.Empty;
+            
+            switch (valor.Length)
+            {
+                case 1: retorno = "C" + "0000" + valor; break;
+                case 2: retorno = "C" + "000" + valor; break;
+                case 3: retorno = "C" + "00" + valor; break;
+                case 4: retorno = "C" + "0" + valor; break;
+                case 5: retorno = "C" + valor; break;
+                default: retorno = "C" + valor;break;
+            }
+            return retorno;
+        }
+
+
     }
 }

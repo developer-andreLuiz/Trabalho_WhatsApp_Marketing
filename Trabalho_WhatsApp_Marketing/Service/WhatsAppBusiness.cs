@@ -156,7 +156,10 @@ namespace Trabalho_WhatsApp_Marketing.Service
                     {
                         action = new Actions(Driver);
                         action.SendKeys(numero.ToString()).Perform();
-                        Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                        Random rnd = new Random();
+                        int x = rnd.Next(1500, 2000);
+                        Thread.Sleep(TimeSpan.FromMilliseconds(x));
+                       
                     }
 
                 }
