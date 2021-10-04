@@ -36,6 +36,8 @@ namespace Trabalho_WhatsApp.View
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.lblContatosBloqueados = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lblMensagensRecebidas = new System.Windows.Forms.Label();
@@ -64,8 +66,6 @@ namespace Trabalho_WhatsApp.View
             this.nUD = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.timerEvento = new System.Windows.Forms.Timer(this.components);
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblStatus = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -137,6 +137,28 @@ namespace Trabalho_WhatsApp.View
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(264, 169);
             this.panel5.TabIndex = 63;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.ForeColor = System.Drawing.Color.Green;
+            this.lblStatus.Location = new System.Drawing.Point(80, 137);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(68, 26);
+            this.lblStatus.TabIndex = 29;
+            this.lblStatus.Text = "Livre";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(44)))));
+            this.label5.Location = new System.Drawing.Point(4, 143);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(60, 19);
+            this.label5.TabIndex = 28;
+            this.label5.Text = "Status :";
             // 
             // lblContatosBloqueados
             // 
@@ -383,11 +405,11 @@ namespace Trabalho_WhatsApp.View
             // lblAparelhoId
             // 
             this.lblAparelhoId.AutoSize = true;
-            this.lblAparelhoId.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAparelhoId.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAparelhoId.ForeColor = System.Drawing.Color.Maroon;
-            this.lblAparelhoId.Location = new System.Drawing.Point(204, 21);
+            this.lblAparelhoId.Location = new System.Drawing.Point(123, 27);
             this.lblAparelhoId.Name = "lblAparelhoId";
-            this.lblAparelhoId.Size = new System.Drawing.Size(17, 19);
+            this.lblAparelhoId.Size = new System.Drawing.Size(13, 13);
             this.lblAparelhoId.TabIndex = 28;
             this.lblAparelhoId.Text = "0";
             // 
@@ -476,28 +498,6 @@ namespace Trabalho_WhatsApp.View
             // 
             this.timerEvento.Interval = 1000;
             this.timerEvento.Tick += new System.EventHandler(this.timerEvento_Tick);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(44)))));
-            this.label5.Location = new System.Drawing.Point(4, 143);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 19);
-            this.label5.TabIndex = 28;
-            this.label5.Text = "Status :";
-            // 
-            // lblStatus
-            // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.ForeColor = System.Drawing.Color.Green;
-            this.lblStatus.Location = new System.Drawing.Point(80, 137);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(68, 26);
-            this.lblStatus.TabIndex = 29;
-            this.lblStatus.Text = "Livre";
             // 
             // FrmResposta
             // 

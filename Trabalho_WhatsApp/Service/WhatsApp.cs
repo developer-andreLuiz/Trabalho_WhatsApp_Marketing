@@ -54,7 +54,7 @@ namespace Trabalho_WhatsApp.Service
             Thread.Sleep(TimeSpan.FromSeconds(1));
             ITouchAction touchAction = new TouchAction(driver)
             .Press(xInit, yInit)
-            .Wait(500)
+            .Wait(300)
             .MoveTo(xEnd, yEnd)
             .Release();
 
@@ -67,7 +67,7 @@ namespace Trabalho_WhatsApp.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 var all_Conversas = driver.FindElementsByXPath("//*[@class='android.widget.RelativeLayout']");
                 foreach (AndroidElement conversa in all_Conversas)
                 {
@@ -79,7 +79,7 @@ namespace Trabalho_WhatsApp.Service
             catch (Exception e)
             {
 
-                MessageBox.Show(e.Message + " Entra_Primeira_Conversa");
+                //MessageBox.Show(e.Message + " Entra_Primeira_Conversa");
             }
 
         }
@@ -88,7 +88,7 @@ namespace Trabalho_WhatsApp.Service
             int retorno = 0;
             try
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 var all_Conversas = driver.FindElementsByXPath("//android.widget.RelativeLayout[@resource-id='com.whatsapp:id/contact_row_container']");
                 retorno = all_Conversas.Count;
                 
@@ -96,7 +96,7 @@ namespace Trabalho_WhatsApp.Service
             catch (Exception e)
             {
 
-                MessageBox.Show(e.Message + " Total_Conversas");
+                //MessageBox.Show(e.Message + " Total_Conversas");
             }
             return retorno;
         }
@@ -105,11 +105,15 @@ namespace Trabalho_WhatsApp.Service
             System.Collections.ObjectModel.ReadOnlyCollection<AndroidElement> conversas_pendentes;
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromSeconds(2));
                 conversas_pendentes = driver.FindElementsByXPath("//android.widget.TextView[@resource-id='com.whatsapp:id/conversations_row_message_count']");
                 if (conversas_pendentes.Count > 0)
                 {
-                    conversas_pendentes[0].Click();
+                    var p = conversas_pendentes[0].Location;
+                    ITouchAction touchAction = new TouchAction(driver)
+                    .Press(p.X+50, p.Y)
+                    .Release();
+                    touchAction.Perform();
                     return true;
                 }
                 else
@@ -149,7 +153,7 @@ namespace Trabalho_WhatsApp.Service
             catch (Exception e)
             {
 
-                MessageBox.Show(e.Message + " Selecionar_Conversas");
+                //MessageBox.Show(e.Message + " Selecionar_Conversas");
             }
 
         }
@@ -160,7 +164,7 @@ namespace Trabalho_WhatsApp.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 var btn = driver.FindElement(By.XPath("//android.widget.ImageButton[@resource-id='com.whatsapp:id/fab']"));
                 if (btn != null)
                 {
@@ -169,14 +173,14 @@ namespace Trabalho_WhatsApp.Service
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + " ClicarContatos");
+                //MessageBox.Show(e.Message + " ClicarContatos");
             }
         }
         public void Clicar_Lupa_Procurar_Contatos()
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 var btn = driver.FindElement(By.XPath("//android.widget.TextView[@resource-id='com.whatsapp:id/menuitem_search']"));
                 if (btn != null)
                 {
@@ -185,14 +189,14 @@ namespace Trabalho_WhatsApp.Service
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + " ClicarLupaProcurarContatos");
+                //MessageBox.Show(e.Message + " ClicarLupaProcurarContatos");
             }
         }
         public void Digitar_Barra_Pesquisar_Contatos(string contato)
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
 
                 var barra = driver.FindElement(By.XPath("//android.widget.EditText[@resource-id='com.whatsapp:id/search_src_text']"));
                 if (barra != null)
@@ -215,7 +219,7 @@ namespace Trabalho_WhatsApp.Service
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + " DigitarBarraPesquisarContatos");
+                //MessageBox.Show(e.Message + " DigitarBarraPesquisarContatos");
             }
         }
         public bool Contato_Encontrado()
@@ -224,7 +228,7 @@ namespace Trabalho_WhatsApp.Service
             bool retorno = true;
             try
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 var btn = driver.FindElement(By.XPath("//android.widget.Button[@resource-id='com.whatsapp:id/invite']"));
                 if (btn != null)
                 {
@@ -234,7 +238,7 @@ namespace Trabalho_WhatsApp.Service
             catch { }
             try
             {
-                //Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 var txt = driver.FindElement(By.XPath("//android.widget.TextView[@resource-id='com.whatsapp:id/contactpicker_row_name']"));
                 if (txt != null)
                 {
@@ -253,7 +257,7 @@ namespace Trabalho_WhatsApp.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 var btn = driver.FindElement(By.XPath("//android.widget.ImageView[@content-desc='Limpar consulta']"));
                 if (btn != null)
                 {
@@ -262,14 +266,14 @@ namespace Trabalho_WhatsApp.Service
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + " LimparBarraPesquisarContatos");
+                //MessageBox.Show(e.Message + " LimparBarraPesquisarContatos");
             }
         }
         public void Clicar_Contato_Encontrato()
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 var btn = driver.FindElement(By.XPath("//android.widget.TextView[@resource-id='com.whatsapp:id/contactpicker_row_name']"));
                 if (btn != null)
                 {
@@ -278,7 +282,7 @@ namespace Trabalho_WhatsApp.Service
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + " ClicarEmContatoEncontrato");
+                //MessageBox.Show(e.Message + " ClicarEmContatoEncontrato");
             }
         }
         #endregion
@@ -288,7 +292,7 @@ namespace Trabalho_WhatsApp.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 var btn = driver.FindElement(By.XPath("//android.widget.ImageView[@resource-id='com.whatsapp:id/whatsapp_toolbar_home']"));
                 if (btn != null)
                 {
@@ -297,7 +301,7 @@ namespace Trabalho_WhatsApp.Service
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + " ClicarVoltar");
+                //MessageBox.Show(e.Message + " ClicarVoltar");
             }
         }
         public string Clicar_Perfil()
@@ -305,7 +309,7 @@ namespace Trabalho_WhatsApp.Service
             string retorno = string.Empty;
             try
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 var btn = driver.FindElement(By.XPath("//android.widget.TextView[@resource-id='com.whatsapp:id/conversation_contact_name']"));
                 if (btn != null)
                 {
@@ -315,7 +319,7 @@ namespace Trabalho_WhatsApp.Service
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + " Clicar_Perfil");
+                //MessageBox.Show(e.Message + " Clicar_Perfil");
             }
             return retorno;
         }
@@ -324,7 +328,7 @@ namespace Trabalho_WhatsApp.Service
             string retorno = string.Empty;
             try
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 var txt = driver.FindElement(By.XPath("//android.widget.TextView[@resource-id='com.whatsapp:id/title_tv']"));
                 if (txt != null)
                 {
@@ -334,7 +338,7 @@ namespace Trabalho_WhatsApp.Service
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + " Clicar_Perfil");
+                //MessageBox.Show(e.Message + " Clicar_Perfil");
             }
             return retorno;
         }
@@ -342,7 +346,7 @@ namespace Trabalho_WhatsApp.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 var btn = driver.FindElement(By.XPath("//android.widget.ImageButton[@resource-id='com.whatsapp:id/input_attach_button']"));
                 if (btn != null)
                 {
@@ -351,14 +355,14 @@ namespace Trabalho_WhatsApp.Service
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + " ClicarInserir");
+                //MessageBox.Show(e.Message + " ClicarInserir");
             }
         }
         public void Clicar_Galeria()
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 var btn = driver.FindElement(By.XPath("//android.widget.LinearLayout[@resource-id='com.whatsapp:id/pickfiletype_gallery_holder']"));
                 if (btn != null)
                 {
@@ -367,14 +371,14 @@ namespace Trabalho_WhatsApp.Service
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + " ClicarGaleria");
+                //MessageBox.Show(e.Message + " ClicarGaleria");
             }
         }
         public void Clicar_Pasta_Pictures()
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 var btn = driver.FindElement(By.XPath("//android.widget.TextView[@text='Pictures']"));
                 if (btn != null)
                 {
@@ -383,14 +387,14 @@ namespace Trabalho_WhatsApp.Service
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + " ClicarPastaPictures");
+                //MessageBox.Show(e.Message + " ClicarPastaPictures");
             }
         }
         public void Selecionar_Imagens_Pictures()
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 var all_Photos = driver.FindElementsByXPath("//*[@class='android.widget.ImageView']");
                 TouchAction touch = new TouchAction(driver);
                 bool p = false;
@@ -410,7 +414,7 @@ namespace Trabalho_WhatsApp.Service
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + " SelecionarImagensPictures");
+                //MessageBox.Show(e.Message + " SelecionarImagensPictures");
             }
 
         }
@@ -418,7 +422,7 @@ namespace Trabalho_WhatsApp.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 var btn = driver.FindElement(By.XPath("//android.widget.TextView[@text='OK']"));
                 if (btn != null)
                 {
@@ -427,7 +431,7 @@ namespace Trabalho_WhatsApp.Service
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + " ConfirmarSelecaoImagens");
+                //MessageBox.Show(e.Message + " ConfirmarSelecaoImagens");
             }
         }
         public void Clicar_Enviar()
@@ -443,27 +447,27 @@ namespace Trabalho_WhatsApp.Service
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + " ClicarEnviar");
+                //MessageBox.Show(e.Message + " ClicarEnviar");
             }
         }
         public void Digitar_Mensagem(string texto)
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 var txtEdit = driver.FindElement(By.XPath("//android.widget.EditText[@resource-id='com.whatsapp:id/entry']"));
                 txtEdit.SendKeys(texto);
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + " DigitarMensagem");
+                //MessageBox.Show(e.Message + " DigitarMensagem");
             }
         }
         public void Clicar_Opcoes()
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 var btn = driver.FindElement(By.XPath("//android.widget.ImageView[@content-desc='Mais opções']"));
                 if (btn != null)
                 {
@@ -472,14 +476,14 @@ namespace Trabalho_WhatsApp.Service
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + " ClicarOpcoes");
+                //MessageBox.Show(e.Message + " ClicarOpcoes");
             }
         }
         public void Clicar_Midia()
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 var btn = driver.FindElement(By.XPath("//android.widget.TextView[@text='Mídia, links e docs']"));
                 if (btn != null)
                 {
@@ -488,14 +492,14 @@ namespace Trabalho_WhatsApp.Service
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + " ClicarMidia");
+                //MessageBox.Show(e.Message + " ClicarMidia");
             }
         }
         public void Selecionar_Conversa_Enviada()
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 var all_Conversas = driver.FindElementsByXPath("//*[@class='android.view.ViewGroup']");//ele sempre retorna 2 a mais. a primeira mensagem comeca no count 2
                 TouchAction touch = new TouchAction(driver);
                 bool p = false;
@@ -521,14 +525,14 @@ namespace Trabalho_WhatsApp.Service
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + " SelecionarConversaEnviada");
+                //MessageBox.Show(e.Message + " SelecionarConversaEnviada");
             }
         }
         public void Clicar_Compartilhar()
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 var btn = driver.FindElement(By.XPath("//android.widget.TextView[@resource-id='com.whatsapp:id/menuitem_forward']"));
                 if (btn != null)
                 {
@@ -537,14 +541,14 @@ namespace Trabalho_WhatsApp.Service
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + " ClicarCompartilhar");
+                //MessageBox.Show(e.Message + " ClicarCompartilhar");
             }
         }
         public void Clicar_Voltar_Compartilhar_Perfil()
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 var btn = driver.FindElement(By.XPath("//android.widget.ImageButton[@content-desc='Navegar para cima']"));
                 if (btn != null)
                 {
@@ -553,7 +557,7 @@ namespace Trabalho_WhatsApp.Service
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + " ClicarVoltar");
+                //MessageBox.Show(e.Message + " ClicarVoltar");
             }
         }
         public List<string> Retornar_Conversas()
@@ -575,7 +579,7 @@ namespace Trabalho_WhatsApp.Service
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + " Retornar_Conversas_Pendentes");
+                //MessageBox.Show(e.Message + " Retornar_Conversas_Pendentes");
             }
             foreach (string strFormat in lstResult_noFormat)
             {
@@ -604,7 +608,7 @@ namespace Trabalho_WhatsApp.Service
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + " EnvioDentroDaConversa");
+                //MessageBox.Show(e.Message + " EnvioDentroDaConversa");
             }
 
         }
@@ -621,7 +625,7 @@ namespace Trabalho_WhatsApp.Service
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + " CompartilharDentroDaConversa");
+                //MessageBox.Show(e.Message + " CompartilharDentroDaConversa");
             }
 
         }
@@ -635,7 +639,7 @@ namespace Trabalho_WhatsApp.Service
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + " CompartilharDentroDaConversa");
+                //MessageBox.Show(e.Message + " CompartilharDentroDaConversa");
             }
 
         }
@@ -647,7 +651,7 @@ namespace Trabalho_WhatsApp.Service
             bool retorno = false;
             try
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 var text = driver.FindElement(By.XPath("//android.widget.TextView[@resource-id='com.whatsapp:id/settings_gdrive_backup_now_category_title']"));
                 if (text != null)
                 {
@@ -662,7 +666,7 @@ namespace Trabalho_WhatsApp.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 var btn = driver.FindElement(By.XPath("//android.widget.RadioButton[@text='Nunca']"));
                 if (btn != null)
                 {
@@ -671,14 +675,14 @@ namespace Trabalho_WhatsApp.Service
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + " ClicarNuncaBackup");
+                //MessageBox.Show(e.Message + " ClicarNuncaBackup");
             }
         }
         public void ClicarOkBackup()
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 var btn = driver.FindElement(By.XPath("//android.widget.Button[@resource-id='com.whatsapp:id/gdrive_new_user_setup_btn']"));
                 if (btn != null)
                 {
@@ -687,14 +691,14 @@ namespace Trabalho_WhatsApp.Service
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + " ClicarOkBackup");
+                //MessageBox.Show(e.Message + " ClicarOkBackup");
             }
         }
         public void ClicarFecharNotificacao()
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 var btn = driver.FindElement(By.XPath("//android.widget.ImageView[@resource-id='com.whatsapp:id/cancel']"));
                 if (btn != null)
                 {
@@ -733,7 +737,7 @@ namespace Trabalho_WhatsApp.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 var btn = driver.FindElement(By.XPath("//android.widget.ImageView[@content-desc='Mais opções']"));
                 if (btn != null)
                 {
@@ -742,14 +746,14 @@ namespace Trabalho_WhatsApp.Service
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + " ClicarMaisOpcoes");
+                //MessageBox.Show(e.Message + " ClicarMaisOpcoes");
             }
         }
         public void Clicar_Selecionar_Todas()
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 var btn = driver.FindElement(By.XPath("//android.widget.TextView[@text='Selecionar todas']"));
                 if (btn != null)
                 {
@@ -758,7 +762,7 @@ namespace Trabalho_WhatsApp.Service
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + " ClicarSelecionarTodas");
+                //MessageBox.Show(e.Message + " ClicarSelecionarTodas");
             }
         }
         public void Clicar_Apagar_Conversas_Lixeira()
@@ -774,14 +778,14 @@ namespace Trabalho_WhatsApp.Service
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + " ClicarApagarConversas");
+                //MessageBox.Show(e.Message + " ClicarApagarConversas");
             }
         }
         public void Clicar_Confirmar_Apagar()
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 var btn = driver.FindElement(By.XPath("//android.widget.Button[@resource-id='android:id/button1']"));
                 if (btn != null)
                 {
@@ -790,7 +794,7 @@ namespace Trabalho_WhatsApp.Service
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message + " ClicarApagar");
+                //MessageBox.Show(e.Message + " ClicarApagar");
             }
         }
         //Funções Completas

@@ -27,6 +27,7 @@ namespace Trabalho_WhatsApp.View
 
         string mensagem_Sair = string.Empty;
         string mensagem_Informacao = string.Empty;
+        string mensagem_participando = "Você esta participando do sorteio, e a cada Curti mais chances de ganhar";
 
         int timeLoop = 0;
 
@@ -37,7 +38,7 @@ namespace Trabalho_WhatsApp.View
         int mensagens_recebidas = 0;
         int contatos_bloqueados = 0;
 
-        int aparelhoId = 0;
+        string aparelhoId = string.Empty;
         string evento = string.Empty;
         string telefone = string.Empty;
         string status = "Livre";
@@ -57,60 +58,63 @@ namespace Trabalho_WhatsApp.View
 
                 if (whatsapp.Abrir_App(aparelho.udid, aparelho.versao) == true)
                 {
-                    whatsapp.Abrir_App(aparelho.udid, aparelho.versao);
                     whatsapp.ResolverBackupTermos();
                     while (whatsapp.Total_Conversas() > 0)
                     {
                         if (whatsapp.Entrar_Conversa_Pendente() == true)
                         {
                             mensagens_recebidas++;
-                            aparelhoId = aparelho.id;
+                            aparelhoId = aparelho.email;
                             var conversas = whatsapp.Retornar_Conversas();
+                            string conversaCliente = string.Empty;
                             foreach (var frase in conversas)
                             {
-                                if (frase.Contains("SOMOS O MERCADO TITTIO") == false)
+                                if (frase.Contains("SOMOS O MERCADO TITIO") == false && frase.Contains("CASO NAO QUEIRA E SO DIGITAR") == false)
                                 {
-                                    if (frase.Contains("SAIR") == true)
-                                    {
-                                        whatsapp.Digitar_Mensagem(mensagem_Sair);
-                                        whatsapp.Clicar_Enviar();
-                                        string nome_contato = whatsapp.Clicar_Perfil();
-                                        AddLista(nome_contato, ListaApagar);
-                                        whatsapp.Scroll(200, 500, 0, 0);
-                                        string numero_contato = whatsapp.DescobrirNumero();
-                                        evento = "Sair";
-                                        telefone = numero_contato;
-                                        Banco.Tb_contato.Desabilitar(numero_contato);
-                                        whatsapp.Clicar_Voltar_Compartilhar_Perfil();
-                                        whatsapp.Clicar_Voltar();
-                                    }
-                                    else
-                                    {
-                                        if (frase.Contains("CURTI") == true)
-                                        {
-                                            string nome_contato = whatsapp.Clicar_Perfil();
-                                            whatsapp.Scroll(200, 500, 0, 0);
-                                            string numero_contato = whatsapp.DescobrirNumero();
-                                            evento = "CURTI";
-                                            telefone = numero_contato;
-                                            Banco.Tb_sorteio.Inserir(numero_contato);
-                                            whatsapp.Clicar_Voltar_Compartilhar_Perfil();
-                                            whatsapp.Clicar_Voltar();
-                                        }
-                                        else
-                                        {
-                                            evento = "Informação";
-                                            telefone = string.Empty;
-                                            whatsapp.Digitar_Mensagem(mensagem_Informacao);
-                                            whatsapp.Clicar_Enviar();
-                                            whatsapp.Clicar_Voltar();
-                                        }
-                                       
-                                    }
-
-
-                                    break;
+                                    conversaCliente = conversaCliente + " " + frase;
                                 }
+                            }
+                           
+                            if (conversaCliente.Contains("SAI") == true)
+                            {
+                                whatsapp.Digitar_Mensagem(mensagem_Sair);
+                                whatsapp.Clicar_Enviar();
+                                string nome_contato = whatsapp.Clicar_Perfil();
+                                AddLista(nome_contato, ListaApagar);
+                                whatsapp.Scroll(200, 500, 0, 0);
+                                whatsapp.Scroll(200, 500, 0, 0);
+                                string numero_contato = whatsapp.DescobrirNumero();
+                                evento = "Sair";
+                                telefone = numero_contato;
+                                Banco.Tb_contato.Desabilitar(numero_contato);
+                                whatsapp.Clicar_Voltar_Compartilhar_Perfil();
+                                whatsapp.Clicar_Voltar();
+                            }
+                            else
+                            {
+                                if (conversaCliente.Contains("CURTI") == true || conversaCliente.Contains("PARTICIPA") == true)
+                                {
+                                    whatsapp.Digitar_Mensagem(mensagem_participando);
+                                    whatsapp.Clicar_Enviar();
+                                    string nome_contato = whatsapp.Clicar_Perfil();
+                                    whatsapp.Scroll(200, 500, 0, 0);
+                                    whatsapp.Scroll(200, 500, 0, 0);
+                                    string numero_contato = whatsapp.DescobrirNumero();
+                                    evento = "CURTI";
+                                    telefone = numero_contato;
+                                    Banco.Tb_sorteio.Inserir(numero_contato);
+                                    whatsapp.Clicar_Voltar_Compartilhar_Perfil();
+                                    whatsapp.Clicar_Voltar();
+                                }
+                                else
+                                {
+                                    evento = "Informação";
+                                    telefone = string.Empty;
+                                    whatsapp.Digitar_Mensagem(mensagem_Informacao);
+                                    whatsapp.Clicar_Enviar();
+                                    whatsapp.Clicar_Voltar();
+                                }
+
                             }
 
                         }
@@ -127,62 +131,64 @@ namespace Trabalho_WhatsApp.View
 
                 if (business.Abrir_App(aparelho.udid, aparelho.versao) == true)
                 {
-                    business.Abrir_App(aparelho.udid, aparelho.versao);
                     business.ResolverBackupTermos();
                     while (business.Total_Conversas() > 0)
                     {
                         if (business.Entrar_Conversa_Pendente() == true)
                         {
                             mensagens_recebidas++;
-                            aparelhoId = aparelho.id;
+                            aparelhoId = aparelho.email;
                             var conversas = business.Retornar_Conversas();
+                            string conversaCliente = string.Empty;
                             foreach (var frase in conversas)
                             {
-                                if (frase.Contains("SOMOS O MERCADO TITTIO") == false)
+                                if (frase.Contains("SOMOS O MERCADO TITIO") == false && frase.Contains("CASO NAO QUEIRA E SO DIGITAR") == false)
                                 {
-                                    if (frase.Contains("SAIR") == true)
-                                    {
-                                        business.Digitar_Mensagem(mensagem_Sair);
-                                        business.Clicar_Enviar();
-                                        string nome_contato = business.Clicar_Perfil();
-                                        AddLista(nome_contato, ListaApagar);
-                                        business.Scroll(200, 500, 0, 0);
-                                        string numero_contato = business.DescobrirNumero();
-                                        evento = "Sair";
-                                        telefone = numero_contato;
-                                        Banco.Tb_contato.Desabilitar(numero_contato);
-                                        business.Clicar_Voltar_Compartilhar_Perfil();
-                                        business.Clicar_Voltar();
-                                    }
-                                    else
-                                    {
-                                        if (frase.Contains("CURTI") == true)
-                                        {
-                                            string nome_contato = business.Clicar_Perfil();
-                                            business.Scroll(200, 500, 0, 0);
-                                            string numero_contato = business.DescobrirNumero();
-                                            evento = "CURTI";
-                                            telefone = numero_contato;
-                                            Banco.Tb_sorteio.Inserir(numero_contato);
-                                            business.Clicar_Voltar_Compartilhar_Perfil();
-                                            business.Clicar_Voltar();
-                                        }
-                                        else
-                                        {
-                                            evento = "Informação";
-                                            telefone = string.Empty;
-                                            business.Digitar_Mensagem(mensagem_Informacao);
-                                            business.Clicar_Enviar();
-                                            business.Clicar_Voltar();
-                                        }
-                                       
-                                    }
-
-
-                                    break;
+                                    conversaCliente = conversaCliente + " " + frase;
                                 }
                             }
+                            if (conversaCliente.Contains("SAI") == true)
+                            {
+                                business.Digitar_Mensagem(mensagem_Sair);
+                                business.Clicar_Enviar();
+                                string nome_contato = business.Clicar_Perfil();
+                                AddLista(nome_contato, ListaApagar);
+                                business.Scroll(200, 500, 0, 0);
+                                business.Scroll(200, 500, 0, 0);
+                                string numero_contato = business.DescobrirNumero();
+                                evento = "Sair";
+                                telefone = numero_contato;
+                                Banco.Tb_contato.Desabilitar(numero_contato);
+                                business.Clicar_Voltar_Compartilhar_Perfil();
+                                business.Clicar_Voltar();
+                            }
+                            else
+                            {
+                                if (conversaCliente.Contains("CURTI") == true || conversaCliente.Contains("PARTICIPA") == true)
+                                {
+                                    business.Digitar_Mensagem(mensagem_participando);
+                                    business.Clicar_Enviar();
+                                    string nome_contato = business.Clicar_Perfil();
+                                    business.Scroll(200, 500, 0, 0);
+                                    business.Scroll(200, 500, 0, 0);
+                                    string numero_contato = business.DescobrirNumero();
+                                    evento = "CURTI";
+                                    telefone = numero_contato;
+                                    Banco.Tb_sorteio.Inserir(numero_contato);
+                                    business.Clicar_Voltar_Compartilhar_Perfil();
+                                    business.Clicar_Voltar();
+                                }
+                                else
+                                {
+                                    evento = "Informação";
+                                    telefone = string.Empty;
+                                    business.Digitar_Mensagem(mensagem_Informacao);
+                                    business.Clicar_Enviar();
+                                    business.Clicar_Voltar();
+                                }
 
+                            }
+                           
                         }
                         else
                         {
@@ -317,7 +323,6 @@ namespace Trabalho_WhatsApp.View
         }
         private void btnIniciarRespostas_Click(object sender, EventArgs e)
         {
-
             if (processo == false && timerEvento.Enabled == false)
             {
                 timeLoop = int.Parse(nUD.Value.ToString());
@@ -382,8 +387,9 @@ namespace Trabalho_WhatsApp.View
 
 
 
+
         #endregion
 
-      
+       
     }
 }
