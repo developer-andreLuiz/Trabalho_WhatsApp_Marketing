@@ -567,7 +567,7 @@ namespace Trabalho_WhatsApp.Service
             
             try
             {
-                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Thread.Sleep(TimeSpan.FromSeconds(2));
                 System.Collections.ObjectModel.ReadOnlyCollection<AndroidElement> all_messages = driver.FindElementsByXPath("//android.widget.TextView[@resource-id='com.whatsapp.w4b:id/message_text']");
 
                 foreach (AndroidElement message in all_messages)

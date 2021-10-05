@@ -142,7 +142,7 @@ namespace Trabalho_WhatsApp.View
                             string conversaCliente = string.Empty;
                             foreach (var frase in conversas)
                             {
-                                if (frase.Contains("SOMOS O MERCADO TITIO") == false && frase.Contains("CASO NAO QUEIRA E SO DIGITAR") == false)
+                                if (frase.Contains("SOMOS O SUPERMERCADO TITTIO") == false)
                                 {
                                     conversaCliente = conversaCliente + " " + frase;
                                 }
