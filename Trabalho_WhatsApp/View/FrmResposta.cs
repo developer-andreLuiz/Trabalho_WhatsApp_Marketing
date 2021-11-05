@@ -388,8 +388,26 @@ namespace Trabalho_WhatsApp.View
 
 
 
+
         #endregion
 
-       
+        private void btnNumerosSorteio_Click(object sender, EventArgs e)
+        {
+            var ListaSorteio = Banco.Tb_sorteio.RetornoCompleto();
+            var ListaIndividual = new List<Tb_sorteio_Model>();
+         
+            foreach (var item in ListaSorteio)
+            {
+                if (ListaIndividual.FindAll(x=>x.telefone.Equals(item.telefone)).Count==0)
+                {
+                    ListaIndividual.Add(item);
+                }
+
+
+
+            }
+            string msg = "Números sem Repetição :" + ListaIndividual.Count +Environment.NewLine + "Total de Curti :" + ListaSorteio.Count;
+            MessageBox.Show(msg);
+        }
     }
 }

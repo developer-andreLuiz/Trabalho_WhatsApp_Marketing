@@ -66,6 +66,7 @@ namespace Trabalho_WhatsApp.View
             this.nUD = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.timerEvento = new System.Windows.Forms.Timer(this.components);
+            this.btnNumerosSorteio = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -499,12 +500,30 @@ namespace Trabalho_WhatsApp.View
             this.timerEvento.Interval = 1000;
             this.timerEvento.Tick += new System.EventHandler(this.timerEvento_Tick);
             // 
+            // btnNumerosSorteio
+            // 
+            this.btnNumerosSorteio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(44)))));
+            this.btnNumerosSorteio.FlatAppearance.BorderSize = 0;
+            this.btnNumerosSorteio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(123)))), ((int)(((byte)(179)))));
+            this.btnNumerosSorteio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(69)))), ((int)(((byte)(98)))));
+            this.btnNumerosSorteio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNumerosSorteio.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNumerosSorteio.ForeColor = System.Drawing.Color.White;
+            this.btnNumerosSorteio.Location = new System.Drawing.Point(403, 507);
+            this.btnNumerosSorteio.Name = "btnNumerosSorteio";
+            this.btnNumerosSorteio.Size = new System.Drawing.Size(152, 60);
+            this.btnNumerosSorteio.TabIndex = 73;
+            this.btnNumerosSorteio.Text = "Números Sorteio";
+            this.btnNumerosSorteio.UseVisualStyleBackColor = false;
+            this.btnNumerosSorteio.Click += new System.EventHandler(this.btnNumerosSorteio_Click);
+            // 
             // FrmResposta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(737, 595);
+            this.Controls.Add(this.btnNumerosSorteio);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.nUD);
             this.Controls.Add(this.btnEncerrarRespostas);
@@ -581,5 +600,6 @@ namespace Trabalho_WhatsApp.View
         private System.Windows.Forms.Timer timerEvento;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnNumerosSorteio;
     }
 }
