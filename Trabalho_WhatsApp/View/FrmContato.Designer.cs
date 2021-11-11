@@ -795,6 +795,7 @@ namespace Trabalho_WhatsApp.View
             this.btnDeletarTudo.TabIndex = 71;
             this.btnDeletarTudo.Text = "Deletar Tudo";
             this.btnDeletarTudo.UseVisualStyleBackColor = false;
+            this.btnDeletarTudo.Visible = false;
             this.btnDeletarTudo.Click += new System.EventHandler(this.btnDeletarTudo_Click);
             // 
             // btnImportar
