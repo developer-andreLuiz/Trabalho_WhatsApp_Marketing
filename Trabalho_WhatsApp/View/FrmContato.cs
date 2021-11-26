@@ -217,7 +217,7 @@ namespace Trabalho_WhatsApp.View
             if (ltTb_Contatos_ModelFiltro.Count > 0)
             {
                 dataGridView.DataSource = ltTb_Contatos_ModelFiltro;
-                dataGridView.Columns[1].Visible = false;
+                dataGridView.Columns[1].Visible = true;
                 dataGridView.Columns[2].HeaderText = "Telefone";
                 dataGridView.Columns[2].Width = 295;
                 dataGridView.Columns[3].Visible = false;
@@ -229,7 +229,7 @@ namespace Trabalho_WhatsApp.View
             else
             {
                 dataGridView.DataSource = new List<Tb_contato_Model>();
-                dataGridView.Columns[1].Visible = false;
+                dataGridView.Columns[1].Visible = true;
                 dataGridView.Columns[2].HeaderText = "Telefone";
                 dataGridView.Columns[2].Width = 295;
                 dataGridView.Columns[3].Visible = false;

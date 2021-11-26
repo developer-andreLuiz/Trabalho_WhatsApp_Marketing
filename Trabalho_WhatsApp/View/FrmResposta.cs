@@ -102,7 +102,11 @@ namespace Trabalho_WhatsApp.View
                                     string numero_contato = whatsapp.DescobrirNumero();
                                     evento = "CURTI";
                                     telefone = numero_contato;
-                                    Banco.Tb_sorteio.Inserir(numero_contato);
+                                    if (telefone.Length > 0)
+                                    {
+                                        Banco.Tb_sorteio.Inserir(numero_contato);
+                                    }
+                                    
                                     whatsapp.Clicar_Voltar_Compartilhar_Perfil();
                                     whatsapp.Clicar_Voltar();
                                 }
@@ -174,7 +178,10 @@ namespace Trabalho_WhatsApp.View
                                     string numero_contato = business.DescobrirNumero();
                                     evento = "CURTI";
                                     telefone = numero_contato;
-                                    Banco.Tb_sorteio.Inserir(numero_contato);
+                                    if (telefone.Length > 0)
+                                    {
+                                        Banco.Tb_sorteio.Inserir(numero_contato);
+                                    }
                                     business.Clicar_Voltar_Compartilhar_Perfil();
                                     business.Clicar_Voltar();
                                 }
@@ -391,23 +398,6 @@ namespace Trabalho_WhatsApp.View
 
         #endregion
 
-        private void btnNumerosSorteio_Click(object sender, EventArgs e)
-        {
-            var ListaSorteio = Banco.Tb_sorteio.RetornoCompleto();
-            var ListaIndividual = new List<Tb_sorteio_Model>();
-         
-            foreach (var item in ListaSorteio)
-            {
-                if (ListaIndividual.FindAll(x=>x.telefone.Equals(item.telefone)).Count==0)
-                {
-                    ListaIndividual.Add(item);
-                }
-
-
-
-            }
-            string msg = "Números sem Repetição :" + ListaIndividual.Count +Environment.NewLine + "Total de Curti :" + ListaSorteio.Count;
-            MessageBox.Show(msg);
-        }
+      
     }
 }

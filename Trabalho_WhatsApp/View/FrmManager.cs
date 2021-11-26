@@ -42,85 +42,19 @@ namespace Trabalho_WhatsApp.View
         void InterfaceBtn(object button)
         {
             Button btn = (Button)button;
-            
-            int r0 = 30; int g0 = 32; int b0 = 44;
-            int r1 = 25; int g1 = 123; int b1 = 179;
+            Color neutro = Color.FromArgb(30, 32, 44);
+            Color selecionado = Color.FromArgb(25, 123, 179);
+           
+            btnInicio.BackColor = neutro;
+            btnEnvio.BackColor = neutro;
+            btnResposta.BackColor = neutro;
+            btnSorteio.BackColor = neutro;
+            btnBancoDeDados.BackColor = neutro;
+            btnExportarContatos.BackColor = neutro;
+            btnAjuda.BackColor = neutro;
 
-            if (btn.Name.Equals("btnInicio"))
-            {
-                btnInicio.BackColor = Color.FromArgb(r1, g1, b1);
+            btn.BackColor = selecionado;
 
-                btnEnvio.BackColor = Color.FromArgb(r0, g0, b0);
-                btnResposta.BackColor = Color.FromArgb(r0, g0, b0);
-                btnBancoDeDados.BackColor = Color.FromArgb(r0, g0, b0);
-                btnExportarContatos.BackColor = Color.FromArgb(r0, g0, b0);
-                btnAjuda.BackColor = Color.FromArgb(r0, g0, b0);
-            }
-          
-            if (btn.Name.Equals("btnEnvio"))
-            {
-                btnEnvio.BackColor = Color.FromArgb(r1, g1, b1);
-
-                btnInicio.BackColor = Color.FromArgb(r0, g0, b0);
-                btnResposta.BackColor = Color.FromArgb(r0, g0, b0);
-                btnBancoDeDados.BackColor = Color.FromArgb(r0, g0, b0);
-                btnExportarContatos.BackColor = Color.FromArgb(r0, g0, b0);
-                btnAjuda.BackColor = Color.FromArgb(r0, g0, b0);
-            }
-            
-            if (btn.Name.Equals("btnResposta"))
-            {
-                btnResposta.BackColor = Color.FromArgb(r1, g1, b1);
-
-                btnInicio.BackColor = Color.FromArgb(r0, g0, b0);
-                btnEnvio.BackColor = Color.FromArgb(r0, g0, b0);
-                btnBancoDeDados.BackColor = Color.FromArgb(r0, g0, b0);
-                btnExportarContatos.BackColor = Color.FromArgb(r0, g0, b0);
-                btnAjuda.BackColor = Color.FromArgb(r0, g0, b0);
-            }
-        
-            if (btn.Name.Equals("btnBancoDeDados"))
-            {
-                btnBancoDeDados.BackColor = Color.FromArgb(r1, g1, b1);
-
-                btnInicio.BackColor = Color.FromArgb(r0, g0, b0);
-                btnEnvio.BackColor = Color.FromArgb(r0, g0, b0);
-                btnResposta.BackColor = Color.FromArgb(r0, g0, b0);
-                btnExportarContatos.BackColor = Color.FromArgb(r0, g0, b0);
-                btnAjuda.BackColor = Color.FromArgb(r0, g0, b0);
-            }
-         
-            if (btn.Name.Equals("btnExportarContatos"))
-            {
-                btnExportarContatos.BackColor = Color.FromArgb(r1, g1, b1);
-
-                btnInicio.BackColor = Color.FromArgb(r0, g0, b0);
-                btnEnvio.BackColor = Color.FromArgb(r0, g0, b0);
-                btnResposta.BackColor = Color.FromArgb(r0, g0, b0);
-                btnBancoDeDados.BackColor = Color.FromArgb(r0, g0, b0);
-                btnAjuda.BackColor = Color.FromArgb(r0, g0, b0);
-            }
-
-            if (btn.Name.Equals("btnAjuda"))
-            {
-                btnAjuda.BackColor = Color.FromArgb(r1, g1, b1);
-
-                btnInicio.BackColor = Color.FromArgb(r0, g0, b0);
-                btnEnvio.BackColor = Color.FromArgb(r0, g0, b0);
-                btnResposta.BackColor = Color.FromArgb(r0, g0, b0);
-                btnBancoDeDados.BackColor = Color.FromArgb(r0, g0, b0);
-                btnExportarContatos.BackColor = Color.FromArgb(r0, g0, b0);
-            }
-
-            if (btn.Name.Equals("btnBuscar"))
-            {
-                btnInicio.BackColor = Color.FromArgb(r0, g0, b0);
-                btnEnvio.BackColor = Color.FromArgb(r0, g0, b0);
-                btnResposta.BackColor = Color.FromArgb(r0, g0, b0);
-                btnBancoDeDados.BackColor = Color.FromArgb(r1, g1, b1);
-                btnExportarContatos.BackColor = Color.FromArgb(r0, g0, b0);
-                btnAjuda.BackColor = Color.FromArgb(r0, g0, b0);
-            }
         }
         void EncerrarThread()
         {
@@ -189,6 +123,11 @@ namespace Trabalho_WhatsApp.View
         {
             InterfaceBtn(sender);
             openChildForm(new FrmResposta());
+        }
+        private void btnSorteio_Click(object sender, EventArgs e)
+        {
+            InterfaceBtn(sender);
+            openChildForm(new FrmSorteio());
         }
         private void btnBancoDeDados_Click(object sender, EventArgs e)
         {
@@ -282,6 +221,8 @@ namespace Trabalho_WhatsApp.View
         {
             EncerrarThread();
         }
+
+       
 
         private void panelLateral_MouseDown(object sender, MouseEventArgs e)
         {

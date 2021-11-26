@@ -31,6 +31,7 @@ namespace Trabalho_WhatsApp.View
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmManager));
             this.panelLateral = new System.Windows.Forms.Panel();
+            this.btnSorteio = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.btnAjuda = new System.Windows.Forms.Button();
@@ -51,6 +52,7 @@ namespace Trabalho_WhatsApp.View
             // panelLateral
             // 
             this.panelLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(48)))), ((int)(((byte)(65)))));
+            this.panelLateral.Controls.Add(this.btnSorteio);
             this.panelLateral.Controls.Add(this.btnSair);
             this.panelLateral.Controls.Add(this.panelLogo);
             this.panelLateral.Controls.Add(this.btnAjuda);
@@ -65,6 +67,23 @@ namespace Trabalho_WhatsApp.View
             this.panelLateral.TabIndex = 0;
             this.panelLateral.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelLateral_MouseDown);
             this.panelLateral.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelLateral_MouseMove);
+            // 
+            // btnSorteio
+            // 
+            this.btnSorteio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(44)))));
+            this.btnSorteio.FlatAppearance.BorderSize = 0;
+            this.btnSorteio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(123)))), ((int)(((byte)(179)))));
+            this.btnSorteio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(69)))), ((int)(((byte)(98)))));
+            this.btnSorteio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSorteio.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSorteio.ForeColor = System.Drawing.Color.White;
+            this.btnSorteio.Location = new System.Drawing.Point(-2, 226);
+            this.btnSorteio.Name = "btnSorteio";
+            this.btnSorteio.Size = new System.Drawing.Size(165, 47);
+            this.btnSorteio.TabIndex = 8;
+            this.btnSorteio.Text = "Sorteio";
+            this.btnSorteio.UseVisualStyleBackColor = false;
+            this.btnSorteio.Click += new System.EventHandler(this.btnSorteio_Click);
             // 
             // btnSair
             // 
@@ -103,7 +122,7 @@ namespace Trabalho_WhatsApp.View
             this.btnAjuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAjuda.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAjuda.ForeColor = System.Drawing.Color.White;
-            this.btnAjuda.Location = new System.Drawing.Point(-2, 343);
+            this.btnAjuda.Location = new System.Drawing.Point(-2, 399);
             this.btnAjuda.Name = "btnAjuda";
             this.btnAjuda.Size = new System.Drawing.Size(165, 47);
             this.btnAjuda.TabIndex = 5;
@@ -120,7 +139,7 @@ namespace Trabalho_WhatsApp.View
             this.btnExportarContatos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExportarContatos.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExportarContatos.ForeColor = System.Drawing.Color.White;
-            this.btnExportarContatos.Location = new System.Drawing.Point(-2, 285);
+            this.btnExportarContatos.Location = new System.Drawing.Point(-2, 341);
             this.btnExportarContatos.Name = "btnExportarContatos";
             this.btnExportarContatos.Size = new System.Drawing.Size(165, 47);
             this.btnExportarContatos.TabIndex = 4;
@@ -137,7 +156,7 @@ namespace Trabalho_WhatsApp.View
             this.btnBancoDeDados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBancoDeDados.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBancoDeDados.ForeColor = System.Drawing.Color.White;
-            this.btnBancoDeDados.Location = new System.Drawing.Point(-2, 227);
+            this.btnBancoDeDados.Location = new System.Drawing.Point(-2, 283);
             this.btnBancoDeDados.Name = "btnBancoDeDados";
             this.btnBancoDeDados.Size = new System.Drawing.Size(165, 47);
             this.btnBancoDeDados.TabIndex = 3;
@@ -296,5 +315,6 @@ namespace Trabalho_WhatsApp.View
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtTelefone;
         private System.Windows.Forms.Button btnSair;
+        private System.Windows.Forms.Button btnSorteio;
     }
 }
