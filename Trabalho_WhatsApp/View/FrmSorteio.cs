@@ -62,19 +62,62 @@ namespace Trabalho_WhatsApp.View
               
 
                 string[] textoParaImpressao = new string[ListaFinal.Count];
-                for (int i = 0; i < ListaFinal.Count; i++)
-                {
-                   
-                }
+             
                 int linha = 0;
+                int coluna = 0;
+                int pulalinha = 0;
+                int cmdPg = 0;
                 foreach (var item in ListaFinal)
                 {
-                    int valor = linha + 1;
-                    textoParaImpressao[linha] = valor.ToString() +"__ ";
-                    textoParaImpressao[linha] += " " + item.telefone;
-                    linha++;
+                    if (pulalinha == 0)
+                    {
+                        textoParaImpressao[linha] = "__________________________________________________________________________";
+                        pulalinha++;
+                        linha++;
+                        if (cmdPg==33)
+                        {
+                            cmdPg = 0;
+                          
+                            textoParaImpressao[linha] = string.Empty;
+                            linha++;
+                            textoParaImpressao[linha] = "__________________________________________________________________________";
+                            linha++;
+                          
+                        }
+                    }
+                    else
+                    {
+                        if (pulalinha == 4)
+                        {
+                            textoParaImpressao[linha] += $"|            {item.telefone}           |";
+                            cmdPg++;
+                            coluna++;
+                            if (coluna == 3)
+                            {
+                                linha++;
+                                coluna = 0;
+                                pulalinha = 0;
+                            }
+                        }
+                        else
+                        {
+                            textoParaImpressao[linha] = "|                                            |                                           |                                            |";
+                            pulalinha++;
+                            linha++;
+                        }
+
+
+
+                    }
+
+
+                    
+                        
                 }
 
+             
+                
+                
                 PrintDocument doc = new ImprimirDocumento(textoParaImpressao);
                 doc.PrintPage += this.Doc_PrintPage;
                 PrintDialog dialogo = new PrintDialog();
