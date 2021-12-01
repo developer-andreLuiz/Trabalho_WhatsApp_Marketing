@@ -208,7 +208,6 @@ D:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp\bin\Debug\System.Numerics.V
 D:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp\bin\Debug\WebDriver.xml
 D:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp\bin\Debug\WebDriver.Support.xml
-D:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp\obj\Debug\Trabalho_WhatsApp.csproj.AssemblyReference.cache
 D:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp\obj\Debug\Trabalho_WhatsApp.Properties.Resources.resources
 D:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp\obj\Debug\Trabalho_WhatsApp.View.FrmAjuda.resources
 D:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp\obj\Debug\Trabalho_WhatsApp.View.FrmAparelho.resources
@@ -226,3 +225,4 @@ D:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp\obj\Debug\Trabalho_WhatsApp
 D:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp\obj\Debug\Trabalho_WhatsApp.exe
 D:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp\obj\Debug\Trabalho_WhatsApp.pdb
 D:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp\obj\Debug\Trabalho_WhatsApp.View.FrmSorteio.resources
+D:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp\obj\Debug\Trabalho_WhatsApp.csproj.AssemblyReference.cache

@@ -265,10 +265,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="ZExtra\" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="Extra\Backup DataBase\Mysql WhatsApp Azure 01122021.sql" />
+    <Content Include="Extra\Backup DataBase\Mysql WhatsApp HostGator 01122021.sql" />
+    <Content Include="Extra\Info.txt" />
     <Content Include="whatsapp.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -14,7 +14,8 @@ namespace Trabalho_WhatsApp
     class Banco
     {
         #region Variavel Conexão
-        protected static MySqlConnection conexao { get; } = new MySqlConnection("Server= 108.179.252.18; Database=merca467_db_whatsapp;Uid=merca467_sistema;Pwd=sistemavalendo; Connect Timeout = 30;");
+        //Server="dbmercado.mysql.database.azure.com";UserID = "root_andre";Password="SistemaValendo1";Database="db_mercado_online";SslMode=none;
+        protected static MySqlConnection conexao { get; } = new MySqlConnection("Server= dbmercado.mysql.database.azure.com;Database=db_whatsapp;Uid=root_andre;Pwd=SistemaValendo1;SslMode=none;Connect Timeout = 30;");
         #endregion
         public class Tb_aparelho
         {
