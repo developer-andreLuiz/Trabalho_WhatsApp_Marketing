@@ -226,3 +226,4 @@ D:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp\obj\Debug\Trabalho_WhatsApp
 D:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp\obj\Debug\Trabalho_WhatsApp.pdb
 D:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp\obj\Debug\Trabalho_WhatsApp.View.FrmSorteio.resources
 D:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp\obj\Debug\Trabalho_WhatsApp.csproj.AssemblyReference.cache
+D:\Git\Trabalho_WhatsApp_Marketing\Trabalho_WhatsApp\obj\Debug\Trabalho_WhatsApp.csproj.SuggestedBindingRedirects.cache

@@ -77,8 +77,8 @@ namespace Trabalho_WhatsApp.View
                            
                             if (conversaCliente.Contains("SAI") == true)
                             {
-                                whatsapp.Digitar_Mensagem(mensagem_Sair);
-                                whatsapp.Clicar_Enviar();
+                                //whatsapp.Digitar_Mensagem(mensagem_Sair);
+                                //whatsapp.Clicar_Enviar();
                                 string nome_contato = whatsapp.Clicar_Perfil();
                                 AddLista(nome_contato, ListaApagar);
                                 whatsapp.Scroll(200, 500, 0, 0);
@@ -153,8 +153,8 @@ namespace Trabalho_WhatsApp.View
                             }
                             if (conversaCliente.Contains("SAI") == true)
                             {
-                                business.Digitar_Mensagem(mensagem_Sair);
-                                business.Clicar_Enviar();
+                                //business.Digitar_Mensagem(mensagem_Sair);
+                                //business.Clicar_Enviar();
                                 string nome_contato = business.Clicar_Perfil();
                                 AddLista(nome_contato, ListaApagar);
                                 business.Scroll(200, 500, 0, 0);
