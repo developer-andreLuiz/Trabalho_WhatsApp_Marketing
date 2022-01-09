@@ -27,7 +27,7 @@ namespace Trabalho_WhatsApp.View
 
         string mensagem_Sair = string.Empty;
         string mensagem_Informacao = string.Empty;
-        string mensagem_participando = "Você esta participando do sorteio, e a cada Curti mais chances de ganhar";
+        string mensagem_participando = "Você esta participando do sorteio, sempre que receber ofertas responda curti apenas uma vez";
 
         int timeLoop = 0;
 
@@ -77,12 +77,12 @@ namespace Trabalho_WhatsApp.View
                            
                             if (conversaCliente.Contains("SAI") == true)
                             {
-                                //whatsapp.Digitar_Mensagem(mensagem_Sair);
-                                //whatsapp.Clicar_Enviar();
+                                whatsapp.Digitar_Mensagem(mensagem_Sair);
+                                whatsapp.Clicar_Enviar();
                                 string nome_contato = whatsapp.Clicar_Perfil();
                                 AddLista(nome_contato, ListaApagar);
-                                whatsapp.Scroll(200, 500, 0, 0);
-                                whatsapp.Scroll(200, 500, 0, 0);
+                                //whatsapp.Scroll(200, 500, 0, 0);
+                                //whatsapp.Scroll(200, 500, 0, 0);
                                 string numero_contato = whatsapp.DescobrirNumero();
                                 evento = "Sair";
                                 telefone = numero_contato;
@@ -97,8 +97,8 @@ namespace Trabalho_WhatsApp.View
                                     whatsapp.Digitar_Mensagem(mensagem_participando);
                                     whatsapp.Clicar_Enviar();
                                     string nome_contato = whatsapp.Clicar_Perfil();
-                                    whatsapp.Scroll(200, 500, 0, 0);
-                                    whatsapp.Scroll(200, 500, 0, 0);
+                                    //whatsapp.Scroll(200, 500, 0, 0);
+                                    //whatsapp.Scroll(200, 500, 0, 0);
                                     string numero_contato = whatsapp.DescobrirNumero();
                                     evento = "CURTI";
                                     telefone = numero_contato;
@@ -114,8 +114,8 @@ namespace Trabalho_WhatsApp.View
                                 {
                                     evento = "Informação";
                                     telefone = string.Empty;
-                                    whatsapp.Digitar_Mensagem(mensagem_Informacao);
-                                    whatsapp.Clicar_Enviar();
+                                    //whatsapp.Digitar_Mensagem(mensagem_Informacao);
+                                    //whatsapp.Clicar_Enviar();
                                     whatsapp.Clicar_Voltar();
                                 }
 
@@ -153,12 +153,12 @@ namespace Trabalho_WhatsApp.View
                             }
                             if (conversaCliente.Contains("SAI") == true)
                             {
-                                //business.Digitar_Mensagem(mensagem_Sair);
-                                //business.Clicar_Enviar();
+                                business.Digitar_Mensagem(mensagem_Sair);
+                                business.Clicar_Enviar();
                                 string nome_contato = business.Clicar_Perfil();
                                 AddLista(nome_contato, ListaApagar);
-                                business.Scroll(200, 500, 0, 0);
-                                business.Scroll(200, 500, 0, 0);
+                                //business.Scroll(200, 500, 0, 0);
+                                //business.Scroll(200, 500, 0, 0);
                                 string numero_contato = business.DescobrirNumero();
                                 evento = "Sair";
                                 telefone = numero_contato;
@@ -173,8 +173,8 @@ namespace Trabalho_WhatsApp.View
                                     business.Digitar_Mensagem(mensagem_participando);
                                     business.Clicar_Enviar();
                                     string nome_contato = business.Clicar_Perfil();
-                                    business.Scroll(200, 500, 0, 0);
-                                    business.Scroll(200, 500, 0, 0);
+                                    //business.Scroll(200, 500, 0, 0);
+                                    //business.Scroll(200, 500, 0, 0);
                                     string numero_contato = business.DescobrirNumero();
                                     evento = "CURTI";
                                     telefone = numero_contato;
@@ -189,8 +189,8 @@ namespace Trabalho_WhatsApp.View
                                 {
                                     evento = "Informação";
                                     telefone = string.Empty;
-                                    business.Digitar_Mensagem(mensagem_Informacao);
-                                    business.Clicar_Enviar();
+                                    //business.Digitar_Mensagem(mensagem_Informacao);
+                                    //business.Clicar_Enviar();
                                     business.Clicar_Voltar();
                                 }
 

@@ -329,7 +329,7 @@ namespace Trabalho_WhatsApp.Service
             try
             {
                 Thread.Sleep(TimeSpan.FromSeconds(1));
-                var txt = driver.FindElement(By.XPath("//android.widget.TextView[@resource-id='com.whatsapp:id/title_tv']"));
+                var txt = driver.FindElement(By.XPath("//android.widget.TextView[@resource-id='com.whatsapp:id/contact_subtitle']"));
                 if (txt != null)
                 {
                     retorno = txt.Text.Replace("+55", "").Replace("-", "").Replace(" ","");
