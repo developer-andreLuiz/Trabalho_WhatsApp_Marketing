@@ -57,17 +57,29 @@ namespace Trabalho_WhatsApp.View
 
        private void btnImprimir_Click(object sender, EventArgs e)
         {
-            if (ListaFinal.Count > 0)
+            var ListaSorteio = Banco.Tb_sorteio.RetornoCompleto();
+
+            List<Tb_sorteio_Model> list = new List<Tb_sorteio_Model>();
+            foreach (var item in ListaSorteio)
+            {
+                if (list.FindAll(x=>x.telefone.Equals(item.telefone)).Count<5)
+                {
+                    list.Add(item); 
+                }
+            }
+
+
+            if (list.Count > 0)
             {
               
 
-                string[] textoParaImpressao = new string[ListaFinal.Count];
+                string[] textoParaImpressao = new string[list.Count];
              
                 int linha = 0;
                 int coluna = 0;
                 int pulalinha = 0;
                 int cmdPg = 0;
-                foreach (var item in ListaFinal)
+                foreach (var item in list)
                 {
                     if (pulalinha == 0)
                     {
