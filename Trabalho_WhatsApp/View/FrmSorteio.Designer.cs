@@ -45,6 +45,7 @@ namespace Trabalho_WhatsApp.View
             this.lblQuantidadeTexto = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.btnImprimir = new System.Windows.Forms.Button();
+            this.btnNovoSorteio = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nUD)).BeginInit();
             this.panel6.SuspendLayout();
@@ -244,7 +245,7 @@ namespace Trabalho_WhatsApp.View
             this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnImprimir.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImprimir.ForeColor = System.Drawing.Color.White;
-            this.btnImprimir.Location = new System.Drawing.Point(462, 515);
+            this.btnImprimir.Location = new System.Drawing.Point(12, 517);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(263, 49);
             this.btnImprimir.TabIndex = 79;
@@ -252,12 +253,30 @@ namespace Trabalho_WhatsApp.View
             this.btnImprimir.UseVisualStyleBackColor = false;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
+            // btnNovoSorteio
+            // 
+            this.btnNovoSorteio.BackColor = System.Drawing.Color.Maroon;
+            this.btnNovoSorteio.FlatAppearance.BorderSize = 0;
+            this.btnNovoSorteio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(123)))), ((int)(((byte)(179)))));
+            this.btnNovoSorteio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(69)))), ((int)(((byte)(98)))));
+            this.btnNovoSorteio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNovoSorteio.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNovoSorteio.ForeColor = System.Drawing.Color.White;
+            this.btnNovoSorteio.Location = new System.Drawing.Point(594, 517);
+            this.btnNovoSorteio.Name = "btnNovoSorteio";
+            this.btnNovoSorteio.Size = new System.Drawing.Size(131, 49);
+            this.btnNovoSorteio.TabIndex = 80;
+            this.btnNovoSorteio.Text = "Novo Sorteio";
+            this.btnNovoSorteio.UseVisualStyleBackColor = false;
+            this.btnNovoSorteio.Click += new System.EventHandler(this.btnNovoSorteio_Click);
+            // 
             // FrmSorteio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(737, 595);
+            this.Controls.Add(this.btnNovoSorteio);
             this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel7);
@@ -301,5 +320,6 @@ namespace Trabalho_WhatsApp.View
         private System.Windows.Forms.Label lblTotalCurti;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.Button btnNovoSorteio;
     }
 }

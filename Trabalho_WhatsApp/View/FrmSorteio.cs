@@ -226,5 +226,16 @@ namespace Trabalho_WhatsApp.View
             }
         }
 
+        private void btnNovoSorteio_Click(object sender, EventArgs e)
+        {
+            DialogResult d = MessageBox.Show("CUIDADO VOCE VAI APAGAR TODOS OS REGISTROS DO SORTEIO ATUAL, CONTINUAR?", "CUIDADO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (d == DialogResult.Yes)
+            {
+                Banco.Tb_sorteio.Truncate();
+                nUD.Value = 1;
+                btnBuscarInformacao.PerformClick();
+            }
+        }
+    
     }
 }
